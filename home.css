@@ -1,0 +1,246 @@
+/* Define Custom Colors and Fonts */
+        :root {
+            --primary-green: #4CAF50; /* A nice food-related green */
+            --secondary-orange: #FF9800; /* A warm, appealing orange */
+            --text-dark: #212121;
+            --bg-light: #F7F7F7;
+            --font-inter: 'Inter', sans-serif;
+            --header-height: 64px;
+        }
+
+        /* General Body and Layout */
+        body {
+            font-family: var(--font-inter);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            margin: 0;
+            padding-top: var(--header-height); /* Space for fixed header */
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Header/Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            z-index: 50;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: var(--header-height);
+        }
+
+        .logo {
+            font-size: 1.5rem; /* 24px */
+            font-weight: bold;
+            color: var(--primary-green);
+            letter-spacing: -0.025em;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+            padding: 0 1rem;
+            line-height: var(--header-height);
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+            border-color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: calc(100vh - var(--header-height));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* Custom Background */
+            background-image: url('https://placehold.co/1200x800/4CAF50/FFFFFF/png?text=Fresh+Ingredients+%26+Inspiring+Meals');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            height: 100%;
+        }
+
+        .quote-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-title {
+            font-size: 3rem; /* 48px */
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+
+        .hero-quote {
+            font-size: 1.5rem; /* 24px */
+            font-style: italic;
+            font-weight: 300;
+            color: var(--secondary-orange);
+            border-left: 4px solid var(--secondary-orange);
+            padding-left: 1rem;
+        }
+
+        .hero-button {
+            background-color: var(--secondary-orange);
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px; /* rounded-full */
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+
+        .hero-button:hover {
+            background-color: #e68900;
+            transform: scale(1.05);
+        }
+
+        /* Footer/Weather Display */
+        .weather-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 0.75rem;
+            z-index: 40;
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .weather-info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem; /* 14px */
+        }
+        
+        .weather-info span:first-child {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #weather-display {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* SVG Icon colors (adapted from Tailwind) */
+        .svg-yellow { color: #facc15; }
+        .svg-gray { color: #d1d5db; }
+        .svg-blue { color: #93c5fd; }
+        .text-red-100 { color: #fee2e2; }
+        .text-red-200 { color: #fecaca; }
+
+        /* Animations */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-title {
+                font-size: 4rem; /* 64px */
+            }
+            .hero-quote {
+                font-size: 2rem; /* 32px */
+            }
+            .hidden-md {
+                display: none;
+            }
+            .weather-info {
+                justify-content: flex-start;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-section {
+                padding: 1rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-quote {
+                font-size: 1.25rem;
+            }
+            .weather-info {
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .weather-info span:first-child {
+                display: none;
+            }
+        }

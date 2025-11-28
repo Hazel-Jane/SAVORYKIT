@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAVORYKIT - End Hunger, One Plate at a Time</title>
+    <!-- Inter Font -->
+     <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body class="font-sans bg-bg-light text-text-dark min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <header>
+        <nav class="container">
+            <!-- Logo/Brand Name -->
+            <div class="logo-wrapper">
+                <a href="#" class="logo">SAVORYKIT</a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="nav-links hidden-md">
+                <a href="#">Home</a>
+                <a href="#recipe">Recipe</a>
+                <a href="#recipebook">RecipeBook</a>
+                <a href="#marketmap">MarketMap</a>
+                <a href="#nutrition">Nutrition</a>
+                <a href="#profile">Profile</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="menu-button-wrapper">
+                <button id="menu-button" class="text-text-dark hover:text-primary-green p-2 rounded-md focus:outline-none" style="border: none; background: none;">
+                    <svg class="w-6 h-6" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section (Home) -->
+    <main class="hero-section">
+        <div class="container" style="height: 100%;">
+            <div class="hero-content">
+                <!-- Left Side: Quote -->
+                <div class="quote-box">
+                    <h1 class="hero-title">
+                        SAVORYKIT
+                    </h1>
+                    <p class="hero-quote">
+                        "End Hunger — compassion begins with a single plate."
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <button class="hero-button">
+                            Start Cooking Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Side: Image Placeholder (handled by background) -->
+                <div class="hidden-sm">
+                    <!-- Empty container to keep layout balanced on desktop -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Real-time Weather Footer (Sticky) -->
+    <footer class="weather-footer">
+        <div class="container weather-info">
+            <span class="hidden-sm">Bukidnon Weather:</span>
+            
+            <div id="weather-display" class="flex-center animate-pulse">
+                <!-- Loading state -->
+                <svg class="w-5 h-5 animate-spin" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="margin-right: 0.5rem;">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Fetching Manolo Fortich data...</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>
