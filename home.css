@@ -1,246 +1,359 @@
-/* Define Custom Colors and Fonts */
-        :root {
-            --primary-green: #4CAF50; /* A nice food-related green */
-            --secondary-orange: #FF9800; /* A warm, appealing orange */
-            --text-dark: #212121;
-            --bg-light: #F7F7F7;
-            --font-inter: 'Inter', sans-serif;
-            --header-height: 64px;
-        }
+/* Import Google Font (Inter) for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-        /* General Body and Layout */
-        body {
-            font-family: var(--font-inter);
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            min-height: 100vh;
-            margin: 0;
-            padding-top: var(--header-height); /* Space for fixed header */
-        }
+/* CSS Variables for easy color management */
+:root {
+    --savory-green: #4CAF50; /* Primary Green */
+    --savory-dark: #385C3A;  /* Accent Dark Green */
+    --savory-light: #F8F9FA; /* Background Light Grey */
+    --font-main: 'Inter', sans-serif;
+}
 
-        /* Utility Classes */
-        .container {
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
+/* --- Global Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .flex-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+body {
+    font-family: var(--font-main);
+    color: #333;
+    background-color: var(--savory-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
 
-        .shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
-        /* Header/Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: white;
-            z-index: 50;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
+/* --- Header and Navigation --- */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
 
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: var(--header-height);
-        }
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo {
-            font-size: 1.5rem; /* 24px */
-            font-weight: bold;
-            color: var(--primary-green);
-            letter-spacing: -0.025em;
-        }
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--savory-dark);
+    text-decoration: none;
+}
 
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.15s ease;
-            padding: 0 1rem;
-            line-height: var(--header-height);
-            border-bottom: 2px solid transparent;
-        }
+.nav-links {
+    display: flex;
+    list-style: none;
+}
 
-        .nav-links a:hover {
-            color: var(--primary-green);
-            border-color: var(--primary-green);
-        }
+.nav-links li a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 2rem;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    transition: color 0.3s;
+}
 
-        /* Hero Section */
-        .hero-section {
-            height: calc(100vh - var(--header-height));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            /* Custom Background */
-            background-image: url('https://placehold.co/1200x800/4CAF50/FFFFFF/png?text=Fresh+Ingredients+%26+Inspiring+Meals');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+.nav-links li a:hover {
+    color: var(--savory-green);
+}
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            height: 100%;
-        }
+.nav-links .active a {
+    color: var(--savory-dark);
+    font-weight: 600;
+    border-bottom: 2px solid var(--savory-green);
+}
 
-        .quote-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
-            border-radius: 12px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(2px);
-        }
+/* Mobile Menu Button - Hidden on desktop */
+.mobile-menu-button {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--savory-dark);
+    padding: 0.5rem;
+}
 
-        .hero-title {
-            font-size: 3rem; /* 48px */
-            font-weight: 800;
-            color: white;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            letter-spacing: -0.05em;
-        }
+/* --- Hero Section --- */
+.hero-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 75vh;
+    background-color: #fff;
+}
 
-        .hero-quote {
-            font-size: 1.5rem; /* 24px */
-            font-style: italic;
-            font-weight: 300;
-            color: var(--secondary-orange);
-            border-left: 4px solid var(--secondary-orange);
-            padding-left: 1rem;
-        }
+/* Hero Left Content */
+.hero-content {
+    flex: 3;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        .hero-button {
-            background-color: var(--secondary-orange);
-            color: white;
-            font-weight: bold;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px; /* rounded-full */
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: background-color 0.3s, transform 0.3s;
-            margin-top: 2rem;
-            display: inline-block;
-        }
+.hero-subtitle {
+    color: var(--savory-green);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
 
-        .hero-button:hover {
-            background-color: #e68900;
-            transform: scale(1.05);
-        }
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
 
-        /* Footer/Weather Display */
-        .weather-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--primary-green);
-            color: white;
-            padding: 0.75rem;
-            z-index: 40;
-            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
-        }
+.hero-title span {
+    color: var(--savory-green);
+}
 
-        .weather-info {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.875rem; /* 14px */
-        }
-        
-        .weather-info span:first-child {
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+.hero-text {
+    color: #555;
+    max-width: 500px;
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+}
 
-        #weather-display {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+/* Quote Styling */
+.quote-block {
+    border-left: 4px solid var(--savory-green);
+    padding: 0.75rem 0 0.75rem 1.25rem;
+    margin-bottom: 2.5rem;
+    background-color: rgba(76, 175, 80, 0.05);
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
 
-        /* SVG Icon colors (adapted from Tailwind) */
-        .svg-yellow { color: #facc15; }
-        .svg-gray { color: #d1d5db; }
-        .svg-blue { color: #93c5fd; }
-        .text-red-100 { color: #fee2e2; }
-        .text-red-200 { color: #fecaca; }
+.quote-block p {
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--savory-dark);
+}
 
-        /* Animations */
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .animate-spin {
-            animation: spin 1s linear infinite;
-        }
+/* Hero Right Visual (The Green Background) */
+.hero-visual {
+    flex: 2;
+    background-color: var(--savory-green);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+}
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-        }
-        .animate-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
+/* Abstract Shape (The lighter green swirl/blob) */
+.hero-visual::before {
+    content: '';
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    bottom: -15%;
+    left: 40%;
+    background-color: var(--savory-dark);
+    border-radius: 60% 40% 40% 60% / 60% 30% 70% 40%;
+    transform: rotate(15deg);
+    opacity: 0.2;
+    z-index: 0;
+}
 
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr 1fr;
-            }
-            .hero-title {
-                font-size: 4rem; /* 64px */
-            }
-            .hero-quote {
-                font-size: 2rem; /* 32px */
-            }
-            .hidden-md {
-                display: none;
-            }
-            .weather-info {
-                justify-content: flex-start;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .nav-links {
-                display: none;
-            }
-            .hero-section {
-                padding: 1rem;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .hero-quote {
-                font-size: 1.25rem;
-            }
-            .weather-info {
-                justify-content: center;
-                gap: 0.5rem;
-            }
-            .weather-info span:first-child {
-                display: none;
-            }
-        }
+/* Image Wrapper - Controls the circular shape and size */
+.food-image-wrapper {
+    position: relative;
+    width: 70%;
+    max-width: 350px;
+    padding-bottom: 70%;
+    border-radius: 50%;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    border: 5px solid #fff;
+    overflow: hidden;
+    z-index: 20;
+    transition: transform 0.5s ease;
+}
+
+.food-image-wrapper:hover {
+    transform: scale(1.05);
+}
+
+/* Actual Image - Fills the circular wrapper */
+.food-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Weather Section --- */
+.weather-section {
+    max-width: 1200px;
+    margin: 3rem auto 4rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.weather-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--savory-dark);
+    margin-bottom: 1.5rem;
+}
+
+#weather-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: var(--savory-light);
+    min-height: 100px;
+}
+
+/* New Weather Display Styles */
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.weather-location {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--savory-dark);
+    margin-bottom: 0.5rem;
+}
+
+.weather-temp-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.weather-temp {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #333;
+    line-height: 1;
+    margin-right: 1rem;
+}
+
+.weather-description {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--savory-green);
+    margin-bottom: 1.5rem;
+}
+
+.weather-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 2rem;
+    max-width: 400px;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px dashed #ccc;
+}
+
+.detail-item-box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-item-box .value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--savory-dark);
+}
+
+.detail-item-box .label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+
+/* Loading Indicator */
+.loading-container {
+    display: flex;
+    align-items: center;
+    color: var(--savory-dark);
+    font-weight: 500;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--savory-dark);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    animation: spin 1s linear infinite;
+    margin-right: 0.75rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        margin: 2rem 1rem;
+    }
+    .hero-content {
+        padding: 2rem;
+        text-align: center;
+        align-items: center;
+    }
+    .hero-title {
+        font-size: 2.25rem;
+    }
+    .quote-block {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        width: 90%;
+    }
+    .hero-visual {
+        padding: 2rem 1rem;
+        flex: none;
+        height: 300px;
+    }
+    .nav-links {
+        display: none;
+    }
+    .mobile-menu-button {
+        display: block;
+    }
+    .weather-temp {
+        font-size: 3rem;
+    }
+    .weather-details-grid {
+        grid-template-columns: 1fr;
+    }
+}

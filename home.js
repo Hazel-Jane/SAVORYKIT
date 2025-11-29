@@ -1,106 +1,130 @@
-  // --- JavaScript for Real-time Weather Integration ---
 
-        // OpenWeatherMap API details
-        const OWM_API_KEY = "06a9912b828ae26c5d0075a54ff0e699";
-        const OWM_CITY_NAME = "Manolo Fortich, Bukidnon, PH"; // Target location
+const apiKey = "da58adb2b8c4eb339ae20b7468f119db"; 
+const city = "Manolo Fortich, Bukidnon, PH";
 
-        // Helper function for exponential backoff (retry logic)
-        async function fetchWithBackoff(func, maxRetries = 5) {
-            let delay = 1000;
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    return await func();
-                } catch (error) {
-                    // Log error only if it's not the final attempt
-                    if (i === maxRetries - 1) throw error; 
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                    delay *= 2;
-                }
-            }
-        }
 
-        /**
-         * Fetches weather data directly from OpenWeatherMap.
-         */
-        async function fetchWeather() {
-            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${OWM_CITY_NAME}&units=metric&appid=${OWM_API_KEY}`;
-            
-            const response = await fetch(apiUrl);
-            
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || `HTTP error! Status: ${response.status}`);
-            }
-
-            return await response.json();
-        }
-
-        /**
-         * Renders the fetched weather data into the footer.
-         * @param {object} data - OpenWeatherMap API response data.
-         */
-        function renderWeather(data) {
-            const weatherDisplay = document.getElementById('weather-display');
-            
-            if (!data.main || !data.weather || data.weather.length === 0) {
-                weatherDisplay.innerHTML = '<span style="color: var(--text-red-100);">Error: Data structure invalid.</span>';
-                return;
-            }
-
-            const temp = Math.round(data.main.temp);
-            const condition = data.weather[0].description;
-            const mainCondition = data.weather[0].main.toLowerCase();
-
-            // Determine a simple icon based on condition (using inline SVG for simplicity)
-            let iconSvg = '';
-            let iconClass = 'text-white'; // Default color
-
-            if (mainCondition.includes('clear')) {
-                // Sun Icon
-                iconSvg = `<svg class="w-6 h-6 svg-yellow" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>`;
-            } else if (mainCondition.includes('cloud')) {
-                // Cloud Icon
-                iconSvg = `<svg class="w-6 h-6 svg-gray" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 014-4h2a4 4 0 115.905-.28L21 17.659V12a2 2 0 00-2-2h-3"></path></svg>`;
-            } else if (mainCondition.includes('rain') || mainCondition.includes('drizzle')) {
-                // Rain Icon
-                iconSvg = `<svg class="w-6 h-6 svg-blue" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v12h4v-12h-4z"></path></svg>`;
+async function fetchWithBackoff(url, options = {}, maxRetries = 5) {
+    let delay = 1000;
+    for (let i = 0; i < maxRetries; i++) {
+        try {
+            const response = await fetch(url, options);
+            if (response.ok) {
+                return response;
+            } else if (response.status === 429) {
+                console.log(`Rate limit exceeded. Retrying in ${delay}ms...`);
             } else {
-                // Default Icon (Clock/Time)
-                iconSvg = `<svg class="w-6 h-6" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+                console.error(`HTTP error! status: ${response.status}`, await response.text());
+                // Throw an error with the HTTP status code
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-
-            weatherDisplay.classList.remove('animate-pulse');
-            weatherDisplay.innerHTML = `
-                <span class="font-medium">${data.name}:</span>
-                <span style="font-size: 1.125rem; font-weight: bold;">${temp}&#176;C</span>
-                <div style="display: flex; align-items: center; gap: 0.25rem;">
-                    ${iconSvg}
-                    <span style="text-transform: capitalize;">${condition}</span>
-                </div>
-            `;
+        } catch (error) {
+            console.error("Fetch attempt failed:", error);
+            if (i === maxRetries - 1) throw error;
         }
+        await new Promise(resolve => setTimeout(resolve, delay));
+        delay *= 2;
+    }
+    throw new Error("Failed to fetch data after multiple retries.");
+}
 
-        // Main execution function
-        async function initWeather() {
-            try {
-                // Use backoff to handle transient API errors
-                const weatherData = await fetchWithBackoff(fetchWeather);
-                renderWeather(weatherData);
-            } catch (error) {
-                console.error("Failed to load weather data:", error);
-                const weatherDisplay = document.getElementById('weather-display');
-                weatherDisplay.classList.remove('animate-pulse');
-                weatherDisplay.innerHTML = `
-                    <span style="font-weight: 600; color: var(--text-red-100);">Weather Unavailable.</span>
-                    <span style="font-size: 0.75rem; color: var(--text-red-200);">(API Check)</span>
-                `;
-            }
-        }
+// Function to get icon URL from OpenWeatherMap icon code
+function getWeatherIconUrl(iconCode) {
+    return `https://openweathermap.org/img/wn/${iconCode}@4x.png`; 
+}
 
-        // Start fetching weather data when the window loads
-        window.onload = initWeather;
+// Function to capitalize first letter of a string
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Function to convert wind speed from m/s to km/h
+function msToKmH(ms) {
+    return (ms * 3.6).toFixed(0); // Round to whole number
+}
+
+async function fetchWeather() {
+    const weatherElement = document.getElementById('weather-data');
+    
+    // OpenWeatherMap Current Weather API URL
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    // Set Loading State
+    weatherElement.innerHTML = `
+        <div class="loading-container">
+            <div class="spinner"></div> 
+            <p>Loading real-time weather for ${city}...</p>
+        </div>
+    `;
+
+    try {
+        // Fetch Current Weather
+        const response = await fetchWithBackoff(apiUrl);
+        const data = await response.json();
         
-        // Mobile Menu Toggler (simple example)
-        document.getElementById('menu-button').addEventListener('click', () => {
-            alert("Mobile Menu functionality would be implemented here, likely by toggling a navigation sidebar or dropdown.");
-        });
+        // OpenWeatherMap returns a status code in 'cod' field. 401 means invalid key.
+        if (data.cod === '401') {
+             // Specific error for 401 Unauthorized/Invalid API Key
+             throw new Error("API Key Invalid. Please check if the key is correct and has been activated (may take a few hours).");
+        }
+        if (data.cod !== 200) {
+            console.error("OpenWeatherMap API Error:", data.message);
+            throw new Error(`API Error: ${data.message || 'City not found or unknown API issue.'}`);
+        }
+
+        // --- Data Extraction ---
+        const locationName = data.name;
+        const currentTemp = Math.round(data.main.temp);
+        const humidity = data.main.humidity;
+        const windSpeed = msToKmH(data.wind.speed);
+        const description = capitalizeFirstLetter(data.weather[0].description);
+        const iconCode = data.weather[0].icon;
+
+        // Air Quality: OpenWeatherMap free tier does not provide this (requires separate API call).
+        // We use a safe placeholder value based on general regional data (or 'N/A' if preferred).
+        const airQuality = 'Moderate'; 
+        
+        // --- Render HTML ---
+        weatherElement.innerHTML = `
+            <div class="current-weather">
+                <div class="weather-location">${locationName}, PH</div>
+                <div class="weather-temp-icon">
+                    <img src="${getWeatherIconUrl(iconCode)}" alt="${description}" style="width: 100px; height: 100px;">
+                    <div class="weather-temp">${currentTemp}°C</div>
+                </div>
+                <div class="weather-description">${description}</div>
+
+                <div class="weather-details-grid">
+                    <div class="detail-item-box">
+                        <div class="value">${humidity}%</div>
+                        <div class="label">Humidity</div>
+                    </div>
+                    <div class="detail-item-box">
+                        <div class="value">${windSpeed} km/h</div>
+                        <div class="label">Wind Speed</div>
+                    </div>
+                    <div class="detail-item-box">
+                        <div class="value">${airQuality}</div>
+                        <div class="label">Air Quality (Est.)</div>
+                    </div>
+                    <div class="detail-item-box">
+                        <div class="value">${Math.round(data.main.feels_like)}°C</div>
+                        <div class="label">Feels Like</div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+    } catch (error) {
+        // Display detailed error
+        console.error("Final weather fetch failed:", error);
+        weatherElement.innerHTML = `
+            <p style="color: red; font-weight: 600;">Error loading weather data.</p>
+            <p style="color: #555; font-size: 0.9em; margin-top: 0.5rem;">
+                Reason: ${error.message}. Please check your API key status on the OpenWeatherMap dashboard.
+            </p>
+        `;
+    }
+}
+
+// Run the weather fetch function when the page loads
+window.onload = fetchWeather;
