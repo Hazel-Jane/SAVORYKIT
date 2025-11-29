@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier;
+}
+
+body{
+    display: grid;
+    justify-content: left;
+    align-content: left;
+    min-height: 100vh;
+}
+
+footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: rgb(3, 3, 73);
+}
+
+footer .container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+
+footer .container .sec h2{
+    position: relative;
+    color: rgb(241, 224, 224);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+footer .container .sec h2::before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: rgb(219, 219, 131);
+}
+
+footer .container .sec p{
+    color: rgb(255, 252, 252);
+}
+
+.sci{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-gap: 10px;
+}
+
+.sci li{
+    list-style: none;
+}
+
+.sci li i{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background: rgb(208, 255, 170);
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.sci li i:hover{
+    background: rgb(192, 192, 255);
+}
+.sci li i .f{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.quicklinks li{
+    list-style: none; 
+}
+
+.quicklinks li a{
+    text-decoration: none;
+    color: #ffffff;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.quicklinks li a:hover{
+    color: rgb(255, 255, 124);
+}
+
+.info{
+    position: relative;
+}
+
+.info li{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    margin-bottom: 16px;
+}
+
+.info li span:nth-child(1){
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.info li span{
+    color:rgb(255, 255, 255);
+}
+
+.info a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.info a:hover {
+    color: rgb(255, 255, 124);
+}
+.copyrightText{
+    width: 100%;
+    background: rgb(155, 155, 255);
+    padding: 8px 100px;
+    text-align: center;
+    color: #ffffff;
+}
+
+@media (max-width: 991px){
+    footer{padding: 40px;}
+    footer .container{grid-template-columns: repeat(2,1fr);}
+}
+
+@media (max-width: 768px){
+    footer .container{grid-template-columns: repeat(1,1fr);}
+}
