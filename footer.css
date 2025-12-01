@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,7 +11,7 @@ body{
     justify-content: left;
     align-content: left;
     min-height: 100vh;
-}
+} */
 
 footer{
     position: relative;
@@ -27,7 +27,7 @@ footer .container{
     margin: 0 auto;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    grid-gap: 40px;
+    grid-gap: 30px;
 }
 
 
@@ -36,6 +36,7 @@ footer .container .sec h2{
     color: rgb(241, 224, 224);
     font-weight: 500;
     margin-bottom: 15px;
+    font-size: 4rem;
 }
 
 footer .container .sec h2::before{
@@ -91,6 +92,7 @@ footer .container .sec p{
     color: #ffffff;
     margin-bottom: 10px;
     display: inline-block;
+    font-size: 12px;
 }
 
 .quicklinks li a:hover{
@@ -114,11 +116,13 @@ footer .container .sec p{
 
 .info li span{
     color:rgb(255, 255, 255);
+    font-size: 12px;
 }
 
 .info a {
     color: #ffffff;
     text-decoration: none;
+    font-size: 12px;
 }
 
 .info a:hover {
