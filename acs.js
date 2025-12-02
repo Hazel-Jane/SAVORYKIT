@@ -104,4 +104,48 @@ icon.classList.replace("uil-eye-slash", "uil-eye");
  icon.classList.replace("uil-eye", "uil-eye-slash");
  }
  });
+
+//  6. Navigation Fix for Popup Login Button
+const popupLoginBtn = document.getElementById('popup-login-btn');
+
+if (popupLoginBtn) {
+    popupLoginBtn.addEventListener('click', () => {
+        window.location.href = "home.html"; 
+    });
+}
+
+// 7. Password Matching and Direct Navigation Fix for Popup Signup Button
+const popupSignupBtn = document.getElementById('popup-signup-btn');
+
+if (popupSignupBtn) {
+    popupSignupBtn.addEventListener('click', () => {
+        // 1. Get the password and confirm password inputs
+        const signupForm = popupSignupBtn.closest('.signup_form');
+        
+        // Find inputs by placeholder or other unique identifier if necessary
+        const createPasswordInput = signupForm.querySelector('input[placeholder="Create password"]');
+        const confirmPasswordInput = signupForm.querySelector('input[placeholder="Confirm password"]');
+
+        if (!createPasswordInput || !confirmPasswordInput) {
+             console.error("Could not find password inputs.");
+             return; // Stop if inputs aren't found
+        }
+        
+        const createPassword = createPasswordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        // 2. Check if the passwords match
+        if (createPassword !== confirmPassword) {
+           
+            alert("The password and confirm password fields do not match. Please try again.");
+             
+            confirmPasswordInput.value = '';
+           
+            return; 
+        }
+
+        // 3. If they match, proceed DIRECTLY to the homepage (No alert shown)
+        window.location.href = "home.html"; 
+    });
+}
 });

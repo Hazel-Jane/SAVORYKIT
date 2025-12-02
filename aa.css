@@ -106,7 +106,7 @@ font-size: 2rem;
 .btn {
 display: inline-block;
 background: #fff;
-color: #050124;
+color: #050505;
 padding: 1.2rem 3rem;
  border-radius: 30px;
  text-decoration: none;
@@ -116,7 +116,7 @@ padding: 1.2rem 3rem;
  border: none;
 }
 .btn:hover {
- background: #0a174e;
+ background: #5de968;
  color: #fff;
  transform: scale(1.1);
 }
@@ -124,10 +124,11 @@ padding: 1.2rem 3rem;
 /* -----------Auth Buttons ---------*/
 .auth-buttons {
 display: none; /* Hidden by default */
-row-gap: 4rem;
+
 }
 .auth-buttons.show {
- display: flex; /* Shown when JS adds 'show' class */
+ display: flex;
+ gap: 20px;
 }
 .auth-btn {
  background: rgba(255, 255, 255); 
@@ -135,10 +136,12 @@ row-gap: 4rem;
  padding: 1rem 4rem;
  font-size: 1.2rem;
 }
+
 .auth-btn:hover {
-    background: #0c0636;
+    background: #5de968;
     color: #ffffff;
     transform: scale(1.05);
+    row-gap: 50px;
 }
 
 /* --- Form Container Styles --- */
