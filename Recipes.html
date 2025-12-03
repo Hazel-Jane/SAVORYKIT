@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAVORYKIT</title>
+    <link rel="stylesheet" href="Recipes.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo" onclick="location.reload()">SAVORYKIT</h1>
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <nav>
+                <ul class="nav-list" id="nav-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#"onclick="location.reload()">Recipes</a></li>
+                    <li><a href="#">MarketMap</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Nourish.Sustain.Achieve.</h2>
+            <p>What's the weather like? We have the perfect food for you!</p>
+            
+            <form class="search-box" id="search-form">
+                <input type="text" placeholder="Search Recipe (e.g., Sinigang)..." id="search-input">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="filter-bar">
+        <button class="filter-btn" data-filter="lutong-bahay">Lutong Bahay</button>
+        <button class="filter-btn" data-filter="hot">Hot & Sunny</button>
+        <button class="filter-btn" data-filter="cold">Cold & Rainy</button>
+        <button class="filter-btn" data-filter="cloudy">Cloudy & Windy</button>
+        <button class="filter-btn" data-filter="my-recipes">My Recipes</button>
+    </div>
+
+    <div id="add-recipe-container" class="add-recipe-container" style="display: none;">
+        <button id="open-form-btn" class="add-btn">+ADD RECIPE</button>
+    </div>
+
+    <section class="recipes">
+        <h2 class="section-title" id="section-title">Recipe Selection</h2>
+        
+        <div class="recipe-container" id="recipe-container">
+            
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
+                <img src="images/Bicol Express.png" alt="Bicol Express">
+                <div class="card-content">
+                    <h3>Bicol Express</h3>
+                    <p>Spicy pork stew with coconut milk and chili peppers.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Pork Belly</li><li>Coconut Milk</li><li>Chili Peppers</li><li>Shrimp Paste</li><li>Garlic & Onion</li></ul>
+                    <div class="data-instructions">1. Sauté garlic, onion, and pork.<br>2. Add shrimp paste.<br>3. Pour coconut milk and simmer.<br>4. Add chilies.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+                <img src="images/Dinuguan.png" alt="Dinuguan">
+                <div class="card-content">
+                    <h3>Dinuguan</h3>
+                    <p>Savory pork blood stew with vinegar and chili.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Pork Meat</li><li>Pork Blood</li><li>Vinegar</li><li>Green Chili</li><li>Garlic & Onion</li></ul>
+                    <div class="data-instructions">1. Sauté aromatics and pork.<br>2. Add vinegar (don't stir).<br>3. Pour blood and simmer.<br>4. Add chili.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
+                <img src="images/Adobong Sitaw.png" alt="Adobong Sitaw">
+                <div class="card-content">
+                    <h3>Adobong Sitaw</h3>
+                    <p>String beans cooked in soy sauce and vinegar.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>String Beans</li><li>Pork bits</li><li>Soy Sauce</li><li>Vinegar</li><li>Garlic & Onion</li></ul>
+                    <div class="data-instructions">1. Sauté pork and aromatics.<br>2. Add soy sauce and water.<br>3. Add beans.<br>4. Add vinegar.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
+                <img src="images/PancitBihon.png" alt="Pancit Bihon">
+                <div class="card-content">
+                    <h3>Pancit Bihon</h3>
+                    <p>Filipino stir-fried rice noodles with veggies and meat.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Bihon Noodles</li><li>Chicken</li><li>Carrots & Cabbage</li><li>Soy Sauce</li></ul>
+                    <div class="data-instructions">1. Cook meat and veggies, set aside.<br>2. Boil soy sauce water.<br>3. Add noodles.<br>4. Mix everything.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+                <img src="images/Sinabawang Manok.png" alt="Sinabawang Manok">
+                <div class="card-content">
+                    <h3>Sinabawang Manok</h3>
+                    <p>Simple chicken soup with ginger and leafy greens.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Chicken</li><li>Ginger</li><li>Chili Leaves</li><li>Papaya</li></ul>
+                    <div class="data-instructions">1. Sauté ginger and chicken.<br>2. Add water, simmer.<br>3. Add papaya.<br>4. Add leaves.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
+                <img src="images/Adobong Manok.png" alt="Adobong Manok">
+                <div class="card-content">
+                    <h3>Adobong Manok</h3>
+                    <p>Classic chicken stew marinated in vinegar and soy sauce.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Chicken</li><li>Soy Sauce</li><li>Vinegar</li><li>Bay leaves</li></ul>
+                    <div class="data-instructions">1. Marinate chicken.<br>2. Brown chicken.<br>3. Simmer with marinade.<br>4. Reduce sauce.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
+                <img src="images/Sisig.png" alt="Sisig">
+                <div class="card-content">
+                    <h3>Sisig</h3>
+                    <p>Sizzling chopped pork with onions, chili, and calamansi.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Pork Belly</li><li>Chicken Liver</li><li>Onions & Chili</li><li>Calamansi</li></ul>
+                    <div class="data-instructions">1. Boil and grill pork.<br>2. Chop pork.<br>3. Sauté with onions/liver.<br>4. Season.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+                <img src="images/Lomi.png" alt="Lomi">
+                <div class="card-content">
+                    <h3>Lomi</h3>
+                    <p>Thick egg noodle soup with meat and vegetables.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Lomi Noodles</li><li>Liver</li><li>Eggs</li><li>Veggies</li><li>Cornstarch</li></ul>
+                    <div class="data-instructions">1. Sauté meat.<br>2. Add water and boil.<br>3. Add noodles.<br>4. Thicken with cornstarch/egg.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+                <img src="images/Sinigang Isda.png" alt="Sinigang na Isda">
+                <div class="card-content">
+                    <h3>Sinigang na Isda</h3>
+                    <p>Sour fish soup with leafy vegetables.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Fish</li><li>Tamarind</li><li>Kangkong</li><li>Tomatoes</li></ul>
+                    <div class="data-instructions">1. Boil water with aromatics.<br>2. Add tamarind.<br>3. Add fish.<br>4. Add veggies.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+                <img src="images/Sinigang Baboy.png" alt="Sinigang na Baboy">
+                <div class="card-content">
+                    <h3>Sinigang na Baboy</h3>
+                    <p>Pork in sour tamarind broth with vegetables.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Pork Belly</li><li>Tamarind Mix</li><li>Radish & Kangkong</li><li>Tomatoes</li></ul>
+                    <div class="data-instructions">1. Boil pork until tender.<br>2. Add tamarind.<br>3. Add radish.<br>4. Add kangkong.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+                <img src="images/Sopas.png" alt="Sopas">
+                <div class="card-content">
+                    <h3>Sopas</h3>
+                    <p>Creamy macaroni soup with chicken and milk.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Macaroni</li><li>Evaporated Milk</li><li>Chicken</li><li>Hotdogs</li><li>Cabbage</li></ul>
+                    <div class="data-instructions">1. Boil chicken.<br>2. Sauté hotdogs.<br>3. Add macaroni/water.<br>4. Add milk/cabbage.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay hot">
+                <img src="images/halo-halo.png" alt="Halo-halo">
+                <div class="card-content">
+                    <h3>Halo-halo</h3>
+                    <p>Ultimate Filipino shaved ice dessert.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Shaved Ice</li><li>Milk</li><li>Ube & Flan</li><li>Sweet Beans</li></ul>
+                    <div class="data-instructions">1. Place toppings in glass.<br>2. Add ice.<br>3. Pour milk.<br>4. Top with ube.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+                <img src="images/Batchoy.png" alt="Batchoy">
+                <div class="card-content">
+                    <h3>Batchoy</h3>
+                    <p>Noodle soup with pork organs, crushed pork cracklings, and egg.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Miki Noodles</li><li>Pork Meat</li><li>Chicharon</li><li>Beef Stock</li></ul>
+                    <div class="data-instructions">1. Sauté meat.<br>2. Pour stock.<br>3. Add noodles.<br>4. Top with chicharon.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/Watermelon.png" alt="Watermelon Shake">
+                <div class="card-content">
+                    <h3>Watermelon Shake</h3>
+                    <p>Refreshing blended watermelon drink.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Watermelon</li><li>Ice</li><li>Sugar</li></ul>
+                    <div class="data-instructions">1. Freeze watermelon.<br>2. Blend with ice.<br>3. Add sugar.<br>4. Serve.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+                <img src="images/Beef Stew.png" alt="Beef Stew">
+                <div class="card-content">
+                    <h3>Beef Stew</h3>
+                    <p>Hearty beef soup with potatoes and carrots.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Beef</li><li>Potatoes & Carrots</li><li>Tomato Sauce</li><li>Broth</li></ul>
+                    <div class="data-instructions">1. Sear beef.<br>2. Sauté onions.<br>3. Simmer in broth.<br>4. Add veggies.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="cold">
+                <img src="images/Ramen.png" alt="Ramen">
+                <div class="card-content">
+                    <h3>Ramen</h3>
+                    <p>Japanese noodle soup with rich broth.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Noodles</li><li>Broth</li><li>Egg</li><li>Pork</li><li>Nori</li></ul>
+                    <div class="data-instructions">1. Prepare broth.<br>2. Cook noodles.<br>3. Assemble.<br>4. Add toppings.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay hot">
+                <img src="images/Salad.png" alt="Fruit Salad">
+                <div class="card-content">
+                    <h3>Fruit Salad</h3>
+                    <p>Creamy mixed fruits dessert.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Fruit Cocktail</li><li>Cream</li><li>Condensed Milk</li><li>Nata de Coco</li></ul>
+                    <div class="data-instructions">1. Drain fruits.<br>2. Mix cream/milk.<br>3. Combine.<br>4. Chill.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="cloudy">
+                <img src="images/Lasagna.png" alt="Lasagna">
+                <div class="card-content">
+                    <h3>Lasagna</h3>
+                    <p>Layered pasta with meat sauce and cheese.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Pasta Sheets</li><li>Ground Beef</li><li>Tomato Sauce</li><li>Cheese</li></ul>
+                    <div class="data-instructions">1. Cook meat sauce.<br>2. Layer pasta/sauce/cheese.<br>3. Repeat.<br>4. Bake.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="cold">
+                <img src="images/hotcocoa.png" alt="Hot Cocoa">
+                <div class="card-content">
+                    <h3>Hot Cocoa</h3>
+                    <p>Warm chocolate drink with marshmallows.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Cocoa Powder</li><li>Milk</li><li>Sugar</li><li>Marshmallows</li></ul>
+                    <div class="data-instructions">1. Heat milk.<br>2. Whisk cocoa/sugar.<br>3. Pour.<br>4. Add marshmallows.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/Mango.png" alt="Mango Shake">
+                <div class="card-content">
+                    <h3>Mango Shake</h3>
+                    <p>Sweet and cold blended mango drink.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Mangoes</li><li>Ice</li><li>Milk</li><li>Sugar</li></ul>
+                    <div class="data-instructions">1. Slice mangoes.<br>2. Blend with ice/milk.<br>3. Add sugar.<br>4. Serve.</div>
+                </div>
+            </div>
+            
+            </div>
+
+        <div id="no-results" class="no-results">
+            <p>No recipes found matching your search.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Foodie Website | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="recipe-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <h2 id="modal-title">Recipe Title</h2>
+            <img src="" alt="" id="modal-img">
+            <div class="modal-details">
+                <h3>Ingredients:</h3>
+                <ul id="modal-ingredients"></ul>
+                <h3>Instructions:</h3>
+                <p id="modal-instructions"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="add-recipe-modal">
+        <div class="modal-content form-content">
+            <span class="close-btn" id="close-form-btn">&times;</span>
+            <h2 id="form-title">Add New Recipe</h2>
+            <form id="recipe-input-form">
+                <input type="hidden" id="edit-id"> <label>Recipe Title:</label>
+                <input type="text" id="inp-title" required placeholder="e.g. My Special Adobo">
+                
+                
+                <label>Category:</label>
+                <select id="inp-category">
+                    <option value="lutong-bahay">Lutong Bahay</option>
+                    <option value="hot">Hot & Sunny</option>
+                    <option value="cold">Cold & Rainy</option>
+                    <option value="cloudy">Cloudy & Windy</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label>Image URL:</label>
+                <input type="text" id="inp-img" placeholder="Paste image link here...">
+
+                <label>Short Description:</label>
+                <input type="text" id="inp-desc" required placeholder="Short tasty description">
+
+                <label>Ingredients (comma separated):</label>
+                <textarea id="inp-ingredients" rows="3" required placeholder="Chicken, Soy Sauce, Vinegar..."></textarea>
+
+                <label>Instructions (step by step):</label>
+                <textarea id="inp-instructions" rows="4" required placeholder="1. Marinate chicken..."></textarea>
+
+                <button type="submit" class="submit-btn">Save Recipe</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="Recipes.js"></script>
+</body>
+</html>
