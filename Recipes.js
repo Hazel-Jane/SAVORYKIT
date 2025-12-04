@@ -61,9 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Handle "Add Recipe" Card
-            // Only show it if there is NO search query (cleaner UI), or always show it.
-            // Let's show it always unless it specifically doesn't match a strict search concept, 
-            // but usually, you want the add button available.
+           
             if (addCard) {
                 // Optional: Hide add button if user is searching for something specific? 
                 // For now, let's keep it visible so they can add.

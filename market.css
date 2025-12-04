@@ -1,0 +1,10 @@
+ #map {
+      height: 950px;
+      width: 100%;
+    }
+
+    .popup-content {
+    max-width: 100px;
+    height: auto;
+    }
+
