@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="aa.css">
+</head>
+<body>
+    <header class="header">
+        <a href="hs.html" class="logo">SavoryKit</a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Recipe</a>
+            <a href="#">Marketmap</a>
+            <a href="#">Nutrition</a>
+            <a href="#">Profile</a>
+        </nav>
+    </header>
+
+    <section class="profile-section">
+        
+        <div class="profile-content-container">
+            
+            <div class="profile-left-column">
+                <div class="profile-pic-container">
+                    <img id="profileImage" src="images/default-avatar.png" alt="Profile Picture">
+                    <label for="uploadPic" class="upload-btn">Change Photo</label>
+                    <input type="file" id="uploadPic" accept="image/*" hidden>
+                </div>
+                
+                <h2 class="profile-title">My Profile</h2>
+            </div>
+            
+            <div class="profile-right-column">
+                <div class="profile-info">
+                    <p>Email:</p>
+                    <span id="profileEmail"></span>
+                </div>
+                
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+            
+        </div>
+        
+    </section>
+
+<script src="profile.js"></script>
+</body>
+</html>
+
+
