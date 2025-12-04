@@ -85,7 +85,7 @@ if (loginLink) {
         e.preventDefault(); 
         formContainer.classList.remove("active"); 
     });
-}
+};
 
 
 // Password Show/Hide Toggle 
