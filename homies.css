@@ -1,0 +1,321 @@
+/* Import Google Font (Inter) for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* CSS Variables for easy color management with Pastel Palette */
+:root {
+    /* Pastel Green Palette */
+    --pastel-primary-green: #A3D4A3; /* A soft, light green */
+    --pastel-dark-green: #5F8B60; /* A muted, deep green for text/accents */
+    --pastel-bg-color: #FAF9F6;/* A soft cream/off-white background */
+    --pastel-box-color: #FFFFFF;  /* Pure white for inner elements like cards */
+    --pastel-accent-light: #E9F4E9; /* Very light green for subtle backgrounds */
+    
+    --font-main: 'Inter', sans-serif;
+}
+
+/* --- Global Styles --- */
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+body {
+    font-family: var(--font-main);
+    color: #333; /* Dark text for contrast */
+    background-color: var(--pastel-bg-color); 
+    /* line-height: 1.6; */
+    scroll-behavior: smooth;
+}
+
+/* --- Header and Navigation - NOW PASTEL GREEN BACKGROUND --- */
+.site-header {
+    /* CHANGE: Changed background color to pastel accent light */
+    background-color: var(--pastel-accent-light); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.main-navigation {
+    max-width: 1200px; /* Keep Nav Centered */
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pastel-dark-green);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 2rem;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: var(--pastel-primary-green);
+}
+
+.nav-menu .current-page-link a {
+    color: var(--pastel-dark-green);
+    font-weight: 600;
+    border-bottom: 2px solid var(--pastel-primary-green);
+}
+
+/* --- Hero Section - FULL WIDTH PARENT & FULL STRETCH INNER CONTAINER --- */
+.main-content-area {
+    /* padding: 0;  */
+    /* NEW: Apply pastel green background to the main content area */
+    background-color: var(--pastel-accent-light);
+}
+
+.hero-section {
+    /* width: 100%; 
+    margin: 0 auto; Removed vertical margin to connect to header */
+    /* padding-top: 3rem; Added padding for spacing from the top */
+    display: flex;
+    flex-direction: row;
+    border-radius: 0; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 75vh;
+    /* CHANGE: Changed background color to white/box color for contrast inside the main content area */
+    background-color: var(--pastel-box-color);
+}
+
+.hero-inner-container {
+    /* width: 100%; */
+    /* max-width: 1200px; Added max-width here to recenter the content */
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: row; 
+}
+
+
+/* Hero Left Content */
+.hero-text-content {
+    flex: 3;
+    padding: 4rem 1.5rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tagline {
+    color: var(--pastel-primary-green);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.main-heading {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.main-heading .highlight-text {
+    color: var(--pastel-primary-green);
+}
+
+.intro-description {
+    color: #555;
+    /* Retained max-width for readability on long paragraphs */
+    max-width: 500px; 
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+}
+
+/* Quote Styling */
+.pull-quote {
+    border-left: 4px solid var(--pastel-primary-green);
+    padding: 0.75rem 0 0.75rem 1.25rem;
+    margin-bottom: 2.5rem;
+    /* Using the lighter accent color for contrast on the white background */
+    background-color: var(--pastel-accent-light); 
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.pull-quote p {
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--pastel-dark-green);
+}
+
+/* Hero Right Visual (The Green Background) */
+.hero-visual-element {
+    flex: 2;
+    background-color: var(--pastel-primary-green);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Abstract Shape (The darker green swirl/blob) */
+.hero-visual-element::before {
+    content: '';
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    bottom: -15%;
+    left: 40%;
+    background-color: var(--pastel-dark-green);
+    border-radius: 60% 40% 40% 60% / 60% 30% 70% 40%;
+    transform: rotate(15deg);
+    opacity: 0.2;
+    z-index: 0;
+}
+
+/* Image Wrapper - Controls the circular shape and size */
+.image-display-wrapper {
+    position: relative;
+    width: 70%;
+    max-width: 350px;
+    padding-bottom: 70%;
+    border-radius: 50%;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    border: 5px solid var(--pastel-box-color); /* White border around image */
+    overflow: hidden;
+    z-index: 20;
+    transition: transform 0.5s ease;
+}
+
+.image-display-wrapper:hover {
+    transform: scale(1.05);
+}
+
+/* Actual Image - Fills the circular wrapper */
+.food-plate-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sr-only { 
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* --- Weather Section - FULL WIDTH PARENT --- */
+.weather-display-section {
+    width: 100%; 
+    margin: 4rem auto 4rem auto;
+    padding: 2rem 0; 
+    background-color: var(--pastel-accent-light); /* This is already the light green background */
+    border-radius: 0;
+    box-shadow: none; 
+    text-align: center;
+}
+
+/* .weather-inner-container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 1.5rem; 
+} */
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pastel-dark-green);
+    margin-bottom: 1.5rem;
+    padding-top: 2rem; 
+}
+
+.weather-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2.5rem 1.5rem; 
+    border: 1px solid #eee;
+    /* border-radius: 0.5rem;
+    background-color: var(--pastel-box-color); 
+    min-height: 100px;
+    margin-bottom: 2rem; */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+}
+
+.initial-message {
+    color: #000000;
+}
+
+/* New Weather Display Styles */
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.weather-location {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--pastel-dark-green);
+    margin-bottom: 0.5rem;
+}
+
+.weather-temp-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.weather-temp {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #333;
+    line-height: 1;
+    margin-right: 1rem;
+}
+
+.weather-description {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pastel-primary-green);
+    margin-bottom: 1.5rem;
+}
+
+.weather-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 2rem;
+    max-width: 400px;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px dashed #ccc;
+    margin: 0 auto; /* Center the detail grid */
+}
+

@@ -1,4 +1,4 @@
-const apiKey = "5a9271e84840276c393f1e7fbf85e388"; 
+const apiKey = "d5d896b1236b92d4be31e4bc08be118c"; 
 const city = "Manolo Fortich, Bukidnon, PH";
 
 
