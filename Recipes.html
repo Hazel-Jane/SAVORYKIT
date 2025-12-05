@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAVORYKIT</title>
     <link rel="stylesheet" href="Recipes.css">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="footer.css">
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1 class="logo" onclick="location.reload()">SAVORYKIT</h1>
-            <div class="menu-icon" id="menu-icon">&#9776;</div>
-            <nav>
-                <ul class="nav-list" id="nav-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#"onclick="location.reload()">Recipes</a></li>
-                    <li><a href="#">MarketMap</a></li>
-                    <li><a href="#">Profile</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="header">
+        <a href="landing.html" class="logo">SavoryKit</a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <a href="Recipes.html">Recipe</a>
+            <a href="#">Marketmap</a>
+            <a href="#">Nutrition</a>
+            <a href="profile.html">Profile</a>
+        </nav>
     </header>
 
     <section class="hero">
@@ -39,12 +42,12 @@
         <button class="filter-btn" data-filter="lutong-bahay">Lutong Bahay</button>
         <button class="filter-btn" data-filter="hot">Hot & Sunny</button>
         <button class="filter-btn" data-filter="cold">Cold & Rainy</button>
-        <button class="filter-btn" data-filter="cloudy">Cloudy & Windy</button>
+
         <button class="filter-btn" data-filter="my-recipes">My Recipes</button>
-    </div>
+    </div>    
 
     <div id="add-recipe-container" class="add-recipe-container" style="display: none;">
-        <button id="open-form-btn" class="add-btn">+ADD RECIPE</button>
+        <button id="open-form-btn" class="add-btn">ADD RECIPE</button>
     </div>
 
     <section class="recipes">
@@ -52,7 +55,7 @@
         
         <div class="recipe-container" id="recipe-container">
             
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay">
                 <img src="images/Bicol Express.png" alt="Bicol Express">
                 <div class="card-content">
                     <h3>Bicol Express</h3>
@@ -60,90 +63,107 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Pork Belly</li><li>Coconut Milk</li><li>Chili Peppers</li><li>Shrimp Paste</li><li>Garlic & Onion</li></ul>
-                    <div class="data-instructions">1. Sauté garlic, onion, and pork.<br>2. Add shrimp paste.<br>3. Pour coconut milk and simmer.<br>4. Add chilies.</div>
+                    <ul class="data-ingredients"><li>Baboy</li><li>Sibuyas</li><li>Bawang</li><li>Luya</li><li>Gata</li><li>Sili</li><li> Alamang</li></ul>
+                    <div class="data-instructions">1. Igisa ang bawang, sibuyas, at luya.<br>2. Idagdag ang baboy at alamang.<br>3. Ibuhos ang gata at sili.<br>4. Pakuluin hanggang lumambot ang karne at kumapal ang sabaw.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
-                <img src="images/Dinuguan.png" alt="Dinuguan">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay ">
+
+                <img src="images/Dinuguan.png " alt="Dinuguan">
+
                 <div class="card-content">
                     <h3>Dinuguan</h3>
                     <p>Savory pork blood stew with vinegar and chili.</p>
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Pork Meat</li><li>Pork Blood</li><li>Vinegar</li><li>Green Chili</li><li>Garlic & Onion</li></ul>
-                    <div class="data-instructions">1. Sauté aromatics and pork.<br>2. Add vinegar (don't stir).<br>3. Pour blood and simmer.<br>4. Add chili.</div>
+                    <ul class="data-ingredients"><li>Baboy</li><li>Dugo ng Baboy</li><li>Sibuyas</li><li>Bawang</li><li>Suka</li><li>Tubig</li><li>Patis</li></ul>
+                    <div class="data-instructions">1. Igisa ang karne.<br>2. Lagyan ng patis, ibuhos ang suka (huwag haluin).<br>3. Idagdag ang tubig.<br>4. Ibuhos ang dugo ng baboy habang hinahalo dahan-dahan.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
-                <img src="images/Adobong Sitaw.png" alt="Adobong Sitaw">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay ">
+
+                <img src="images/Adobong Sitaw.png " alt="Adobong Sitaw">
+               
+
                 <div class="card-content">
                     <h3>Adobong Sitaw</h3>
                     <p>String beans cooked in soy sauce and vinegar.</p>
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>String Beans</li><li>Pork bits</li><li>Soy Sauce</li><li>Vinegar</li><li>Garlic & Onion</li></ul>
-                    <div class="data-instructions">1. Sauté pork and aromatics.<br>2. Add soy sauce and water.<br>3. Add beans.<br>4. Add vinegar.</div>
+                    <ul class="data-ingredients"><li>Sitaw</li><li>Bawang</li><li>Toyo</li><li>Suka</li><li>Tubig</li></ul>
+                    <div class="data-instructions">1. Igisa ang bawang, sibuyas, at kamatis.<br>2. Idagdag ang sitaw, toyo, at suka.<br>3. Pakuluan hanggang lumambot ang sitaw.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
-                <img src="images/PancitBihon.png" alt="Pancit Bihon">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay ">
+
+                <img src="images/PancitBihon.png " alt="Pancit Bihon">
+
+    
+
                 <div class="card-content">
                     <h3>Pancit Bihon</h3>
                     <p>Filipino stir-fried rice noodles with veggies and meat.</p>
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Bihon Noodles</li><li>Chicken</li><li>Carrots & Cabbage</li><li>Soy Sauce</li></ul>
-                    <div class="data-instructions">1. Cook meat and veggies, set aside.<br>2. Boil soy sauce water.<br>3. Add noodles.<br>4. Mix everything.</div>
+                    <ul class="data-ingredients"><li>Bihon</li><li>Manok</li><li>Carrots</li><li>Repolyo</li><li>Toyo</li><li> Sabaw</li></ul>
+                    <div class="data-instructions">1. Igisa ang manok at gulay.<br>2. Ibuhos ang sabaw at toyo.<br>3. Ilagay ang bihon at haluin hanggang ma-absorb ang sabaw.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
-                <img src="images/Sinabawang Manok.png" alt="Sinabawang Manok">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay">
+
+                <img src="images/Sinabawang Manok.png " alt="Sinabawang Manok">
+
+
                 <div class="card-content">
                     <h3>Sinabawang Manok</h3>
                     <p>Simple chicken soup with ginger and leafy greens.</p>
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Chicken</li><li>Ginger</li><li>Chili Leaves</li><li>Papaya</li></ul>
-                    <div class="data-instructions">1. Sauté ginger and chicken.<br>2. Add water, simmer.<br>3. Add papaya.<br>4. Add leaves.</div>
+                    <ul class="data-ingredients"><li>Manok</li><li>Sibuyas</li><li>Bawang</li><li>Sayote/Papaya</li><li>Luya</li><li> Dahon ng Sili/Malunggay</li></ul>
+                    <div class="data-instructions">1. Igisa ang manok, luya, sibuyas, at bawang.<br>2. Lagyan ng patis at tubig.<br>3. Pakuluin hanggang lumambot ang manok.<br>4. Idagdag ang gulay.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
-                <img src="images/Adobong Manok.png" alt="Adobong Manok">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay ">
+
+                <img src="images/Adobong Manok.png " alt="Adobong Manok">
+
+
                 <div class="card-content">
                     <h3>Adobong Manok</h3>
                     <p>Classic chicken stew marinated in vinegar and soy sauce.</p>
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Chicken</li><li>Soy Sauce</li><li>Vinegar</li><li>Bay leaves</li></ul>
-                    <div class="data-instructions">1. Marinate chicken.<br>2. Brown chicken.<br>3. Simmer with marinade.<br>4. Reduce sauce.</div>
+                    <ul class="data-ingredients"><li>Manok</li><li>ToyoSoy Sauce</li><li>Suka</li><li>Bawang</li><li>Laurel</li><li>Paminta</li><li>Tubig</li></ul>
+                    <div class="data-instructions">1. Ilagay ang manok at lahat ng pampalasa.<br>2. Pakuluan muna nang walang halong suka.<br>3. Haluin at idagdag ang tubig.<br>4. Pakuluan hanggang lumambot.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cloudy">
-                <img src="images/Sisig.png" alt="Sisig">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay ">
+
+                <img src="images/Sisig.png " alt="Sisig">
+
                 <div class="card-content">
                     <h3>Sisig</h3>
                     <p>Sizzling chopped pork with onions, chili, and calamansi.</p>
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Pork Belly</li><li>Chicken Liver</li><li>Onions & Chili</li><li>Calamansi</li></ul>
-                    <div class="data-instructions">1. Boil and grill pork.<br>2. Chop pork.<br>3. Sauté with onions/liver.<br>4. Season.</div>
+                    <ul class="data-ingredients"><li>Pork Maskara/Liempo</li><li>Sibuyas</li><li>Siling Labuyo</li><li>Toyo</li><li>Calamansi</li></ul>
+                    <div class="data-instructions">1. Pakuluan, i-grill, at hiwain ang karne.<br>2. Igisa ang sibuyas at karne.<br>3. Timplahan ng toyo at calamansi.<br>4. Ihain nang mainit.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+            <div class="recipe-card static-recipe" data-category="cold">
                 <img src="images/Lomi.png" alt="Lomi">
                 <div class="card-content">
                     <h3>Lomi</h3>
@@ -151,12 +171,12 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Lomi Noodles</li><li>Liver</li><li>Eggs</li><li>Veggies</li><li>Cornstarch</li></ul>
-                    <div class="data-instructions">1. Sauté meat.<br>2. Add water and boil.<br>3. Add noodles.<br>4. Thicken with cornstarch/egg.</div>
+                    <ul class="data-ingredients"><li>Lomi Noodles</li><li>Pork/Chicken</li><li>Fish Ball</li><li>Itlog</li><li>Sabaw</li><li>Cornstarch</li></ul>
+                    <div class="data-instructions">1. Igisa ang karne, idagdag ang toyo at sabaw.<br>2. Ilagay ang noodles.<br>3. Ibuhos ang cornstarch slurry para lumapot.<br>4. Huling idagdag ang itlog.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay">
                 <img src="images/Sinigang Isda.png" alt="Sinigang na Isda">
                 <div class="card-content">
                     <h3>Sinigang na Isda</h3>
@@ -164,12 +184,12 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Fish</li><li>Tamarind</li><li>Kangkong</li><li>Tomatoes</li></ul>
-                    <div class="data-instructions">1. Boil water with aromatics.<br>2. Add tamarind.<br>3. Add fish.<br>4. Add veggies.</div>
+                    <ul class="data-ingredients"><li>Isda</li><li>Sibuyas</li><li>Kamatis</li><li>Kangkong</li><li>Okra</li><li>Sinigang Mix</li></ul>
+                    <div class="data-instructions">1. Pakuluan ang tubig kasama ang sibuyas at kamatis.<br>2. Idagdag ang gulay.<br>3.Ilagay ang isda at sinigang mix.<br>4. Timplahan at ihain.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay">
                 <img src="images/Sinigang Baboy.png" alt="Sinigang na Baboy">
                 <div class="card-content">
                     <h3>Sinigang na Baboy</h3>
@@ -177,12 +197,12 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Pork Belly</li><li>Tamarind Mix</li><li>Radish & Kangkong</li><li>Tomatoes</li></ul>
-                    <div class="data-instructions">1. Boil pork until tender.<br>2. Add tamarind.<br>3. Add radish.<br>4. Add kangkong.</div>
+                    <ul class="data-ingredients"><li>Pork Ribs/Liempo</li><li>Sibuyas</li><li>Kamatis</li><li>Labanos/Kangkong</li><li>Okra</li><li>Sinigang Mix</li></ul>
+                    <div class="data-instructions">1. Pakuluan ang baboy hanggang lumambot.<br>2. Ilagay ang sibuyas, kamatis, at gulay.<br>3. Huling ilagay ang sinigang mix at kangkong.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+            <div class="recipe-card static-recipe" data-category=" cold">
                 <img src="images/Sopas.png" alt="Sopas">
                 <div class="card-content">
                     <h3>Sopas</h3>
@@ -190,12 +210,12 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Macaroni</li><li>Evaporated Milk</li><li>Chicken</li><li>Hotdogs</li><li>Cabbage</li></ul>
-                    <div class="data-instructions">1. Boil chicken.<br>2. Sauté hotdogs.<br>3. Add macaroni/water.<br>4. Add milk/cabbage.</div>
+                    <ul class="data-ingredients"><li>Macaroni</li><li>Evaporated Milk</li><li>Chicken</li><li>Hotdogs</li><li>Carrots/Cabbage</li><li>Stock</li></ul>
+                    <div class="data-instructions">1. Igisa ang manok at gulay.<br>2. Ibuhos ang sabaw at pakuluan.<br>3. Ilagay ang macaroni.<br>4. Pag luto, idagdag ang gatas at timplahan.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay hot">
+            <div class="recipe-card static-recipe" data-category="hot">
                 <img src="images/halo-halo.png" alt="Halo-halo">
                 <div class="card-content">
                     <h3>Halo-halo</h3>
@@ -203,12 +223,12 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Shaved Ice</li><li>Milk</li><li>Ube & Flan</li><li>Sweet Beans</li></ul>
-                    <div class="data-instructions">1. Place toppings in glass.<br>2. Add ice.<br>3. Pour milk.<br>4. Top with ube.</div>
+                    <ul class="data-ingredients"><li>Minatamis</li><li>Sago</li><li>Gulaman</li><li>Yelo</li><li>Ice Cream</li><li>Gatas</li><li>Ube & Flan</li><li>Sweet Beans</li></ul>
+                    <div class="data-instructions">1. Maglagay ng ingredients sa baso.<br>2. Lagyan ng durog na yelo.<br>3. Buhusan ng gatas.<br>4. Lagyan ng ube ice cream sa ibabaw.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+            <div class="recipe-card static-recipe" data-category="cold">
                 <img src="images/Batchoy.png" alt="Batchoy">
                 <div class="card-content">
                     <h3>Batchoy</h3>
@@ -216,8 +236,8 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Miki Noodles</li><li>Pork Meat</li><li>Chicharon</li><li>Beef Stock</li></ul>
-                    <div class="data-instructions">1. Sauté meat.<br>2. Pour stock.<br>3. Add noodles.<br>4. Top with chicharon.</div>
+                    <ul class="data-ingredients"><li>Miki Noodles</li><li>Ginisang Garlic</li><li>Pork Meat/Liver</li><li>Chicharon</li><li>Broth</li></ul>
+                    <div class="data-instructions">1. Igisa ang baboy at atay.<br>2. Ibuhos ang pork broth at pakuluin.<br>3. Idagdag ang miki noodles.<br>4. Ihain na may chicharon at bawang.</div>
                 </div>
             </div>
 
@@ -229,12 +249,12 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Watermelon</li><li>Ice</li><li>Sugar</li></ul>
-                    <div class="data-instructions">1. Freeze watermelon.<br>2. Blend with ice.<br>3. Add sugar.<br>4. Serve.</div>
+                    <ul class="data-ingredients"><li>Pakwan (seedless)</li><li>Tubig/Milk</li><li>Yelo</li><li>Sugar</li></ul>
+                    <div class="data-instructions">1. I-blend ang pakwan, yelo, at sugar.<br>2. I-adjust ang tamis, ihain agad.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay cold">
+            <div class="recipe-card static-recipe" data-category="lutong-bahay ">
                 <img src="images/Beef Stew.png" alt="Beef Stew">
                 <div class="card-content">
                     <h3>Beef Stew</h3>
@@ -242,8 +262,8 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Beef</li><li>Potatoes & Carrots</li><li>Tomato Sauce</li><li>Broth</li></ul>
-                    <div class="data-instructions">1. Sear beef.<br>2. Sauté onions.<br>3. Simmer in broth.<br>4. Add veggies.</div>
+                    <ul class="data-ingredients"><li>Baka</li><li>Sibuyas</li><li>Bawang</li><li>Patatas</li><li>Carrots</li><li>Tomato Sauce</li><li>Beef Cube</li></ul>
+                    <div class="data-instructions">1. Igisa ang baka hanggang mag-brown.<br>2. Ibuhos ang tubig at ilagay ang beef cube.<br>3. Kapag malambot na, ilagay ang gulay at tomato sauce.</div>
                 </div>
             </div>
 
@@ -255,12 +275,12 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Noodles</li><li>Broth</li><li>Egg</li><li>Pork</li><li>Nori</li></ul>
-                    <div class="data-instructions">1. Prepare broth.<br>2. Cook noodles.<br>3. Assemble.<br>4. Add toppings.</div>
+                    <ul class="data-ingredients"><li>Instant Noodles</li><li>Sibuyas Dahon</li><li>Egg</li><li>Sliced Pork/Chicken</li><li>Toyo</li></ul>
+                    <div class="data-instructions">1. Igisa ang bawang at karne.<br>2. I-boil ang noodles sa sabaw.<br>3. Lagyan ng toyo at sesame oil.<br>4. Ilagay ang itlog at takpan.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="lutong-bahay hot">
+            <div class="recipe-card static-recipe" data-category="hot">
                 <img src="images/Salad.png" alt="Fruit Salad">
                 <div class="card-content">
                     <h3>Fruit Salad</h3>
@@ -268,12 +288,12 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Fruit Cocktail</li><li>Cream</li><li>Condensed Milk</li><li>Nata de Coco</li></ul>
-                    <div class="data-instructions">1. Drain fruits.<br>2. Mix cream/milk.<br>3. Combine.<br>4. Chill.</div>
+                    <ul class="data-ingredients"><li>Fruit Cocktail</li><li>Cheese (optional)</li><li>All-Purpose Cream</li><li>Condensed Milk</li><li>Nata de Coco</li></ul>
+                    <div class="data-instructions">1. Paghaluin ang fruit cocktail, cream, at condensed milk. <br>2. Palamigin bago ihain.</div>
                 </div>
             </div>
 
-            <div class="recipe-card static-recipe" data-category="cloudy">
+            <div class="recipe-card static-recipe" data-category="cold">
                 <img src="images/Lasagna.png" alt="Lasagna">
                 <div class="card-content">
                     <h3>Lasagna</h3>
@@ -281,8 +301,8 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Pasta Sheets</li><li>Ground Beef</li><li>Tomato Sauce</li><li>Cheese</li></ul>
-                    <div class="data-instructions">1. Cook meat sauce.<br>2. Layer pasta/sauce/cheese.<br>3. Repeat.<br>4. Bake.</div>
+                    <ul class="data-ingredients"><li>Lasagna Pasta</li><li>White Sauce</li><li>Ground Beef</li><li>Tomato Sauce</li><li>Cheese</li></ul>
+                    <div class="data-instructions">1. I-layer ang pasta, tomato sauce, white sauce, and cheese.<br>2. I-bake 20 to 30 mins hanggang mag-melt ang cheese.</div>
                 </div>
             </div>
 
@@ -294,10 +314,172 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Cocoa Powder</li><li>Milk</li><li>Sugar</li><li>Marshmallows</li></ul>
-                    <div class="data-instructions">1. Heat milk.<br>2. Whisk cocoa/sugar.<br>3. Pour.<br>4. Add marshmallows.</div>
+                    <ul class="data-ingredients"><li>Tablea</li><li>Water/Milk</li><li>Sugar</li><li>Marshmallows (optional)</li></ul>
+                    <div class="data-instructions">1. Pakuluan ang tubig o gatas.<br>2. Ihalo ang tablea at haluin hanggang matunaw.<br>3. Lagyan ng asukal.<br>4. Lagyan ng marshmallows (optional).</div>
                 </div>
             </div>
+
+            <div class="recipe-card static-recipe" data-category="cold">
+                <img src="images/champorado.png" alt="Champorado">
+                <div class="card-content">
+                    <h3>Champorado</h3>
+                    <p>Sweet chocolate rice porridge made with glutinous rice and cocoa tablets.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Malagkit na Bigas (Glutinous Rice)</li><li>Tablea (Cacao) o Cocoa Powder</li><li>Asukal</li><li>Tubig</li><li> Evaporated Milk</li></ul>
+                    <div class="data-instructions">1. Pakuluan ang malagkit sa tubig.<br>2. Kapag luto na ang kanin, ilagay ang tablea/cocoa at asukal.<br>3. Haluin hanggang lumapot at matunaw ang tsokolate.</div>
+                </div>
+            </div>
+
+            <div class="recipe-card static-recipe" data-category="lutong-bahay">
+                <img src="images/caldereta.png" alt="">
+                <div class="card-content">
+                    <h3>Caldereta</h3>
+                    <p>Hearty meat stew in tomato sauce and liver spread.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Baka/Kambing</li><li>Tomato Sauce</li><li>Liver Spread</li><li> Patatas</li><li>Carrots</li></ul>
+                    <div class="data-instructions">1. Palambutin ang karne.<br>2. Ilagay ang sauce, liver spread, at gulay.<br>3. Pakuluan.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/atchara.png" alt="">
+                <div class="card-content">
+                    <h3>Atchara</h3>
+                    <p>Pickled unripe papaya, sweet and sour. A classic side dish.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Hilaw na Papaya (gadgad)</li><li>Suka</li><li>Asukal</li><li>Carrots</li><li>Luya</li></ul>
+                    <div class="data-instructions">1. Lagyan ng asin ang gadgad na papaya at pigain nang maigi bago ilagay sa garapon.<br>2. Ito ang sekreto para manatiling malutong (crunchy) ang atchara.</div>
+                </div>
+            </div>
+            
+
+             <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/guaman.png" alt="">
+                <div class="card-content">
+                    <h3>Buko Pandan</h3>
+                    <p>Dessert salad with coconut, pandan jelly, and cream.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Gulaman (Pandan flavor)</li><li>Buko strips</li><li>Condensed Milk</li><li>Cream</li></ul>
+                    <div class="data-instructions">1. Haluin ang cubed gulaman, buko, at gatas.<br>2. I-chill bago ihain.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/mangofloat.png" alt="">
+                <div class="card-content">
+                    <h3>Mango Float</h3>
+                    <p>Spicy pork stew with coconut milk and chili peppers.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Baboy</li><li>Sibuyas</li><li>Bawang</li><li>Luya</li><li>Gata</li><li>Sili</li><li> Alamang</li></ul>
+                    <div class="data-instructions">1. Igisa ang bawang, sibuyas, at luya.<br>2. Idagdag ang baboy at alamang.<br>3. Ibuhos ang gata at sili.<br>4. Pakuluin hanggang lumambot ang karne at kumapal ang sabaw.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/maisyelo.png" alt="">
+                <div class="card-content">
+                    <h3>Mais Con Yelo</h3>
+                    <p>Sweet corn with shaved ice and milk. A summer cooler.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Mais</li><li>Yelo (shaved)</li><li>Gatas</li><li>Asukal</li>></ul>
+                    <div class="data-instructions">1. Ilagay ang mais at yelo sa baso.<br>2. Buhusan ng gatas at haluin.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="cold">
+                <img src="images/coffee.png" alt="">
+                <div class="card-content">
+                    <h3>Kape</h3>
+                    <p>Hot coffee.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Kape (powder o beans)</li><li>Mainit na Tubig</li><li> Asukal/Creamer</li></ul>
+                    <div class="data-instructions">1. Tunawin ang kape sa mainit na tubig.<br>2. Timplahan ayon sa panlasa.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/kinilaw.png" alt="">
+                <div class="card-content">
+                    <h3>Kinilaw</h3>
+                    <p>Filipino ceviche; raw fish cured in vinegar and spices.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Hilaw na Isda (Tanigue/Tuna)</li><li>Suka</li><li>Sibuyas</li><li>Luya</li><li>Sili</li></ul>
+                    <div class="data-instructions">1. Hugasan muna ang hilaw na isda sa suka at itapon ang sabaw para mawala ang lansa.<br>2. Pagkatapos, saka ilagay ang bagong suka, gata (optional), at mga pampalasa.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/letcheflan.png" alt="">
+                <div class="card-content">
+                    <h3>Leche Flan</h3>
+                    <p>Steamed custard with a soft caramel topping.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Pula ng Itlog</li><li>Condensed Milk</li><li>Evaporated Milk</li><li>Asukal</li></ul>
+                    <div class="data-instructions">1. Mag-caramelize ng asukal sa lyanera.<br>2. Ibuhos ang hinalong itlog at gatas.<br>3. I-steam.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="cold">
+                <img src="images/lugaw.png" alt="">
+                <div class="card-content">
+                    <h3>Lugaw</h3>
+                    <p>Savory rice porridge/congee. Comfort food.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Bigas</li><li>Tubig/Broth</li><li>Bawang</li><li>Luya</li><li>Asin</li><li>Manok (Optional)</li></ul>
+                    <div class="data-instructions">1. Igisa muna ang luya, bawang, at sibuyas sa mantika bago ilagay ang bigas at tubig.<br>2. Mas mabango at malasa ang lugaw kapag ginisa (sautéed) muna.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/tapioca.png" alt="">
+                <div class="card-content">
+                    <h3>Mango Tapioca</h3>
+                    <p>Sweet creamy soup with tapioca pearls and mango cubes.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Sago (Tapioca)</li><li>Hinog na Mangga</li><li>Bawang</li><li>Cream</li><li> Milk</li></ul>
+                    <div class="data-instructions">1. Lutuin ang sago.<br>2. Haluin kasama ang mangga at gatas.<br>3. Palamigin.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="hot">
+                <img src="images/mangofloat.png" alt="">
+                <div class="card-content">
+                    <h3>Mango Float</h3>
+                    <p>Icebox cake with layers of graham, cream, and mangoes.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Graham crackers</li><li>Hinog na Mangga</li><li>Cream</li><li>Condensed Milk</li></ul>
+                    <div class="data-instructions">1. Pagpatung-patungin ang graham, cream, at mangga sa lalagyan.<br>2. I-freezer.</div>
+                </div>
+            </div>
+            <div class="recipe-card static-recipe" data-category="cold">
+                <img src="images/tea.png" alt="">
+                <div class="card-content">
+                    <h3>Tea</h3>
+                    <p>Hot tea, soothing and calming.</p>
+                    <button class="view-btn">View Recipe</button>
+                </div>
+                <div class="recipe-hidden-data" style="display: none;">
+                    <ul class="data-ingredients"><li>Tea bag o dahon</li><li>Mainit na Tubig</li><li>Lemon/Honey (optional)</li></ul>
+                    <div class="data-instructions">1. Pagkababad ng tea bag, pigaan ito ng 2-3 piraso ng calamansi at lagyan ng honey.<br>2. Magandang inumin kung masama ang pakiramdam.</div>
+                </div>
+            </div>
+
+
 
             <div class="recipe-card static-recipe" data-category="hot">
                 <img src="images/Mango.png" alt="Mango Shake">
@@ -307,8 +489,8 @@
                     <button class="view-btn">View Recipe</button>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <ul class="data-ingredients"><li>Mangoes</li><li>Ice</li><li>Milk</li><li>Sugar</li></ul>
-                    <div class="data-instructions">1. Slice mangoes.<br>2. Blend with ice/milk.<br>3. Add sugar.<br>4. Serve.</div>
+                    <ul class="data-ingredients"><li>Hinog na Mangga</li><li>Yelo</li><li>Milk</li><li>Sugar</li></ul>
+                    <div class="data-instructions">1. I-blend ang mangga, yelo, at milk.<br>2. Timplahin ang tamis..</div>
                 </div>
             </div>
             
@@ -319,17 +501,11 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Foodie Website | All Rights Reserved</p>
-        </div>
-    </footer>
-
     <div class="modal-overlay" id="recipe-modal">
         <div class="modal-content">
             <span class="close-btn" id="close-btn">&times;</span>
             <h2 id="modal-title">Recipe Title</h2>
-            <img src="" alt="" id="modal-img">
+           
             <div class="modal-details">
                 <h3>Ingredients:</h3>
                 <ul id="modal-ingredients"></ul>
@@ -346,32 +522,84 @@
             <form id="recipe-input-form">
                 <input type="hidden" id="edit-id"> <label>Recipe Title:</label>
                 <input type="text" id="inp-title" required placeholder="e.g. My Special Adobo">
-                
-                
-                <label>Category:</label>
-                <select id="inp-category">
-                    <option value="lutong-bahay">Lutong Bahay</option>
-                    <option value="hot">Hot & Sunny</option>
-                    <option value="cold">Cold & Rainy</option>
-                    <option value="cloudy">Cloudy & Windy</option>
-                    <option value="other">Other</option>
-                </select>
+  
+                <label>Description:</label>
+                <input type="text" id="inp-desc" required placeholder="description">
 
-                <label>Image URL:</label>
-                <input type="text" id="inp-img" placeholder="Paste image link here...">
-
-                <label>Short Description:</label>
-                <input type="text" id="inp-desc" required placeholder="Short tasty description">
-
-                <label>Ingredients (comma separated):</label>
+                <label>Ingredients:</label>
                 <textarea id="inp-ingredients" rows="3" required placeholder="Chicken, Soy Sauce, Vinegar..."></textarea>
 
-                <label>Instructions (step by step):</label>
+                <label>Instructions:</label>
                 <textarea id="inp-instructions" rows="4" required placeholder="1. Marinate chicken..."></textarea>
 
                 <button type="submit" class="submit-btn">Save Recipe</button>
             </form>
         </div>
+    </div>
+
+     <footer>
+       
+        <div class="container">
+          
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Recipe</a></li>
+                    <li><a href="#">Marketmap</a></li>
+                    <li><a href="#">Nutrition</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </div>
+
+            <div class="sec extralinks">
+                <h2>Extra Links</h2>
+                <ul>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="sec contact">
+                <h2>Contact Us</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-location-plus'></i></span>
+                        <span>Lingion & Alae, Manolo Fortich, Bukidnon <br> Philippines, 8703</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-phone'></i></span>
+                        <span>
+                            <a href="tel:09381402034">09381402034</a>
+                            <a href="tel:09709993420">09709993420</a>
+                            <a href="tel:09709993420">09709993420</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span><i class='bx bxs-envelope'></i></span>
+                        <span>
+                            <a href="mailto:martizanothrisha@gmail.com">martizanothrisha@gmail.com</a>
+                            <a href="mailto:hjlihotan@gmail.com">hjlihotan@gmail.com</a>
+                            <a href="mailto:hjlihotan@gmail.com">hjlihotan@gmail.com</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="sec followus">
+                <h2>Follow Us</h2>
+                <ul class="sci-list"> 
+        <li><a href="https://www.facebook.com/shiela.mae.35380"><i class='bx bxl-facebook'></i> Facebook</a></li>
+        <li><a href="https://www.instagram.com/thrshm_?igsh=OTV2eHduNW5jd2c0"><i class='bx bxl-instagram-alt'></i> Instagram</a></li>
+        <li><a href="hjlihotan@gmail.com"><i class='bx bxs-envelope'></i> Email</a></li>
+        <li><a href="https://github.com/Hazel-Jane"><i class='bx bxl-github'></i> Github</a></li>
+    </ul>
+</div>
+        </div>
+    </footer>
+    <div class="copyrightText">
+        <p class="copyright"> &copy; 2025 SavoryKit - All Right Reserved</p>
     </div>
 
     <script src="Recipes.js"></script>

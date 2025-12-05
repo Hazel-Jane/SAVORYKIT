@@ -1,5 +1,8 @@
 // Initial Recipe Data (All 20 recipes categorized by weather)
+
+
 // let recipes = [
+
 //     // --- ☀️ SUNNY WEATHER FOOD (Light, Cold, Refreshing) ---
 //     { id: 1, name: "Adobo ng Sitaw", weather: "sunny", 
 //         ingredients: "Sitaw, Bawang, Toyo, Suka, Tubig", 
