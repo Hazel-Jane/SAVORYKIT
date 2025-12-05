@@ -148,33 +148,30 @@ header {
 }
 
 /* --- NEW ADD RECIPE BANNER & SEPARATOR --- */
-.add-recipe-banner {
-    width: 90%;
-    margin: 25px auto 10px auto;
-    display: none;
-    text-align: center;
+.add-recipe-container {
+    text-align: center; 
+    margin-top: 30px; 
+    margin-bottom: 20px; 
+    width: 100%;  
 }
 
-.add-recipe-btn-banner {
-    width: 100%;
-    padding: 15px;
-    background-color: transparent;
-    color: #ff6347;
-    border: 2px solid #ff6347;
-    border-radius: 10px;
-    font-size: 20px;
-    font-family: 'Segoe UI', sans-serif;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    outline: none;
-}
-
-.add-recipe-btn-banner:hover {
-    background-color: #ff6347;
+.add-btn {
+    font-size: 2rem;    
+    background-color: #09640f;
     color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: none;
+    padding: 15px 50px; 
+    border-radius: 10px; 
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.add-btn:hover {
+    transform: scale(1.05); 
+    background-color: #a1deb4; 
+    color: #000000;
 }
 
 /* The Line Separator */
@@ -310,14 +307,7 @@ header {
     color: #666;
 }
 
-/* --- Footer --- */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-}
+
 
 /* --- Modal Styling --- */
 .modal-overlay {

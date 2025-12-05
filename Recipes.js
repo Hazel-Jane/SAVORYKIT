@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Elements ---
     const modal = document.getElementById('recipe-modal');
     const modalTitle = document.getElementById('modal-title');
-    const modalImg = document.getElementById('modal-img');
+    const modalImg = document.getElementById('modal-img'); // It's okay if this is null now
     const modalIngredients = document.getElementById('modal-ingredients');
     const modalInstructions = document.getElementById('modal-instructions');
     const closeBtn = document.getElementById('close-btn');
@@ -22,58 +22,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const addRecipeModal = document.getElementById('add-recipe-modal');
     const closeFormBtn = document.getElementById('close-form-btn');
     const recipeForm = document.getElementById('recipe-input-form');
-    const openFormBtn = document.getElementById('open-form-btn'); // You had this defined but the container was removed in HTML. 
-    // We will use the Dynamic Add Card instead.
+    const openFormBtn = document.getElementById('open-form-btn'); 
+    const addRecipeContainer = document.getElementById('add-recipe-container');
 
     // --- 1. LOCAL STORAGE SETUP ---
     let userRecipes = JSON.parse(localStorage.getItem('myFoodieRecipes')) || [];
 
-    // --- 2. UNIFIED FILTER & SEARCH FUNCTION ---
-    // This function handles BOTH Category Buttons AND Search Input at the same time
+    // --- 2. ENABLE THE ADD RECIPE BUTTON ---
+    if (openFormBtn) {
+        openFormBtn.addEventListener('click', () => {
+            document.getElementById('form-title').innerText = "Add New Recipe";
+            document.getElementById('edit-id').value = '';
+            recipeForm.reset();
+            addRecipeModal.classList.add('active');
+        });
+    }
+
+    // --- 3. CLOSE BUTTONS LOGIC (FIXED) ---
+    // Close View Modal
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    }
+
+    // Close Add/Edit Form Modal
+    if (closeFormBtn) {
+        closeFormBtn.addEventListener('click', () => {
+            addRecipeModal.classList.remove('active');
+        });
+    }
+
+    // Close Modals when clicking outside (Background)
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+        if (e.target === addRecipeModal) {
+            addRecipeModal.classList.remove('active');
+        }
+    });
+
+    // --- 4. UNIFIED FILTER & SEARCH FUNCTION ---
     function updateDisplay() {
-        const query = searchInput.value.toLowerCase().trim();
+        const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
         const activeBtn = document.querySelector('.filter-btn.active');
-        // Default to 'lutong-bahay' if no button is active (though one usually is)
         const category = activeBtn ? activeBtn.getAttribute('data-filter') : 'lutong-bahay'; 
-        
+
         const staticCards = document.querySelectorAll('.static-recipe');
         const dynamicCards = document.querySelectorAll('.dynamic-recipe');
-        const addCard = document.querySelector('.add-card');
 
         let visibleCount = 0;
 
         if (category === 'my-recipes') {
             // --- MY RECIPE MODE ---
-            sectionTitle.innerText = "My Personal Recipes";
+            if(sectionTitle) sectionTitle.innerText = "My Personal Recipes";
             
             // Hide all static cards
             staticCards.forEach(card => card.style.display = 'none');
 
-            // Handle Dynamic Cards (Search them)
+            // SHOW THE ADD RECIPE BUTTON
+            if (addRecipeContainer) addRecipeContainer.style.display = 'block';
+
+            // Show/Filter User Recipes
             dynamicCards.forEach(card => {
                 const title = card.querySelector('h3').innerText.toLowerCase();
                 if (title.includes(query)) {
-                    card.style.display = 'flex'; // Use Flex to keep layout
+                    card.style.display = 'flex'; 
                     visibleCount++;
                 } else {
                     card.style.display = 'none';
                 }
             });
 
-            // Handle "Add Recipe" Card
-           
-            if (addCard) {
-                // Optional: Hide add button if user is searching for something specific? 
-                // For now, let's keep it visible so they can add.
-                addCard.style.display = 'flex';
-            }
-
         } else {
             // --- STANDARD MODES ---
-            sectionTitle.innerText = "Recipe Selection";
+            if(sectionTitle) sectionTitle.innerText = "Recipe Selection";
             
-            // Hide Dynamic Cards & Add Card
-            if(addCard) addCard.style.display = 'none';
+            // HIDE THE ADD RECIPE BUTTON
+            if (addRecipeContainer) addRecipeContainer.style.display = 'none';
+            
+            // Hide dynamic cards
             dynamicCards.forEach(card => card.style.display = 'none');
 
             // Filter Static Cards
@@ -81,12 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cardCategories = card.getAttribute('data-category');
                 const title = card.querySelector('h3').innerText.toLowerCase();
 
-                // Condition 1: Must match Category
-                const matchesCategory = cardCategories.includes(category);
-                // Condition 2: Must match Search Text
-                const matchesSearch = title.includes(query);
-
-                if (matchesCategory && matchesSearch) {
+                if (cardCategories.includes(category) && title.includes(query)) {
                     card.style.display = 'flex';
                     visibleCount++;
                 } else {
@@ -96,49 +120,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Toggle No Results Message
-        noResultsMsg.style.display = (visibleCount === 0 && category !== 'my-recipes') ? 'block' : 'none';
-        
-        // Special case: If My Recipes is empty and not searching
-        if (category === 'my-recipes' && userRecipes.length === 0) {
-            noResultsMsg.style.display = 'block';
-            noResultsMsg.innerText = "You haven't added any recipes yet.";
-        } else if (category === 'my-recipes' && visibleCount === 0 && userRecipes.length > 0) {
-             noResultsMsg.style.display = 'block';
-             noResultsMsg.innerText = "No recipes found matching your search.";
+        if (noResultsMsg) {
+            if (category === 'my-recipes' && userRecipes.length === 0) {
+                noResultsMsg.style.display = 'block';
+                noResultsMsg.innerText = "You haven't added any recipes yet.";
+            } else {
+                noResultsMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+                noResultsMsg.innerText = "No recipes found matching your search.";
+            }
         }
     }
 
-    // --- 3. EVENT LISTENERS FOR FILTER & SEARCH ---
-
-    // Filter Buttons
+    // --- 5. EVENT LISTENERS FOR FILTER & SEARCH ---
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Set Active Class
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            if(searchInput) searchInput.value = '';
 
-            // Clear Search on category change (optional, but good UX)
-            searchInput.value = '';
-
-            // If switching to My Recipes, we must render them first
             if (btn.getAttribute('data-filter') === 'my-recipes') {
                 renderUserRecipes();
             } else {
-                // Remove dynamic cards from DOM to keep it clean
-                const dynamicElements = document.querySelectorAll('.dynamic-recipe, .add-card');
+                const dynamicElements = document.querySelectorAll('.dynamic-recipe');
                 dynamicElements.forEach(el => el.remove());
             }
-
-            updateDisplay(); // Trigger the display update
+            updateDisplay();
         });
     });
 
-    // Search Input Listener
-    if(searchInput) {
-        searchInput.addEventListener('input', updateDisplay);
-    }
+    if(searchInput) searchInput.addEventListener('input', updateDisplay);
     
-    // Search Form Submit (Prevent reload)
     if(searchForm) {
         searchForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -146,48 +157,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize Default View (Lutong Bahay is usually first)
-    // Find the button that has 'active' class in HTML, or default to first
+    // Initialize Default View
     const defaultActive = document.querySelector('.filter-btn.active') || filterButtons[0];
-    if(defaultActive) {
-        defaultActive.click();
-    }
+    if(defaultActive) defaultActive.click();
 
 
-    // --- 4. RENDER USER RECIPES ---
+    // --- 6. RENDER USER RECIPES (NO IMAGE VERSION) ---
     function renderUserRecipes() {
-        // Clear existing dynamic content
-        const dynamicElements = document.querySelectorAll('.dynamic-recipe, .add-card');
+        // Clear existing dynamic recipes
+        const dynamicElements = document.querySelectorAll('.dynamic-recipe');
         dynamicElements.forEach(el => el.remove());
 
-        // Create "Add Recipe" CARD
-        const addBtnCard = document.createElement('div');
-        addBtnCard.classList.add('recipe-card', 'add-card');
-        addBtnCard.innerHTML = `
-            <div class="add-card-icon">+</div>
-            <div class="add-card-text">Add Recipe</div>
-        `;
-        addBtnCard.addEventListener('click', () => {
-            document.getElementById('form-title').innerText = "Add New Recipe";
-            document.getElementById('edit-id').value = '';
-            recipeForm.reset();
-            addRecipeModal.classList.add('active');
-        });
-        recipeContainer.appendChild(addBtnCard);
-
-        // Render Cards
         userRecipes.forEach(recipe => {
             const card = document.createElement('div');
             card.classList.add('recipe-card', 'dynamic-recipe');
             card.setAttribute('data-id', recipe.id); 
 
-            const imgSrc = recipe.img.trim() ? recipe.img : ''; 
-
+            // NO IMAGE TAG GENERATED HERE
             card.innerHTML = `
-                <img src="${imgSrc}" alt="${recipe.title}">
-                <div class="card-content">
-                    <h3>${recipe.title}</h3>
-                    <p>${recipe.desc}</p>
+                <div class="card-content" style="padding-top: 30px;">
+                    <h3>${recipe.title || 'Untitled Recipe'}</h3>
+                    <p>${recipe.desc || 'No description'}</p>
                     <button class="view-btn">View Recipe</button>
                     <div class="card-actions">
                         <button class="edit-btn" onclick="editRecipe(${recipe.id})">Edit</button>
@@ -195,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="recipe-hidden-data" style="display: none;">
-                    <div class="raw-ingredients">${recipe.ingredients}</div>
-                    <div class="raw-instructions">${recipe.instructions}</div>
+                    <div class="raw-ingredients">${recipe.ingredients || ''}</div>
+                    <div class="raw-instructions">${recipe.instructions || ''}</div>
                 </div>
             `;
             recipeContainer.appendChild(card);
@@ -205,24 +195,21 @@ document.addEventListener('DOMContentLoaded', () => {
             viewBtn.addEventListener('click', () => openViewModal(recipe));
         });
         
-        // Ensure display is correct after rendering
         updateDisplay();
     }
 
-    // --- 5. ADD / EDIT FORM LOGIC ---
-    closeFormBtn.addEventListener('click', () => {
-        addRecipeModal.classList.remove('active');
-    });
-
+    // --- 7. SUBMIT FORM LOGIC (NO CATEGORY/IMG) ---
     recipeForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const id = document.getElementById('edit-id').value;
         const title = document.getElementById('inp-title').value;
-        const category = document.getElementById('inp-category').value;
-        const img = document.getElementById('inp-img').value;
         const desc = document.getElementById('inp-desc').value;
         const ingredients = document.getElementById('inp-ingredients').value;
         const instructions = document.getElementById('inp-instructions').value;
+
+        // Default values
+        const category = 'my-recipes'; 
+        const img = ''; 
 
         if (id) {
             const index = userRecipes.findIndex(r => r.id == id);
@@ -238,10 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         localStorage.setItem('myFoodieRecipes', JSON.stringify(userRecipes));
         addRecipeModal.classList.remove('active');
-        renderUserRecipes(); // Re-render to show new card
+        renderUserRecipes(); 
     });
 
-    // --- 6. GLOBAL FUNCTIONS (Edit/Delete) ---
+    // --- 8. GLOBAL FUNCTIONS (Edit/Delete) ---
     window.deleteRecipe = function(id) {
         if(confirm("Are you sure you want to delete this recipe?")) {
             userRecipes = userRecipes.filter(r => r.id !== id);
@@ -256,8 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('form-title').innerText = "Edit Recipe";
             document.getElementById('edit-id').value = recipe.id;
             document.getElementById('inp-title').value = recipe.title;
-            document.getElementById('inp-category').value = recipe.category;
-            document.getElementById('inp-img').value = recipe.img;
             document.getElementById('inp-desc').value = recipe.desc;
             document.getElementById('inp-ingredients').value = recipe.ingredients;
             document.getElementById('inp-instructions').value = recipe.instructions;
@@ -265,19 +250,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- 7. VIEW MODAL LOGIC ---
+    // --- 9. VIEW MODAL LOGIC (CRASH PROOF) ---
     function openViewModal(recipeData) {
         modalTitle.innerText = recipeData.title;
-        modalImg.src = recipeData.img.trim() ? recipeData.img : 'https://placehold.co/500x200?text=No+Image';
+        
+        // SAFETY CHECK: Only try to touch the image IF the HTML element actually exists
+        if (modalImg) {
+            modalImg.style.display = 'none'; // Ensure it's hidden since we aren't using images
+        }
         
         modalIngredients.innerHTML = '';
-        const ingArray = recipeData.ingredients.split(',');
-        ingArray.forEach(ing => {
-            const li = document.createElement('li');
-            li.innerText = ing.trim();
-            modalIngredients.appendChild(li);
-        });
-        modalInstructions.innerText = recipeData.instructions;
+        
+        if (recipeData.ingredients) {
+            // Split by newline or comma
+            const separator = recipeData.ingredients.includes('\n') ? '\n' : ',';
+            const ingArray = recipeData.ingredients.split(separator);
+            
+            ingArray.forEach(ing => {
+                if(ing.trim()) {
+                    const li = document.createElement('li');
+                    li.innerText = ing.trim();
+                    modalIngredients.appendChild(li);
+                }
+            });
+        }
+
+        modalInstructions.innerText = recipeData.instructions || '';
         modal.classList.add('active');
     }
 
@@ -286,25 +284,21 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', (e) => {
             const card = button.closest('.recipe-card');
             const title = card.querySelector('h3').innerText;
-            const imgSrc = card.querySelector('img').src;
+            // Static cards still have images, but we can ignore them or hide them in modal
             const rawIng = card.querySelector('.data-ingredients').innerHTML;
             const rawInst = card.querySelector('.data-instructions').innerHTML;
+            
             modalTitle.innerText = title;
-            modalImg.src = imgSrc;
+            if(modalImg) modalImg.style.display = 'block'; // Show image for static recipes only if you want
+            if(modalImg) modalImg.src = card.querySelector('img').src;
+
             modalIngredients.innerHTML = rawIng;
             modalInstructions.innerHTML = rawInst;
             modal.classList.add('active');
         });
     });
 
-    closeBtn.addEventListener('click', () => {
-        modal.classList.remove('active');
-    });
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) modal.classList.remove('active');
-    });
-
-    // --- 8. MOBILE MENU ---
+    // --- 10. MOBILE MENU ---
     if(menuIcon){
         menuIcon.addEventListener('click', () => {
             navList.classList.toggle('active');

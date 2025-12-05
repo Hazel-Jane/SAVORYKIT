@@ -430,7 +430,7 @@ section{
 
 /* --- Logout Button Styles (Smaller/Aligned) --- */
 .logout-btn {
-    width: 150px; 
+    width: 100px; 
     padding: 10px;
     background: #043506;
     border: none;
