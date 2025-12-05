@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Recipe Finder</title>
+    <link rel="stylesheet" href="Recipe.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="website-container">
+        
+        <header class="navbar">
+            <div class="logo">SAVORYKIT</div>
+           
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="#" id="recipes-nav-link">Recipes</a> 
+                <a href="#">Profile</a>
+            </nav>
+        </header>
+
+        <main class="main-layout-wireframe"> 
+            <section class="main-content-wireframe">
+                
+                <h2 class="permanent-title">Nourish. Sustain. Achieve.</h2>
+                
+                <div class="search-container body-search-wireframe"> 
+                    <input type="text" id="recipe-search" placeholder="Search Here">
+                    <button id="search-button">🔍</button>
+                </div>
+
+                <div class="filter-action-bar-wireframe">
+                    
+                    <button class="filter-button-wireframe active-filter" data-filter="all">All Recipes</button>
+
+                    <button class="filter-button-wireframe" data-filter="lutongbahay">Lutong Bahay</button>
+                    
+                    <div class="dropdown-wireframe">
+                        <button class="weather-foodie-btn">Weather Foodie <span>▼</span></button>
+                        <div class="dropdown-content-wireframe">
+                            <a href="#" data-filter="sunny">☀️ Hot & Sunny</a>
+                            <a href="#" data-filter="cold">❄️ Cold & Rainy</a>
+                            <a href="#" data-filter="comfort">☁️ Mild & Comfortable</a>
+                        </div>
+                    </div>
+                    
+                    <button id="add-my-recipe-button" class="add-recipe-btn-wireframe">Add My Recipe</button>
+                </div>
+
+                <h3 id="dynamic-filter-title">Viewing All Recipes</h3> 
+
+                <div class="recipe-grid-container" id="recipe-grid-container">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="recipe-detail-overlay" class="hidden">
+        <div class="recipe-detail-card">
+            <button id="close-detail-button">X</button>
+            <h1 id="detail-title"></h1>
+            <p id="detail-description"></p>
+            
+            <div class="detail-sections">
+                <div id="detail-ingredients">
+                    <h3>Ingredients</h3>
+                    <ul><li>Placeholder</li></ul>
+                </div>
+                <div id="detail-instructions">
+                    <h3>Instructions</h3>
+                    <ol><li>Placeholder</li></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="add-recipe-overlay" class="hidden">
+        <div class="add-recipe-card">
+            <button id="close-add-button" class="close-add-btn">X</button>
+            <h3 id="form-title">My Recipes</h3> 
+            <form id="add-recipe-form">
+                <input type="hidden" id="recipe-id" value=""> 
+                <input type="text" id="new-recipe-name" placeholder="Recipe Name" required>
+                <textarea id="new-recipe-ingredients" placeholder="Ingredients" required></textarea>
+                <textarea id="new-recipe-instructions" placeholder="Instructions" required></textarea>
+                <button type="submit" class="save-to-my-list-btn" id="submit-recipe-button">Save Recipe</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="Recipe.js"></script>
+</body>
+</html>

@@ -1,146 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* *{
+/* General Reset and Font */
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body{
-    display: grid;
-    justify-content: left;
-    align-content: left;
-    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
 } */
 
-footer{
+/* --- FOOTER CONTAINER --- */
+footer {
     position: relative;
     width: 100%;
-    height: auto;
+    background: #bbe29a; 
     padding: 50px 100px;
-    background: rgb(3, 3, 73);
+
 }
 
-footer .container{
-    max-width: 1200px;
+footer .container {
+    max-width: 1090px;
     width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    grid-gap: 30px;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 27px;
 }
 
 
-footer .container .sec h2{
+/* --- HEADINGS --- */
+footer .container .sec h2 {
     position: relative;
-    color: rgb(241, 224, 224);
-    font-weight: 500;
-    margin-bottom: 15px;
-    font-size: 4rem;
+    color: #080808; 
+    font-weight: 650;
+    margin-bottom: 20px;
+    font-size: 2rem; 
 }
 
-footer .container .sec h2::before{
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: rgb(219, 219, 131);
+
+/* Styling for the Follow Us list container */
+.sec.followus h2 {
+    color: #309e33; 
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1.2rem; 
 }
 
-footer .container .sec p{
-    color: rgb(255, 252, 252);
+/* Styling for the list itself (replacing .sci with .sci-list) */
+.sci-list {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
 }
 
-.sci{
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 50px);
-    grid-gap: 10px;
+.sci-list li {
+    margin-bottom: 12px; /* Spacing between social links */
 }
 
-.sci li{
-    list-style: none;
-}
-
-.sci li i{
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    background: rgb(208, 255, 170);
-    display: grid;
-    align-content: center;
-    justify-content: center;
+/* Styling for the links (icon and text) */
+.sci-list a {
     text-decoration: none;
-    border-radius: 4px;
-}
-.sci li i:hover{
-    background: rgb(192, 192, 255);
-}
-.sci li i .f{
-    color: rgb(255, 255, 255);
-    font-size: 20px;
+    color: #1b1b1b;
+    font-size: 1rem;
+    display: flex; /* Use flexbox to align icon and text */
+    align-items: center;
+    transition: color 0.3s;
 }
 
-.quicklinks li{
+.sci-list a:hover {
+    color: rgb(136, 124, 21);
+}
+
+/* Styling for the icon */
+.sci-list a i {
+    color: #498b4c; /* Light green for the icon */
+    font-size: 1.25rem;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+
+/* --- LINKS (Quick, Extra, Contact) --- */
+.quicklinks ul, .extralinks ul {
     list-style: none; 
 }
 
-.quicklinks li a{
+.quicklinks li, .extralinks li {
+    margin-bottom: 8px; 
+}
+
+.quicklinks li a, .extralinks li a {
     text-decoration: none;
-    color: #ffffff;
-    margin-bottom: 10px;
+    color: #1b1b1b;
+    font-size: 1rem;
     display: inline-block;
-    font-size: 12px;
+    transition: color 0.3s;
 }
 
-.quicklinks li a:hover{
-    color: rgb(255, 255, 124);
+.quicklinks li a:hover, .extralinks li a:hover {
+    color: rgb(136, 124, 21);
 }
 
-.info{
-    position: relative;
+
+/* --- CONTACT INFO --- */
+.contact ul {
+    list-style: none;
 }
 
-.info li{
+.info li {
     display: grid;
-    grid-template-columns: 30px 1fr;
-    margin-bottom: 16px;
+    grid-template-columns: 30px 1fr; 
+    margin-bottom: 15px;
+    align-items: start;
 }
 
-.info li span:nth-child(1){
-    color: rgb(255, 255, 255);
-    font-size: 20px;
+.info li span:nth-child(1) i {
+    color: #4CAF50; 
+    font-size: 1.2rem;
 }
 
-.info li span{
-    color:rgb(255, 255, 255);
-    font-size: 12px;
+.info li span {
+    color: #1b1b1b;
+    font-size: 1rem;
 }
 
 .info a {
-    color: #ffffff;
+    color: #1b1b1b;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 1rem;
+    display: block; 
+    line-height: 1.5;
 }
 
 .info a:hover {
-    color: rgb(255, 255, 124);
+    color: rgb(136, 124, 21);
 }
-.copyrightText{
+
+
+/* --- COPYRIGHT TEXT --- */
+.copyrightText {
     width: 100%;
-    background: rgb(155, 155, 255);
-    padding: 8px 100px;
+     background: rgb(50, 119, 47);
+    padding: 10px 100px;
     text-align: center;
+}
+.copyrightText .copyright {
     color: #ffffff;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
-@media (max-width: 991px){
-    footer{padding: 40px;}
-    footer .container{grid-template-columns: repeat(2,1fr);}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 991px) {
+    footer {
+        padding: 40px 20px;
+    }
+    footer .container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
 }
 
-@media (max-width: 768px){
-    footer .container{grid-template-columns: repeat(1,1fr);}
+@media (max-width: 768px) {
+    footer .container {
+        /* On mobile, switch to 1 column */
+        grid-template-columns: repeat(1, 1fr); 
+    }
 }
