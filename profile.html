@@ -1,70 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Savory Marketmap</title>
-
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="aa.css">
+    <link rel="stylesheet" href="footer.css">
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="market.css" />
-  <link rel="stylesheet" href="landing.css">
-  <link rel="stylesheet" href="footer.css">
 </head>
 <body>
-
-  <header class="header">
-        <a href="#" class="logo">SavoryKit</a>
+    <header class="header">
+        <a href="landing.html" class="logo">SavoryKit</a>
 
         <i class='bx bx-menu' id="menu-icon"></i>
 
         <nav class="navbar">
-            <a href="#">Home</a>
-            <a href="#">Recipe</a>
+            <a href="home.html">Home</a>
+            <a href="Recipes.html">Recipe</a>
             <a href="#">Marketmap</a>
             <a href="#">Nutrition</a>
-            <a href="#">Profile</a>
+            <a href="profile.html">Profile</a>
         </nav>
     </header>
 
-<div id="map"></div>
-
-<!-- 
-  <div id="app"> -->
-    <aside id="panel" class="panel">
-      <div class="card">
-        <div class="panel-header">
-          <h3 id="place-name">Click a marker</h3>
-          <button id="open-add" class="add-btn">+</button>
+    <section class="profile-section">
+        
+        <div class="profile-content-container">
+            
+            <div class="profile-left-column">
+                <div class="profile-pic-container">
+                    <img id="profileImage" src="images/avatar2.png" alt="Profile Picture">
+                    <label for="uploadPic" class="upload-btn">Change Photo</label>
+                    <input type="file" id="uploadPic" accept="image/*" hidden>
+                </div>
+                
+                <h2 class="profile-title">My Profile</h2>
+            </div>
+            
+            <div class="profile-right-column">
+                <div class="profile-info">
+                    <p>Email:</p>
+                    <span id="profileEmail"></span>
+                </div>
+                
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+            
         </div>
-
-        <div id="place-desc" class="small muted">tap the pin</div>
-
-        <ul id="menu-list" class="list"></ul>
-
-        <div id="add-form" class="input-row hide">
-          <input id="new-item-input" placeholder="Add a food or drink" />
-          <button id="save-item">Save</button>
-        </div>
-
-        <div class="muted note">nourish.sustain.achieve</div>
-      </div>
-    </aside>
-  </div>
-
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        
+    </section>
 
 
-
-       <footer>
+         <footer>
        
         <div class="container">
           
@@ -128,7 +116,9 @@
     <div class="copyrightText">
         <p class="copyright"> &copy; 2025 SavoryKit - All Right Reserved</p>
     </div>
-    <script src="landing.js"></script>
-  <script src="market.js"></script>
+
+<script src="profile.js"></script>
 </body>
 </html>
+
+

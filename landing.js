@@ -15,13 +15,10 @@ navLinks.forEach(link => {
  });
 });
 
-
 window.addEventListener('scroll', () => {
  let header = document.querySelector('.header');
  header.classList.toggle('sticky', window.scrollY > 50);
 });
-
-
 
 // Function to toggle the visibility of the login/signup buttons
 function toggleAuthButtons() {
@@ -41,7 +38,7 @@ const authButtonsContainer = document.getElementById('auth-buttons');
 }
 document.addEventListener('DOMContentLoaded', toggleAuthButtons);
 
-/*--------------- Form Handling Fixes --------------*/
+/*--------------- Form Handling --------------*/
 
 
 const formOpenBtn = document.querySelector(".login-btn"); 
@@ -52,7 +49,7 @@ const loginLink = document.querySelector(".signup_form .login-link");
 const pwShowHide = document.querySelectorAll(".pw_hide");
 
 
-// 1. Open the form on 'Login' button click (No change here)
+// Open the form on 'Login' button click 
 if (formOpenBtn) {
     formOpenBtn.addEventListener("click", (e) => {
         e.preventDefault();
@@ -64,7 +61,7 @@ if (formOpenBtn) {
 }
 
 
-// 2. Close the form on 'X' button click (No change here)
+// Close the form on 'X' button click (No change here)
 if (formCloseBtn) {
     formCloseBtn.addEventListener("click", () => {
         formContainer.style.opacity = '0';
@@ -74,7 +71,7 @@ if (formCloseBtn) {
 }
 
 
-// 3. Toggle to Signup form
+// Toggle to Signup form
 if (signupLink) {
     signupLink.addEventListener("click", (e) => {
         e.preventDefault(); 
@@ -82,16 +79,16 @@ if (signupLink) {
     });
 }
 
-// 4. Toggle back to Login form
+// Toggle back to Login form
 if (loginLink) {
     loginLink.addEventListener("click", (e) => {
         e.preventDefault(); 
         formContainer.classList.remove("active"); 
     });
-}
+};
 
 
-// 5. Password Show/Hide Toggle 
+// Password Show/Hide Toggle 
 pwShowHide.forEach(icon => {
 icon.addEventListener("click", () =>  {
  let getPwInput = icon.parentElement.querySelector("input");
@@ -132,10 +129,7 @@ document.getElementById("popup-signup-btn").addEventListener("click", function (
 
     users.push({ email, password });
     localStorage.setItem("users", JSON.stringify(users));
-
-    // ✅ SET ACTIVE USER IMMEDIATELY
     localStorage.setItem("loggedInUser", email);
-
     alert("Account created successfully!");
     window.location.href = "home.html";
 });
@@ -156,8 +150,6 @@ document.getElementById("popup-login-btn").addEventListener("click", function ()
         alert("Invalid email or password!");
         return;
     }
-
-    // ✅ SET ACTIVE USER
     localStorage.setItem("loggedInUser", email);
 
     if (rememberMe) {
@@ -171,7 +163,7 @@ document.getElementById("popup-login-btn").addEventListener("click", function ()
 
 
 
-// AUTO LOGIN IF REMEMBERED
+// AUTO LOGIN 
 window.addEventListener("DOMContentLoaded", function () {
     const rememberedUser = localStorage.getItem("rememberedUser");
 

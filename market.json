@@ -3,8 +3,8 @@
         "name" : "Manolo Local Market",
         "description" : "Zone 8, Ubos sa highschool",
          "img": "https://i.pinimg.com/736x/38/aa/d3/38aad3278dc2d69b2b8b5c7a85ef600c.jpg",
-        "lat" :88.365632,
-        "lng" : 124.864967
+        "lat" :8.365606,
+        "lng" : 124.865201
 
     }, 
     
@@ -31,6 +31,42 @@
         "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
         "lat" :8.367424, 
         "lng" : 124.866883 
+
+    }, 
+
+    {
+        "name" : "Andok's",
+        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
+        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+        "lat" :8.367456, 
+        "lng" : 124.866145 
+
+    }, 
+
+      {
+        "name" : "Playfull Bistro",
+        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
+        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+        "lat" :8.367429, 
+        "lng" : 124.866480
+
+    }, 
+
+      {
+        "name" : "Je's Tuna",
+        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
+        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+        "lat" :8.367819, 
+        "lng" : 124.865083
+
+    }, 
+
+      {
+        "name" : "Mr. Wok",
+        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
+        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+        "lat" :8.367899, 
+        "lng" : 124.861006
 
     }, 
 
