@@ -1,0 +1,46 @@
+[
+    {
+        "name" : "Manolo Local Market",
+        "description" : "Zone 8, Ubos sa highschool",
+         "img": "https://i.pinimg.com/736x/38/aa/d3/38aad3278dc2d69b2b8b5c7a85ef600c.jpg",
+        "lat" :88.365632,
+        "lng" : 124.864967
+
+    }, 
+    
+     {
+        "name" : "Sosana's Lutong Bahay",
+        "description" : "Dapit sa Water Tank og Smart Tower",
+        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+        "lat" :8.367877, 
+        "lng" : 124.861258 
+
+    }, 
+
+    {
+        "name" : "Pitongs Pares",
+        "description" : "Dapit sa Water Tank og Smart Tower",
+        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+        "lat" :8.367806, 
+        "lng" : 124.861695
+    }, 
+
+    {
+        "name" : "Pa-paff",
+        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
+        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+        "lat" :8.367424, 
+        "lng" : 124.866883 
+
+    }, 
+
+    {
+        "name" : "Krominch Food Hauz",
+        "description" : "Dapit sa Water Tank og Smart Tower",
+        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+        "lat" :8.367418,
+        "lng" :  124.866810
+
+    }
+   
+]

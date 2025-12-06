@@ -1,222 +1,232 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. DOM Elements (updated for wireframe)
-    const recipesNavLink = document.getElementById('recipes-nav-link'); 
-    const addMyRecipeButton = document.getElementById('add-my-recipe-button'); 
-    const addRecipeOverlay = document.getElementById('add-recipe-overlay');
-    const closeAddButton = document.getElementById('close-add-button');
-    const addRecipeForm = document.getElementById('add-recipe-form');
-    const recipeGridContainer = document.getElementById('recipe-grid-container');
-    const submitRecipeButton = document.getElementById('submit-recipe-button');
-    const mainContentTitle = document.querySelector('.main-content-wireframe h2'); 
-    const searchInput = document.getElementById('recipe-search');
-    const searchButton = document.getElementById('search-button');
+// Initial Recipe Data (All 20 recipes categorized by weather)
+// let recipes = [
+//     // --- ☀️ SUNNY WEATHER FOOD (Light, Cold, Refreshing) ---
+//     { id: 1, name: "Adobo ng Sitaw", weather: "sunny", 
+//         ingredients: "Sitaw, Bawang, Toyo, Suka, Tubig", 
+//         instructions: "Igisa ang bawang, sibuyas, at kamatis. Idagdag ang sitaw, toyo, at suka. Pakuluan hanggang lumambot ang sitaw." 
+//     },
+//     { id: 2, name: "Pancit Bihon", weather: "sunny", 
+//         ingredients: "Bihon, Manok, Carrots, Repolyo, Toyo, Sabaw", 
+//         instructions: "Igisa ang manok at gulay. Ibuhos ang sabaw at toyo. Ilagay ang bihon at haluin hanggang ma-absorb ang sabaw." 
+//     },
+//     { id: 3, name: "Halo-halo", weather: "sunny", 
+//         ingredients: "Minatamis, Sago, Gulaman, Yelo, Gatas, Ice Cream", 
+//         instructions: "Maglagay ng ingredients sa baso. Lagyan ng durog na yelo, buhusan ng gatas, at lagyan ng ice cream sa ibabaw." 
+//     },
+//     { id: 4, name: "Watermelon Shake", weather: "sunny", 
+//         ingredients: "Pakwan (seedless), Yelo, Sugar, Tubig/Milk", 
+//         instructions: "I-blend ang pakwan, yelo, at sugar. I-adjust ang tamis, ihain agad." 
+//     },
+//     { id: 5, name: "Fruit Salad", weather: "sunny", 
+//         ingredients: "Fruit Cocktail, All-Purpose Cream, Condensed Milk, Cheese (optional)", 
+//         instructions: "Paghaluin ang fruit cocktail, cream, at condensed milk. Palamigin bago ihain." 
+//     },
+//     { id: 6, name: "Mango Shake", weather: "sunny", 
+//         ingredients: "Hinog na Mangga, Yelo, Milk, Sugar", 
+//         instructions: "I-blend ang mangga, yelo, at milk. Timplahin ang tamis." 
+//     },
 
-    // Filter buttons and dropdown
-    const lutongBahayFilter = document.querySelector('.filter-button-wireframe[data-filter="lutongbahay"]');
-    const weatherFoodieDropdownLinks = document.querySelectorAll('.dropdown-content-wireframe a');
-    const allFilterButtons = document.querySelectorAll('.filter-action-bar-wireframe button, .dropdown-content-wireframe a');
 
+//     // --- 🌧️ RAINY/STORMY WEATHER FOOD (Hot, Soupy, Comforting) ---
+//     { id: 7, name: "Bicol Express", weather: "rainy", 
+//         ingredients: "Baboy, Sibuyas, Bawang, Luya, Gata, Sili, Alamang", 
+//         instructions: "Igisa ang bawang, sibuyas, at luya. Idagdag ang baboy at alamang. Ibuhos ang gata at sili. Pakuluin hanggang lumambot ang karne at kumapal ang sabaw." 
+//     },
+//     { id: 8, name: "Dinuguan", weather: "rainy", 
+//         ingredients: "Baboy, Dugo ng Baboy, Sibuyas, Bawang, Suka, Tubig, Patis", 
+//         instructions: "Igisa ang karne. Lagyan ng patis, ibuhos ang suka (huwag haluin). Idagdag ang tubig. Ibuhos ang dugo ng baboy habang hinahalo dahan-dahan." 
+//     },
+//     { id: 9, name: "Sinabawang Manok", weather: "rainy", 
+//         ingredients: "Manok, Sibuyas, Bawang, Luya, Sayote/Papaya, Dahon ng Sili/Malunggay", 
+//         instructions: "Igisa ang manok, luya, sibuyas, at bawang. Lagyan ng patis at tubig. Pakuluin hanggang lumambot ang manok. Idagdag ang gulay." 
+//     },
+//     { id: 10, name: "Adobong Manok", weather: "rainy", 
+//         ingredients: "Manok, Toyo, Suka, Bawang, Laurel, Paminta, Tubig", 
+//         instructions: "Ilagay ang manok at lahat ng pampalasa. Pakuluan muna nang walang halong suka. Haluin at idagdag ang tubig. Pakuluan hanggang lumambot." 
+//     },
+//     { id: 11, name: "Sisig", weather: "rainy", 
+//         ingredients: "Pork Maskara/Liempo, Sibuyas, Siling Labuyo, Toyo, Calamansi", 
+//         instructions: "Pakuluan, i-grill, at hiwain ang karne. Igisa ang sibuyas at karne. Timplahan ng toyo at calamansi. Ihain nang mainit." 
+//     },
+//     { id: 12, name: "Lomi", weather: "rainy", 
+//         ingredients: "Lomi Noodles, Pork/Chicken, Fish Ball, Itlog, Sabaw, Cornstarch", 
+//         instructions: "Igisa ang karne, idagdag ang toyo at sabaw. Ilagay ang noodles. Ibuhos ang cornstarch slurry para lumapot. Huling idagdag ang itlog." 
+//     },
+//     { id: 13, name: "Sinigang na Isda", weather: "rainy", 
+//         ingredients: "Isda, Sibuyas, Kamatis, Kangkong, Okra, Sinigang Mix", 
+//         instructions: "Pakuluan ang tubig kasama ang sibuyas at kamatis. Idagdag ang gulay. Ilagay ang isda at sinigang mix. Timplahan at ihain." 
+//     },
+//     { id: 14, name: "Sinigang na Baboy", weather: "rainy", 
+//         ingredients: "Pork Ribs/Liempo, Sibuyas, Kamatis, Labanos, Okra, Sinigang Mix", 
+//         instructions: "Pakuluan ang baboy hanggang lumambot. Ilagay ang sibuyas, kamatis, at gulay. Huling ilagay ang sinigang mix at kangkong." 
+//     },
+//     { id: 15, name: "Sopas", weather: "rainy", 
+//         ingredients: "Macaroni, Chicken, Hotdog, Carrots, Evaporated Milk, Stock", 
+//         instructions: "Igisa ang manok at gulay. Ibuhos ang sabaw at pakuluan. Ilagay ang macaroni. Pag luto, idagdag ang gatas at timplahan." 
+//     },
+//     { id: 16, name: "Batchoy", weather: "rainy", 
+//         ingredients: "Miki Noodles, Pork Meat/Liver, Broth, Ginisang Garlic, Chicharon", 
+//         instructions: "Igisa ang baboy at atay. Ibuhos ang pork broth at pakuluin. Idagdag ang miki noodles. Ihain na may chicharon at bawang." 
+//     },
+//     { id: 17, name: "Beef Stew (Filipino Style)", weather: "rainy", 
+//         ingredients: "Beef, Sibuyas, Bawang, Patatas, Carrots, Tomato Sauce, Beef Cube", 
+//         instructions: "Igisa ang baka hanggang mag-brown. Ibuhos ang tubig at ilagay ang beef cube. Kapag malambot na, ilagay ang gulay at tomato sauce." 
+//     },
+//     { id: 18, name: "Ramen (Pinoy Style)", weather: "rainy", 
+//         ingredients: "Instant Noodles, Egg, Sliced Pork/Chicken, Sibuyas Dahon, Toyo", 
+//         instructions: "Igisa ang bawang at karne. I-boil ang noodles sa sabaw. Lagyan ng toyo at sesame oil. Ilagay ang itlog at takpan." 
+//     },
+//     { id: 19, name: "Lasagna", weather: "rainy", 
+//         ingredients: "Lasagna Pasta, Ground Beef, Red Sauce, White Sauce, Cheese", 
+//         instructions: "I-layer ang pasta, red sauce, white sauce, and cheese. I-bake 20–30 mins hanggang mag-melt ang cheese." 
+//     },
+//     { id: 20, name: "Hot Cocoa (Tablea Style)", weather: "rainy", 
+//         ingredients: "Tablea, Water/Milk, Sugar", 
+//         instructions: "Pakuluan ang tubig o gatas. Ihalo ang tablea at haluin hanggang matunaw. Lagyan ng asukal." 
+//     }
+// ];
 
-    // Load recipes from local storage or initialize
-    let recipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
-    let nextRecipeId = recipes.length > 0 ? Math.max(...recipes.map(r => r.id)) + 1 : 1;
+let nextId = recipes.length + 1; // To ensure unique IDs for new recipes
 
-    // --- Helper Functions ---
+// DOM Elements
+const recipeList = document.getElementById('recipe-list');
+const weatherSelect = document.getElementById('weather-select');
+const modal = document.getElementById('recipeModal');
+const addRecipeBtn = document.getElementById('addRecipeBtn');
+const closeBtn = document.querySelector('.close-btn');
+const recipeForm = document.getElementById('recipeForm');
+const modalTitle = document.getElementById('modalTitle');
+const submitRecipeBtn = document.getElementById('submitRecipeBtn');
+const recipeIdInput = document.getElementById('recipeId');
 
-    // Function to render the list of ALL recipes (user-added and default)
-    function renderRecipesInGrid(filter = 'all', searchTerm = '') {
-        recipeGridContainer.innerHTML = ''; // Clear existing grid
-
-        // Add some dummy recipes for demonstration if the list is empty upon page load
-        if (recipes.length === 0 && !localStorage.getItem('hasDefaultRecipes')) {
-            const defaultRecipes = [
-                { id: 101, name: "Adobo Classic", ingredients: "Pork, Soy Sauce, Vinegar\nBay Leaf, Pepper", instructions: "1. Marinate the pork.\n2. Boil until tender.\n3. Simmer until sauce thickens.", category: "lutongbahay", weather: "comfort", isUserRecipe: false },
-                { id: 102, name: "Sinigang na Hipon", ingredients: "Shrimp, Kangkong, Radish\nTamarind powder, Water", instructions: "1. Boil water and tamarind.\n2. Add shrimp and vegetables.\n3. Simmer until cooked.", category: "lutongbahay", weather: "cold", isUserRecipe: false },
-                { id: 103, name: "Iced Coffee Blend", ingredients: "Brewed coffee, Milk\nIce, Sweetener", instructions: "1. Brew strong coffee.\n2. Pour over ice.\n3. Add milk and sweetener.", category: "dessert", weather: "sunny", isUserRecipe: false },
-                { id: 104, name: "Pancit Canton", ingredients: "Noodles, Vegetables\nSoy Sauce, Oyster Sauce", instructions: "1. Cook noodles.\n2. Stir-fry vegetables.\n3. Combine and season.", category: "lutongbahay", weather: "all", isUserRecipe: false },
-                { id: 105, name: "Halo-Halo", ingredients: "Shaved Ice, Milk, Sweet Beans\nLeche Flan, Ube", instructions: "1. Layer ingredients.\n2. Top with ice and milk.", category: "dessert", weather: "sunny", isUserRecipe: false },
-            ];
-            recipes.push(...defaultRecipes);
-            localStorage.setItem('userRecipes', JSON.stringify(recipes)); 
-            localStorage.setItem('hasDefaultRecipes', 'true'); 
-        }
-
-        let filteredRecipes = recipes;
-
-        // Apply filters
-        if (filter !== 'all') {
-            filteredRecipes = filteredRecipes.filter(recipe => {
-                // If filter is one of the weather categories OR lutongbahay category
-                return recipe.category === filter || recipe.weather === filter;
-            });
-        }
-
-        // Apply search term
-        if (searchTerm) {
-            const lowerCaseSearchTerm = searchTerm.toLowerCase();
-            filteredRecipes = filteredRecipes.filter(recipe => 
-                recipe.name.toLowerCase().includes(lowerCaseSearchTerm) ||
-                recipe.ingredients.toLowerCase().includes(lowerCaseSearchTerm)
-            );
-        }
-
-        if (filteredRecipes.length === 0) {
-            recipeGridContainer.innerHTML = '<p class="title-desktop" style="text-align:center;">No recipes found matching your criteria.</p>';
-            return;
-        }
-
-        filteredRecipes.forEach(recipe => {
-            const box = document.createElement('div');
-            box.classList.add('recipe-box');
-            if (recipe.isUserRecipe) {
-                box.classList.add('user-recipe');
-            }
-            box.setAttribute('data-id', recipe.id);
-            const imageUrl = recipe.imageUrl || `https://via.placeholder.com/150x120?text=${encodeURIComponent(recipe.name.substring(0, 10))}`;
-            box.innerHTML = `
-                <img src="${imageUrl}" alt="${recipe.name}" class="recipe-image">
-                <h3>${recipe.name}</h3>
-                ${recipe.isUserRecipe ? '<p style="font-size:0.9em; margin-top:5px; color:#555;">(Your Recipe)</p>' : ''}
-            `;
-            recipeGridContainer.appendChild(box);
-            box.addEventListener('click', () => showRecipeDetail(recipe));
-        });
-    }
-
-    // Function to show/hide the "Add Recipe" overlay
-    function toggleAddRecipeOverlay(show = true) {
-        if (show) {
-            addRecipeOverlay.classList.remove('hidden');
-            addRecipeForm.reset();
-            document.getElementById('recipe-id').value = '';
-            submitRecipeButton.textContent = 'Save Recipe to My List';
-        } else {
-            addRecipeOverlay.classList.add('hidden');
-        }
-    }
-
-    // Function to show recipe details in the modal
-    function showRecipeDetail(recipe) {
-        const detailOverlay = document.getElementById('recipe-detail-overlay');
-        document.getElementById('detail-title').textContent = recipe.name;
-        document.getElementById('detail-description').textContent = recipe.description || 'A delicious recipe.';
-        
-        const ingredientsUl = document.querySelector('#detail-ingredients ul');
-        const instructionsOl = document.querySelector('#detail-instructions ol');
-        
-        // Convert multiline text into list items, handling empty lines
-        ingredientsUl.innerHTML = recipe.ingredients.split('\n').map(item => item.trim()).filter(item => item !== '').map(item => `<li>${item}</li>`).join('');
-        instructionsOl.innerHTML = recipe.instructions.split('\n').map(item => item.trim()).filter(item => item !== '').map(item => `<li>${item}</li>`).join('');
-        
-        detailOverlay.classList.remove('hidden');
-    }
-
-    // --- Event Listeners ---
-
-    // 1. Open the "Add Recipe" overlay when 'Add My Recipe' button is clicked
-    addMyRecipeButton.addEventListener('click', () => {
-        toggleAddRecipeOverlay(true);
-    });
-
-    // 2. Close the "Add Recipe" overlay
-    closeAddButton.addEventListener('click', () => {
-        toggleAddRecipeOverlay(false);
-    });
+// --- R - Read (Display Recipes) ---
+function renderRecipes(filter = 'all') {
+    recipeList.innerHTML = ''; // Clear existing recipes
     
-    // 3. Close the Recipe Detail overlay
-    const closeDetailButton = document.getElementById('close-detail-button');
-    closeDetailButton.addEventListener('click', () => {
-        document.getElementById('recipe-detail-overlay').classList.add('hidden');
+    // Convert 'stormy' filter to 'rainy' for consistency if needed, but we merged them.
+    if (filter === 'stormy') filter = 'rainy';
+
+    const filteredRecipes = recipes.filter(recipe => 
+        filter === 'all' || recipe.weather === filter
+    );
+
+    if (filteredRecipes.length === 0) {
+        recipeList.innerHTML = `<p style="grid-column: 1 / -1; text-align: center;">No recipes found for this weather category.</p>`;
+        return;
+    }
+
+    filteredRecipes.forEach(recipe => {
+        const card = document.createElement('div');
+        card.className = 'recipe-card';
+        const weatherText = recipe.weather === 'sunny' ? '☀️ Sunny' : '🌧️ Rainy/Stormy';
+
+        card.innerHTML = `
+            <div class="card-weather">${weatherText}</div>
+            <h3>${recipe.name}</h3>
+            <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
+            <p><strong>Instructions:</strong> ${recipe.instructions.substring(0, 50)}...</p>
+            <div class="card-actions">
+                <button class="edit-btn" data-id="${recipe.id}">Edit</button>
+                <button class="delete-btn" data-id="${recipe.id}">Delete</button>
+            </div>
+        `;
+        recipeList.appendChild(card);
     });
+}
 
-    // 4. Handle recipe submission/editing
-    addRecipeForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const id = document.getElementById('recipe-id').value;
-        const name = document.getElementById('new-recipe-name').value;
-        const ingredients = document.getElementById('new-recipe-ingredients').value;
-        const instructions = document.getElementById('new-recipe-instructions').value;
-
-        const newRecipe = {
-            id: id ? parseInt(id) : nextRecipeId,
-            name,
-            ingredients,
-            instructions,
-            isUserRecipe: true,
-            // Default categories for user-added recipes
-            category: "user-added", 
-            weather: "all" 
-        };
-
-        if (id) {
-            // Edit existing recipe
-            const index = recipes.findIndex(r => r.id === parseInt(id));
-            if (index !== -1) {
-                recipes[index] = newRecipe;
-            }
-        } else {
-            // Add new recipe
-            recipes.push(newRecipe);
-            nextRecipeId++; 
-        }
-
-        localStorage.setItem('userRecipes', JSON.stringify(recipes));
-        renderRecipesInGrid(); // Re-render grid to show new/edited recipe
-        toggleAddRecipeOverlay(false); // Close the form
-        alert(id ? 'Recipe updated successfully!' : 'Recipe added successfully!');
-    });
-
-    // 5. Handle Search
-    searchButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        const searchTerm = searchInput.value.trim();
-        renderRecipesInGrid('all', searchTerm);
-    });
-    
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            searchButton.click();
-        }
-    });
-
-
-    // 6. Handle Filtering (Lutong Bahay and Weather Foodie)
-    allFilterButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const filterValue = e.target.getAttribute('data-filter');
-            
-            // Highlight the active filter (optional, but good UX)
-            allFilterButtons.forEach(btn => btn.classList.remove('active-filter'));
-            e.target.classList.add('active-filter');
-
-            // Set the main title to reflect the filter
-            if (filterValue === 'lutongbahay') {
-                mainContentTitle.textContent = "Filipino Home Cooked Favorites";
-            } else if (filterValue === 'sunny') {
-                mainContentTitle.textContent = "☀️ Hot & Sunny Day Treats";
-            } else if (filterValue === 'cold') {
-                mainContentTitle.textContent = "❄️ Comfort Foods for Rainy Days";
-            } else if (filterValue === 'comfort') {
-                mainContentTitle.textContent = "☁️ Cozy & Mild Weather Meals";
-            } else {
-                mainContentTitle.textContent = "Nourish. Sustain. Achieve.";
-            }
-
-            renderRecipesInGrid(filterValue);
-        });
-    });
-
-    // 7. Handle "Recipes" nav link click (show all recipes)
-    recipesNavLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        mainContentTitle.textContent = "Nourish. Sustain. Achieve.";
-        searchInput.value = ''; // Clear search
-        renderRecipesInGrid('all');
-    });
-
-    // 8. Initial Load
-    renderRecipesInGrid('all');
+// Event listener for weather filter
+weatherSelect.addEventListener('change', (e) => {
+    renderRecipes(e.target.value);
 });
+
+// --- C - Create & U - Update (Handle Form Submission) ---
+recipeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const id = recipeIdInput.value ? parseInt(recipeIdInput.value) : null;
+    const name = document.getElementById('recipeName').value;
+    const weather = document.getElementById('recipeWeather').value;
+    const ingredients = document.getElementById('recipeIngredients').value;
+    const instructions = document.getElementById('recipeInstructions').value;
+
+    const newRecipe = {
+        name,
+        weather,
+        ingredients,
+        instructions
+    };
+
+    if (id) {
+        // UPDATE existing recipe
+        const index = recipes.findIndex(r => r.id === id);
+        if (index > -1) {
+            recipes[index] = { id: id, ...newRecipe };
+        }
+        alert(`Recipe "${name}" updated successfully!`);
+    } else {
+        // CREATE new recipe
+        newRecipe.id = nextId++;
+        recipes.push(newRecipe);
+        alert(`New recipe "${name}" added successfully!`);
+    }
+
+    modal.style.display = 'none';
+    recipeForm.reset();
+    renderRecipes(weatherSelect.value); // Refresh list
+});
+
+// --- Modal Controls for Create/Update ---
+
+// Show Modal for Create
+addRecipeBtn.addEventListener('click', () => {
+    modalTitle.textContent = 'Add New Recipe';
+    submitRecipeBtn.textContent = 'Save Recipe';
+    recipeIdInput.value = '';
+    recipeForm.reset();
+    modal.style.display = 'block';
+});
+
+// Close Modal
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.onclick = (event) => {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+};
+
+// --- D - Delete & U - Update (Card Actions) ---
+recipeList.addEventListener('click', (e) => {
+    const id = e.target.dataset.id;
+    if (!id) return;
+    const recipeId = parseInt(id);
+
+    if (e.target.classList.contains('delete-btn')) {
+        // DELETE operation
+        if (confirm('Are you sure you want to delete this recipe?')) {
+            recipes = recipes.filter(r => r.id !== recipeId);
+            alert('Recipe deleted.');
+            renderRecipes(weatherSelect.value);
+        }
+    } else if (e.target.classList.contains('edit-btn')) {
+        // UPDATE operation (Load data into modal)
+        const recipe = recipes.find(r => r.id === recipeId);
+        if (recipe) {
+            modalTitle.textContent = 'Edit Recipe';
+            submitRecipeBtn.textContent = 'Update Recipe';
+            
+            recipeIdInput.value = recipe.id;
+            document.getElementById('recipeName').value = recipe.name;
+            document.getElementById('recipeWeather').value = recipe.weather;
+            document.getElementById('recipeIngredients').value = recipe.ingredients;
+            document.getElementById('recipeInstructions').value = recipe.instructions;
+
+            modal.style.display = 'block';
+        }
+    }
+});
+
+// Initial load
+renderRecipes('all');

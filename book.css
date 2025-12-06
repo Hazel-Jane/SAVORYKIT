@@ -1,0 +1,278 @@
+/* Import Google Font (Inter) for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* CSS Variables for easy color management */
+:root {
+    --savory-green: #4CAF50; /* Primary Green */
+    --savory-dark: #385C3A;  /* Accent Dark Green */
+    --savory-light: #F8F9FA; /* Background Light Grey */
+    --font-main: 'Inter', sans-serif;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: #333;
+    background-color: var(--savory-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* --- Header and Navigation --- */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--savory-dark);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 2rem;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--savory-green);
+}
+
+.nav-links .active a {
+    color: var(--savory-dark);
+    font-weight: 600;
+    border-bottom: 2px solid var(--savory-green);
+}
+
+/* Mobile Menu Button - Hidden on desktop */
+.mobile-menu-button {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--savory-dark);
+    padding: 0.5rem;
+}
+
+.hero{
+    width: 100%;
+    height: 400px;
+    background: url(https://i.pinimg.com/736x/6b/cc/7f/6bcc7f90504c74f286dca773ecfc7daf.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 140px 0;
+    margin-bottom: 20px;
+}
+
+.hero h2{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.hero p{
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.search-box{
+    width: 120;
+    margin: 150px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.search-box input{
+    width: 70%;
+    padding: 10px;
+    outline: none;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+    border: 1px solid rgb(3, 3, 44);
+}
+
+.search-box button{
+    
+    padding: 10px 20px;
+    outline: none;
+    border: 0;
+    border-radius:  0 5px 5px 0 ;
+    font-size: 1rem;
+    background: rgb(3, 3, 44);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+/* RECIPE SECTION */
+
+.recipes{
+    padding: 50px 0;
+}
+.recipes h1{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.recipe-section{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    column-gap: 10px;
+}
+
+.recipe-card{
+    background: rgb(255, 255, 255);
+    margin: 25px 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(201, 201, 201);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgb(3, 3, 44, 0.1);
+}
+.recipe-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: fit;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+}
+
+.recipe-card h2{
+   font-size: 22px;
+   padding: 20px;
+   text-align: center;
+}
+
+.recipe-card p{
+   font-size: 15px;
+   padding: 15px;
+   text-align: center;
+}
+
+.recipe-card a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #333;
+    color: #fff;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links li a {
+        margin-left: 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .hero h2 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 30px;
+    }
+
+    .search-box input {
+        width: 60%;
+    }
+}
+
+/* --- MOBILE (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    /* Show mobile menu button */
+    .mobile-menu-button {
+        display: block;
+    }
+
+    /* Hide nav links by default */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        border-top: 1px solid #ddd;
+    }
+
+    /* Style when active (OPEN menu) */
+    .nav-links.show {display: flex;}
+
+    .nav-links li {margin: 15px 0;}
+
+    .hero {height: auto; padding: 100px 20px;}
+
+    .hero h2 {font-size: 36px;}
+
+    .hero p {font-size: 24px;}
+
+    .search-box {flex-direction: column;}
+
+    .search-box input {width: 90%; border-radius: 5px; margin-bottom: 10px;}
+
+    .search-box button {width: 90%; border-radius: 5px;}
+
+    .recipe-section {grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));}
+
+    .recipe-card h2,
+    .recipe-card p {font-size: 18px;}
+}
+
+/* --- SMALL PHONES (max-width: 480px) --- */
+@media (max-width: 480px) {
+
+    .logo {font-size: 1.2rem;}
+
+    .hero h2 {font-size: 30px;}
+
+    .hero p {font-size: 20px;}
+
+    .recipe-section {grid-template-columns: 1fr;}
+
+    .recipe-card {margin: 20px auto; width: 90%;}
+}

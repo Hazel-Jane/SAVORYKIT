@@ -1,66 +1,57 @@
-/* Import Google Font (Inter) for modern typography */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-/* CSS Variables for easy color management with Pastel Palette */
+/* REVISED CSS Variables for Dark High-Contrast Palette */
 :root {
-    /* Pastel Green Palette */
-    --pastel-primary-green: #A3D4A3; /* A soft, light green */
-    --pastel-dark-green: #5F8B60; /* A muted, deep green for text/accents */
-    --pastel-bg-color: #FAF9F6;/* A soft cream/off-white background */
-    --pastel-box-color: #FFFFFF;  /* Pure white for inner elements like cards */
-    --pastel-accent-light: #E9F4E9; /* Very light green for subtle backgrounds */
-    
+    /* Dark Theme Palette */
+    --primary-text-color: #f0f0f0;
+    /* Light text for dark background */
+    --secondary-text-color: #A0A0A0;
+    /* Muted gray for secondary text */
+    --accent-gold: #e6a756;
+    /* Gold/Orange accent, matching sample image button */
+    --accent-green: #A3D4A3;
+    /* Retain your light green for brand highlight */
+    --bg-dark-color: #1a1a1a;
+    /* Very dark/black background */
+    --bg-mid-color: #2c2c2c;
+    /* Slightly lighter dark for headers/boxes */
     --font-main: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    /* Use a serif font for headings like the sample */
 }
 
 /* --- Global Styles --- */
-/* * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-} */
-
 body {
     font-family: var(--font-main);
-    color: #333; /* Dark text for contrast */
-    background-color: var(--pastel-bg-color); 
-    /* line-height: 1.6; */
+    color: var(--primary-text-color);
+    background-color: var(--bg-dark-color);
     scroll-behavior: smooth;
+    margin: 0;
 }
 
-/* --- Header and Navigation - NOW PASTEL GREEN BACKGROUND --- */
-.site-header {
-    /* CHANGE: Changed background color to pastel accent light */
-    background-color: var(--pastel-accent-light); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+/* --- Header and Navigation (Updated for Dark Theme) --- */
+.header {
+    background-color: var(--bg-mid-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
     z-index: 50;
-}
-
-.main-navigation {
-    max-width: 1200px; /* Keep Nav Centered */
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 5%;
 }
 
-.site-logo {
+.logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--pastel-dark-green);
+    color: var(--accent-green);
+    /* Use brand green for logo */
     text-decoration: none;
 }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-}
-
-.nav-menu li a {
-    color: #666;
+.navbar a {
+    color: var(--primary-text-color);
     text-decoration: none;
     margin-left: 2rem;
     padding: 0.5rem 0;
@@ -68,103 +59,118 @@ body {
     transition: color 0.3s;
 }
 
-.nav-menu li a:hover {
-    color: var(--pastel-primary-green);
+.navbar a:hover {
+    color: var(--accent-gold);
 }
 
-.nav-menu .current-page-link a {
-    color: var(--pastel-dark-green);
-    font-weight: 600;
-    border-bottom: 2px solid var(--pastel-primary-green);
+#menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
-/* --- Hero Section - FULL WIDTH PARENT & FULL STRETCH INNER CONTAINER --- */
+/* --- Hero Section (High-Contrast Dark Design) --- */
 .main-content-area {
-    /* padding: 0;  */
-    /* NEW: Apply pastel green background to the main content area */
-    background-color: var(--pastel-accent-light);
+    background-color: var(--bg-dark-color);
 }
 
 .hero-section {
-    /* width: 100%; 
-    margin: 0 auto; Removed vertical margin to connect to header */
-    /* padding-top: 3rem; Added padding for spacing from the top */
     display: flex;
     flex-direction: row;
-    border-radius: 0; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    min-height: 75vh;
-    /* CHANGE: Changed background color to white/box color for contrast inside the main content area */
-    background-color: var(--pastel-box-color);
+    min-height: 85vh;
+    /* Make it taller to fill the screen nicely */
+    background-color: var(--bg-dark-color);
 }
 
 .hero-inner-container {
-    /* width: 100%; */
-    /* max-width: 1200px; Added max-width here to recenter the content */
-    margin: 0 auto; 
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
 }
-
 
 /* Hero Left Content */
 .hero-text-content {
     flex: 3;
-    padding: 4rem 1.5rem; 
+    padding: 6rem 1.5rem;
+    /* Increased padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .tagline {
-    color: var(--pastel-primary-green);
-    font-size: 1.125rem;
+    color: var(--accent-gold);
+    /* Use the gold accent for the small header */
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    letter-spacing: 2px;
 }
 
 .main-heading {
-    font-size: 3.5rem;
+    font-family: var(--font-heading);
+    /* Serif font for dramatic effect */
+    font-size: 4.5rem;
+    /* Larger font size */
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    color: var(--primary-text-color);
+    text-transform: uppercase;
 }
 
 .main-heading .highlight-text {
-    color: var(--pastel-primary-green);
+    color: var(--accent-green);
+    /* Use brand green for highlight */
 }
 
 .intro-description {
-    color: #555;
-    /* Retained max-width for readability on long paragraphs */
-    max-width: 500px; 
+    color: var(--secondary-text-color);
+    max-width: 500px;
     margin-bottom: 2rem;
     font-size: 1.125rem;
 }
 
 /* Quote Styling */
 .pull-quote {
-    border-left: 4px solid var(--pastel-primary-green);
+    border-left: 4px solid var(--accent-gold);
     padding: 0.75rem 0 0.75rem 1.25rem;
     margin-bottom: 2.5rem;
-    /* Using the lighter accent color for contrast on the white background */
-    background-color: var(--pastel-accent-light); 
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+    background-color: var(--bg-mid-color);
+    border-radius: 0;
 }
 
 .pull-quote p {
     font-style: italic;
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--pastel-dark-green);
+    color: var(--secondary-text-color);
 }
 
-/* Hero Right Visual (The Green Background) */
+/* NEW: Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--accent-gold);
+    color: var(--bg-dark-color);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* .cta-button:hover { background-color: #f7b76e; transform: translateY(-2px); } */
+/* Hero Right Visual */
 .hero-visual-element {
     flex: 2;
-    background-color: var(--pastel-primary-green);
+    background-color: var(--bg-mid-color);
+    /* Darker background for the image section */
     position: relative;
     display: flex;
     justify-content: center;
@@ -173,40 +179,37 @@ body {
     z-index: 10;
 }
 
-/* Abstract Shape (The darker green swirl/blob) */
+/* Abstract Shape (Remove abstract shape for clean look, or adjust) */
 .hero-visual-element::before {
     content: '';
     position: absolute;
-    top: -15%;
-    right: -10%;
-    bottom: -15%;
-    left: 40%;
-    background-color: var(--pastel-dark-green);
-    border-radius: 60% 40% 40% 60% / 60% 30% 70% 40%;
-    transform: rotate(15deg);
-    opacity: 0.2;
-    z-index: 0;
+    /* Removed the complex shape for a cleaner, image-focused design */
+    background: none;
 }
 
-/* Image Wrapper - Controls the circular shape and size */
+/* Image Wrapper - Changed to a simple border, removed circle for rectangular feel */
 .image-display-wrapper {
     position: relative;
-    width: 70%;
-    max-width: 350px;
-    padding-bottom: 70%;
-    border-radius: 50%;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-    border: 5px solid var(--pastel-box-color); /* White border around image */
+    width: 90%;
+    max-width: 100%;
+    padding-bottom: 100%;
+    /* Makes the wrapper a square */
+    border-radius: 0;
+    /* Make it rectangular/square */
+    box-shadow: none;
+    /* Removed shadow */
+    border: none;
     overflow: hidden;
     z-index: 20;
     transition: transform 0.5s ease;
 }
 
 .image-display-wrapper:hover {
-    transform: scale(1.05);
+    transform: scale(1.0);
+    /* Removed scaling on hover for this static look */
 }
 
-/* Actual Image - Fills the circular wrapper */
+/* Actual Image - Fills the wrapper */
 .food-plate-image {
     position: absolute;
     top: 0;
@@ -214,65 +217,33 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Optional: Apply a subtle dark filter/overlay to the image to match the sample */
+    filter: brightness(0.9) contrast(1.1);
 }
 
-.sr-only { 
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+.sr-only {
+    /* ... (visibility styling remains the same) ... */
 }
 
-/* --- Weather Section - FULL WIDTH PARENT --- */
-.weather-display-section {
-    width: 100%; 
-    margin: 4rem auto 4rem auto;
-    padding: 2rem 0; 
-    background-color: var(--pastel-accent-light); /* This is already the light green background */
-    border-radius: 0;
-    box-shadow: none; 
+/* --- Body Content Section (for Weather) --- */
+.body-content-section {
+    /* Use the mid-dark background for subsequent sections */
+    background-color: var(--bg-mid-color);
+    padding: 4rem 0;
     text-align: center;
 }
 
-/* .weather-inner-container {
+.weather-content-wrapper {
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem; 
-} */
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--pastel-dark-green);
-    margin-bottom: 1.5rem;
-    padding-top: 2rem; 
-}
-
-.weather-info-container {
+    padding: 0 1.5rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    padding: 2.5rem 1.5rem; 
-    border: 1px solid #eee;
-    /* border-radius: 0.5rem;
-    background-color: var(--pastel-box-color); 
-    min-height: 100px;
-    margin-bottom: 2rem; */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    align-items: center;
 }
 
-.initial-message {
-    color: #000000;
-}
-
-/* New Weather Display Styles */
+/* Weather Info Container (Real-time data location) - Updated to dark theme */
 .current-weather {
     display: flex;
     flex-direction: column;
@@ -281,7 +252,7 @@ body {
 }
 
 .weather-location {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: var(--pastel-dark-green);
     margin-bottom: 0.5rem;
@@ -290,13 +261,13 @@ body {
 .weather-temp-icon {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .weather-temp {
     font-size: 4rem;
     font-weight: 900;
-    color: #333;
+    color: #fffcfc;
     line-height: 1;
     margin-right: 1rem;
 }
@@ -316,6 +287,54 @@ body {
     width: 100%;
     padding-top: 1rem;
     border-top: 1px dashed #ccc;
-    margin: 0 auto; /* Center the detail grid */
+    margin: 0 auto;
+    /* Center the detail grid */
 }
 
+/* --- REVISED WEATHER ICON STYLES (Retained functionality but adapted colors) --- */
+/* .weather-condition-icons { display: flex; justify-content: space-around; align-items: center; width: 50%; max-width: 100px; margin-top: 3rem; padding: 2rem 1.5rem; background-color: var(--bg-dark-color); border-radius: 1rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); border: 1px solid var(--bg-mid-color); } */
+.condition-item:hover {
+    transform: translateY(-5px);
+    background-color: var(--bg-mid-color);
+    /* Darker hover effect */
+}
+
+/* Wrapper for the icon to create the circular background */
+.icon-container {
+    width: 80px;
+    height: 80px;
+    background-color: var(--bg-mid-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s;
+}
+
+.condition-item:hover .icon-container {
+    background-color: var(--accent-gold);
+    /* Gold background on hover */
+}
+
+/* Icon size and color */
+.icon-large {
+    font-size: 3.5rem;
+    color: var(--accent-green);
+    /* Green icon color */
+    transition: color 0.3s;
+}
+
+.condition-item:hover .icon-large {
+    color: var(--bg-dark-color);
+    /* Dark text color on gold hover */
+}
+
+.condition-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    /* Light text for label */
+    text-align: center;
+}
