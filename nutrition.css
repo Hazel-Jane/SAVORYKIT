@@ -1,0 +1,54 @@
+/* Basic Reset and Typography */
+body { 
+    font-family: 'Arial', sans-serif; 
+    background-color: #f4f4f4; 
+    margin: 0; 
+    padding: 20px;
+}
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #4BC0C0; /* Teal accent color */
+}
+h1 { 
+    color: #333; 
+    font-size: 2.5em; 
+    margin: 0;
+}
+h2 { 
+    color: #555; 
+    font-size: 1.5em;
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Dashboard Layout (using CSS Grid for a modern look) */
+.dashboard-grid {
+    display: grid;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+/* Chart Containers */
+.chart-container { 
+    background: white; 
+    padding: 25px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Ensure canvas is responsive within its container */
+canvas {
+    max-width: 100%;
+    height: auto;
+}

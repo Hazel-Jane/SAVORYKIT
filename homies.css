@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* REVISED CSS Variables for Dark High-Contrast Palette */
+:root {
+    /* Dark Theme Palette */
+    --primary-text-color: #f0f0f0;
+    /* Light text for dark background */
+    --secondary-text-color: #A0A0A0;
+    /* Muted gray for secondary text */
+    --accent-gold: #e6a756;
+    /* Gold/Orange accent, matching sample image button */
+    --accent-green: #A3D4A3;
+    /* Retain your light green for brand highlight */
+    --bg-dark-color: #1a1a1a;
+    /* Very dark/black background */
+    --bg-mid-color: #2c2c2c;
+    /* Slightly lighter dark for headers/boxes */
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    /* Use a serif font for headings like the sample */
+}
+
+/* --- Global Styles --- */
+body {
+    font-family: var(--font-main);
+    color: var(--primary-text-color);
+    background-color: var(--bg-dark-color);
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+/* --- Header and Navigation (Updated for Dark Theme) --- */
+.header {
+    background-color: var(--bg-mid-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    /* Use brand green for logo */
+    text-decoration: none;
+}
+
+.navbar a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--accent-gold);
+}
+
+#menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* --- Hero Section (High-Contrast Dark Design) --- */
+.main-content-area {
+    background-color: var(--bg-dark-color);
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    min-height: 85vh;
+    /* Make it taller to fill the screen nicely */
+    background-color: var(--bg-dark-color);
+}
+
+.hero-inner-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Hero Left Content */
+.hero-text-content {
+    flex: 3;
+    padding: 6rem 1.5rem;
+    /* Increased padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tagline {
+    color: var(--accent-gold);
+    /* Use the gold accent for the small header */
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.main-heading {
+    font-family: var(--font-heading);
+    /* Serif font for dramatic effect */
+    font-size: 4.5rem;
+    /* Larger font size */
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--primary-text-color);
+    text-transform: uppercase;
+}
+
+.main-heading .highlight-text {
+    color: var(--accent-green);
+    /* Use brand green for highlight */
+}
+
+.intro-description {
+    color: var(--secondary-text-color);
+    max-width: 500px;
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+}
+
+/* Quote Styling */
+.pull-quote {
+    border-left: 4px solid var(--accent-gold);
+    padding: 0.75rem 0 0.75rem 1.25rem;
+    margin-bottom: 2.5rem;
+    background-color: var(--bg-mid-color);
+    border-radius: 0;
+}
+
+.pull-quote p {
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+}
+
+/* NEW: Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--accent-gold);
+    color: var(--bg-dark-color);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* .cta-button:hover { background-color: #f7b76e; transform: translateY(-2px); } */
+/* Hero Right Visual */
+.hero-visual-element {
+    flex: 2;
+    background-color: var(--bg-mid-color);
+    /* Darker background for the image section */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Abstract Shape (Remove abstract shape for clean look, or adjust) */
+.hero-visual-element::before {
+    content: '';
+    position: absolute;
+    /* Removed the complex shape for a cleaner, image-focused design */
+    background: none;
+}
+
+/* Image Wrapper - Changed to a simple border, removed circle for rectangular feel */
+.image-display-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 100%;
+    padding-bottom: 100%;
+    /* Makes the wrapper a square */
+    border-radius: 0;
+    /* Make it rectangular/square */
+    box-shadow: none;
+    /* Removed shadow */
+    border: none;
+    overflow: hidden;
+    z-index: 20;
+    transition: transform 0.5s ease;
+}
+
+.image-display-wrapper:hover {
+    transform: scale(1.0);
+    /* Removed scaling on hover for this static look */
+}
+
+/* Actual Image - Fills the wrapper */
+.food-plate-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Optional: Apply a subtle dark filter/overlay to the image to match the sample */
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.sr-only {
+    /* ... (visibility styling remains the same) ... */
+}
+
+/* --- Body Content Section (for Weather) --- */
+.body-content-section {
+    /* Use the mid-dark background for subsequent sections */
+    background-color: var(--bg-mid-color);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.weather-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Weather Info Container (Real-time data location) - Updated to dark theme */
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.weather-location {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--pastel-dark-green);
+    margin-bottom: 0.5rem;
+}
+
+.weather-temp-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.weather-temp {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #fffcfc;
+    line-height: 1;
+    margin-right: 1rem;
+}
+
+.weather-description {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pastel-primary-green);
+    margin-bottom: 1.5rem;
+}
+
+.weather-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 2rem;
+    max-width: 400px;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px dashed #ccc;
+    margin: 0 auto;
+    /* Center the detail grid */
+}
+
+/* --- REVISED WEATHER ICON STYLES (Retained functionality but adapted colors) --- */
+/* .weather-condition-icons { display: flex; justify-content: space-around; align-items: center; width: 50%; max-width: 100px; margin-top: 3rem; padding: 2rem 1.5rem; background-color: var(--bg-dark-color); border-radius: 1rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); border: 1px solid var(--bg-mid-color); } */
+.condition-item:hover {
+    transform: translateY(-5px);
+    background-color: var(--bg-mid-color);
+    /* Darker hover effect */
+}
+
+/* Wrapper for the icon to create the circular background */
+.icon-container {
+    width: 80px;
+    height: 80px;
+    background-color: var(--bg-mid-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s;
+}
+
+.condition-item:hover .icon-container {
+    background-color: var(--accent-gold);
+    /* Gold background on hover */
+}
+
+/* Icon size and color */
+.icon-large {
+    font-size: 3.5rem;
+    color: var(--accent-green);
+    /* Green icon color */
+    transition: color 0.3s;
+}
+
+.condition-item:hover .icon-large {
+    color: var(--bg-dark-color);
+    /* Dark text color on gold hover */
+}
+
+.condition-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    /* Light text for label */
+    text-align: center;
+}

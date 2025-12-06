@@ -1,5 +1,6 @@
 /* Import Google Font (Inter) for modern typography */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 /* CSS Variables for easy color management with Pastel Palette */
 :root {
@@ -29,8 +30,8 @@ body {
 }
 
 /* --- Header and Navigation - NOW PASTEL GREEN BACKGROUND --- */
-.site-header {
-    /* CHANGE: Changed background color to pastel accent light */
+/* .site-header {
+    
     background-color: var(--pastel-accent-light); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     position: sticky;
@@ -39,7 +40,7 @@ body {
 }
 
 .main-navigation {
-    max-width: 1200px; /* Keep Nav Centered */
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 1rem 1.5rem;
     display: flex;
@@ -70,13 +71,53 @@ body {
 
 .nav-menu li a:hover {
     color: var(--pastel-primary-green);
+} */
+
+/* body {background: var(--bg-color); color: var(--text-color);}
+section {
+ min-height: 100vh;
+ padding: 10rem 9% 2rem;
 }
+.header {
+ position: fixed;
+width: 100%;
+ top: 0;
+right: 0;
+ z-index: 1000;
+ display: flex;
+ align-items: center;
+justify-content: space-between;
+padding: 1rem 5%;
+ background: rgb(75, 163, 72);
+ backdrop-filter: blur(10px);
+transition: all 0.5s ease;
+}
+.logo {
+font-size: 2rem;
+ color: var(--bg-color);
+font-weight: 700;
+ cursor: default;
+ transition: 0.3s ease;
+}
+.logo:hover {transform: scale(1.05);}
+.navbar a {
+font-size: 1.5rem;
+color: var(--bg-color);
+ margin-left: 4rem;
+font-weight: 700;
+ transition: 0.3s ease-in-out;
+}
+.navbar a:hover,
+.navbar a.active {
+color: var(--text-color);
+}
+
 
 .nav-menu .current-page-link a {
     color: var(--pastel-dark-green);
     font-weight: 600;
     border-bottom: 2px solid var(--pastel-primary-green);
-}
+} */
 
 /* --- Hero Section - FULL WIDTH PARENT & FULL STRETCH INNER CONTAINER --- */
 .main-content-area {
@@ -189,14 +230,14 @@ body {
 }
 
 /* Image Wrapper - Controls the circular shape and size */
-.image-display-wrapper {
+/* .image-display-wrapper {
     position: relative;
     width: 70%;
     max-width: 350px;
     padding-bottom: 70%;
     border-radius: 50%;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-    border: 5px solid var(--pastel-box-color); /* White border around image */
+    border: 5px solid var(--pastel-box-color); 
     overflow: hidden;
     z-index: 20;
     transition: transform 0.5s ease;
@@ -204,10 +245,45 @@ body {
 
 .image-display-wrapper:hover {
     transform: scale(1.05);
+} */
+
+.order-visual-element {
+    flex: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    z-index: 10;
 }
 
-/* Actual Image - Fills the circular wrapper */
-.food-plate-image {
+.order-visual-element::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100px; /* Extend off the screen */
+    bottom: 0;
+    left: 40%;
+    background-color: #333; /* Dark grey/black textured background */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><rect width="4" height="4" fill="%23333"/><path d="M0 0h1v1H0zm2 0h1v1H2zm0 2h1v1H2zm0 0h1v1H2zM0 2h1v1H0z" fill-opacity="0.1" fill="%23fff"/></svg>');
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    z-index: 5;
+}
+
+.image-display-wrapper {
+    position: relative;
+    width: 70%;
+    max-width: 350px;
+    padding-bottom: 70%; /* For a square/circular container */
+    border-radius: 50%;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 20;
+    transition: transform 0.5s ease;
+}
+
+.salad-plate-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -216,7 +292,35 @@ body {
     object-fit: cover;
 }
 
-.sr-only { /* Screen Reader Only for figcaption */
+/* Meal Info Card (Orange box) */
+/* .meal-info-card {
+    position: absolute;
+    bottom: -1rem; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    min-width: 250px;
+    background-color: #ff8c00; 
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 15px rgba(255, 140, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+} */
+
+/* .food-plate-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sr-only { 
     position: absolute;
     width: 1px;
     height: 1px;
@@ -226,7 +330,11 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
-}
+} */
+
+
+
+
 
 /* --- Weather Section - FULL WIDTH PARENT --- */
 .weather-display-section {
@@ -254,7 +362,7 @@ body {
     padding-top: 2rem; 
 }
 
-.weather-info-container {
+/* .weather-info-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,11 +370,61 @@ body {
     padding: 2.5rem 1.5rem; 
     border: 1px solid #eee;
     border-radius: 0.5rem;
-    background-color: var(--pastel-box-color); /* White background for the card */
+    background-color: var(--pastel-box-color); 
     min-height: 100px;
     margin-bottom: 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+} */
+
+/* --- Weather Section - FULL WIDTH PARENT --- */
+.weather-display-section {
+    width: 100%; 
+    /* Changed margin to 0 auto to fully stretch the background */
+    margin: 0 auto; 
+    /* Added responsive vertical padding */
+    padding: 3rem 1.5rem; 
+    background-color: var(--pastel-accent-light);
+    box-shadow: none; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2.5rem 1.5rem; 
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    background-color: var(--pastel-box-color); 
+    min-height: 100px;
+    margin-bottom: 0; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    
+  
+    max-width: 100%; 
+    width: 100%;
 }
+
+/* Ensure inner content is centered and contained for readability */
+
+/* The requested container */
+/* .weather-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2.5rem 1.5rem; 
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    background-color: var(--pastel-box-color); 
+    min-height: 100px;
+    margin-bottom: 0; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    
+  
+    max-width: 100%; 
+    width: 100%;
+} */
+
+/* ... existing weather detail styles ... */
 
 .initial-message {
     color: #666;
@@ -317,5 +475,163 @@ body {
     padding-top: 1rem;
     border-top: 1px dashed #ccc;
     margin: 0 auto; /* Center the detail grid */
+}
+
+/* --- FOOTER CONTAINER --- */
+footer {
+    position: relative;
+    width: 100%;
+    background: #bbe29a; 
+    padding: 50px 100px;
+
+}
+
+footer .container {
+    max-width: 1090px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 27px;
+}
+
+
+/* --- HEADINGS --- */
+footer .container .sec h2 {
+    position: relative;
+    color: #080808; 
+    font-weight: 650;
+    margin-bottom: 20px;
+    font-size: 2rem; 
+}
+
+
+/* Styling for the Follow Us list container */
+.sec.followus h2 {
+    color: #309e33; 
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1.2rem; 
+}
+
+/* Styling for the list itself (replacing .sci with .sci-list) */
+.sci-list {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.sci-list li {
+    margin-bottom: 12px; /* Spacing between social links */
+}
+
+/* Styling for the links (icon and text) */
+.sci-list a {
+    text-decoration: none;
+    color: #1b1b1b;
+    font-size: 1rem;
+    display: flex; /* Use flexbox to align icon and text */
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.sci-list a:hover {
+    color: #419445; /* Hover color */
+}
+
+/* Styling for the icon */
+.sci-list a i {
+    color: #498b4c; /* Light green for the icon */
+    font-size: 1.25rem;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+
+/* --- LINKS (Quick, Extra, Contact) --- */
+.quicklinks ul, .extralinks ul {
+    list-style: none; 
+}
+
+.quicklinks li, .extralinks li {
+    margin-bottom: 8px; 
+}
+
+.quicklinks li a, .extralinks li a {
+    text-decoration: none;
+    color: #1b1b1b;
+    font-size: 1rem;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.quicklinks li a:hover, .extralinks li a:hover {
+    color: #419445;
+}
+
+
+/* --- CONTACT INFO --- */
+.contact ul {
+    list-style: none;
+}
+
+.info li {
+    display: grid;
+    grid-template-columns: 30px 1fr; 
+    margin-bottom: 15px;
+    align-items: start;
+}
+
+.info li span:nth-child(1) i {
+    color: #4CAF50; 
+    font-size: 1.2rem;
+}
+
+.info li span {
+    color: #1b1b1b;
+    font-size: 1rem;
+}
+
+.info a {
+    color: #1b1b1b;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block; 
+    line-height: 1.5;
+}
+
+.info a:hover {
+    color: #419445;
+}
+
+
+/* --- COPYRIGHT TEXT --- */
+.copyrightText {
+    width: 100%;
+     background: rgb(75, 163, 72);
+    padding: 15px 100px;
+    text-align: center;
+}
+.copyrightText .copyright {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 991px) {
+    footer {
+        padding: 40px 20px;
+    }
+    footer .container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    footer .container {
+        /* On mobile, switch to 1 column */
+        grid-template-columns: repeat(1, 1fr); 
+    }
 }
 
