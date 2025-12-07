@@ -1,74 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAVORYKIT - Delicious Food for your Healthy Life</title>
+    <title>Nutrition Insights Dashboard</title>
 
     <link rel="stylesheet" href="aa.css">
     <link rel="stylesheet" href="homies.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="pnutrition.css">
 
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
 </head>
-
 <body>
     <header class="header">
+
+        <header class="header"> 
         <a href="#" class="logo">SAVORYKIT</a>
-        <i class='bx bx-menu' id="menu-icon"></i>
+         <i class='bx bx-menu' id="menu-icon"></i>
         <nav class="navbar">
 
-            <a href="homies.html">Home</a>
-            <a href="Recipes.html">Recipe</a>
-            <a href="#">Marketmap</a>
-            <a href="#">Nutrition</a>
-            <a href="#">Profile</a>
-        </nav>
+             <a href="homies.html">Home</a>
+             <a href="Recipes.html">Recipe</a>
+             <a href="#">Marketmap</a>
+             <a href="#">Nutrition</a> 
+             <a href="#">Profile</a> </nav>
     </header>
 
-    <main class="main-content-area">
 
-        <section class="hero-section">
-            <div class="hero-inner-container">
 
-                <div class="hero-text-content">
-                    <p class="tagline">HEALTHY FOOD MAKES US HEALTHY</p>
-                    <h1 class="main-heading"> DELICIOUS FOOD FOR
-                        <span class="highlight-text">YOUR HEALTHY LIFE</span>
+        <h1>🍽️ Nutrition Insights</h1>
+        <p>Visually track your cooking habits and food choices to support a healthier diet and **SDG 2: Zero Hunger**.</p>
+    </header>
 
-                    </h1>
-
-                    <p class="intro-description"> <span class="highlight">SAVORYKIT</span> connects you to personalized recipes, local markets, and
-                        detailed nutrition information, making healthy eating simple and accessible. </p>
-                    <blockquote class="pull-quote"> <br>
-                        <p> “End Hunger — compassion begins with a single plate.” </p>
-                    </blockquote> 
-                </div>
-
-                <figure class="image-element">
-
-                    <div class="image-display-wrapper"> <img
-                            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="A delicious and healthy colorful meal of vegetables and seafood"
-                            class="food-plate-image"> </div>
-                </figure>
+    <main class="dashboard">
+        <section class="card category-distribution">
+            <h2>Recipe Category Distribution</h2>
+            <p class="chart-purpose">See what type of food you usually cook and what you might be lacking.</p>
+            <div class="chart-container">
+                <canvas id="categoryPieChart"></canvas>
             </div>
-
+            <p class="empty-message" id="category-empty-message" style="display:none;">Add recipes to see your cooking distribution!</p>
+        </section>
+        
+        <section class="card nutritional-breakdown">
+            <h2>Nutritional Breakdown (Average per Recipe)</h2>
+            <p class="chart-purpose">Understand if your average meal is balanced in macro-nutrients.</p>
+            <div class="chart-container">
+                <canvas id="nutritionBarChart"></canvas>
+            </div>
+            <p class="empty-message" id="nutrition-empty-message" style="display:none;">Nutritional data requires recipes with Calorie, Carb, Protein, and Fat details.</p>
         </section>
 
-    </main>
-
-    <section class="body-content-section">
-        <div class="weather-content-wrapper">
-            <div id="weather-data" class="weather-info-container">
-                <p class="initial-message">Initializing weather fetch...</p>
+        <section class="card cooking-habits">
+            <h2>Monthly Cooking Activity</h2>
+            <p class="chart-purpose">Monitor your consistency by tracking how many recipes you've added over time.</p>
+            <div class="chart-container">
+                <canvas id="habitsLineChart"></canvas>
             </div>
-        </div>
-    </section>
+            <p class="empty-message" id="habits-empty-message" style="display:none;">Track your cooking patterns by adding recipes over time!</p>
+        </section>
 
-    <footer>
+         <footer>
+
         <div class="container">
             <div class="sec quicklinks">
                 <h2>Quick Links</h2>
@@ -122,7 +117,10 @@
     <div class="copyrightText">
         <p class="copyright"> &copy; 2025 SavoryKit - All Right Reserved</p>
     </div>
-    <script src="homies.js"></script>
-</body>
 
+
+    </main>
+
+    <script src="pnutrition.js"></script>
+</body>
 </html>
