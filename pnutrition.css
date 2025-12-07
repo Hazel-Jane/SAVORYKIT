@@ -1,0 +1,111 @@
+/* Color Palette: Fresh & Healthy */
+:root {
+    --color-primary: #38761d; /* Deep Forest Green (Primary Accent) */
+    --color-secondary: #ff9900; /* Bright Orange (Secondary Accent) */
+    --color-background: #f4f8f0; /* Light Minty Background */
+    --color-card-bg: #ffffff; /* Pure White Card Background */
+    --color-text: #333333; /* Dark Text */
+    --color-border: #e0e0e0; /* Subtle Border */
+    --color-chart-1: #6aa84f; /* Green - Recipe Category */
+    --color-chart-2: #f6b26b; /* Orange - Recipe Category */
+    --color-chart-3: #76a5af; /* Teal/Blue - Recipe Category */
+    --color-chart-4: #a64d79; /* Berry - Recipe Category */
+    --color-chart-5: #bf9000; /* Gold - Recipe Category */
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    border-top: 5px solid var(--color-primary);
+}
+
+.header h1 {
+    color: var(--color-primary);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Dashboard Layout (CSS Grid) */
+.dashboard {
+    display: grid;
+    /* Responsive layout: min size 350px, will fit as many columns as possible */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 30px;
+}
+
+/* Card Styling (for each chart) */
+.card {
+    background-color: var(--color-card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.5em;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #eaf2e8;
+}
+
+.chart-purpose {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.chart-container {
+    height: 300px; /* Fixed height for better chart consistency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Specific styling for the line chart card */
+.cooking-habits .chart-container {
+    height: 350px; 
+}
+
+/* Message when data is empty */
+.empty-message {
+    text-align: center;
+    padding: 40px 10px;
+    background-color: #ffe0b2; /* Light Peach/Orange */
+    color: #e65100; /* Darker Orange */
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+}

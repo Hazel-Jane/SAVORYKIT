@@ -1,4 +1,4 @@
-const apiKey = "d5d896b1236b92d4be31e4bc08be118c"; 
+const apiKey = "d5d896b1236b92d4be31e4bc08be118c";
 const city = "Manolo Fortich, Bukidnon, PH";
 
 
@@ -26,7 +26,7 @@ async function fetchWithBackoff(url, options = {}, maxRetries = 5) {
 }
 
 function getWeatherIconUrl(iconCode) {
-    return `https://openweathermap.org/img/wn/${iconCode}@4x.png`; 
+    return `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
 }
 
 function capitalizeFirstLetter(string) {
@@ -37,22 +37,35 @@ function msToKmH(ms) {
     return (ms * 3.6).toFixed(0);
 }
 
+function getDayName(offset) {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const date = new Date();
+    date.setDate(date.getDate() + offset);
+    return days[date.getDay()];
+}
+
+function getFormattedDate() {
+    const date = new Date();
+    const options = { month: 'short', day: 'numeric', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options).replace(/,/g, '');
+}
+
 async function fetchWeather() {
     const weatherElement = document.getElementById('weather-data');
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     // Set Loading State
     weatherElement.innerHTML = `
-        <div class="loading-container">
-            <div class="spinner"></div> 
-            <p>Loading real-time weather for ${city}...</p>
-        </div>
-    `;
+ <div class="loading-container">
+ <div class="spinner"></div> 
+ <p>Loading real-time weather for ${city}...</p>
+ </div>
+ `;
 
     try {
         const response = await fetchWithBackoff(apiUrl);
         const data = await response.json();
-        
+
         if (data.cod === '401') {
             throw new Error("API Key Invalid. Please check if the key is correct and has been activated (may take a few hours).");
         }
@@ -68,48 +81,73 @@ async function fetchWeather() {
         const windSpeed = msToKmH(data.wind.speed);
         const description = capitalizeFirstLetter(data.weather[0].description);
         const iconCode = data.weather[0].icon;
-        const airQuality = 'Moderate'; 
-        
-        // --- Render HTML ---
-        weatherElement.innerHTML = `
-            <div class="current-weather">
-                <div class="weather-location">${locationName}, PH</div>
-                <div class="weather-temp-icon">
-                    <img src="${getWeatherIconUrl(iconCode)}" alt="${description}" style="width: 100px; height: 100px;">
-                    <div class="weather-temp">${currentTemp}°C</div>
-                </div>
-                <div class="weather-description">${description}</div>
+        const pressure = data.main.pressure;
+        const feelsLike = Math.round(data.main.feels_like);
+        const todayDay = getDayName(0);
+        const formattedDate = getFormattedDate();
 
-                <div class="weather-details-grid">
-                    <div class="detail-item-box">
-                        <div class="value">${humidity}%</div>
-                        <div class="label">Humidity</div>
-                    </div>
-                    <div class="detail-item-box">
-                        <div class="value">${windSpeed} km/h</div>
-                        <div class="label">Wind Speed</div>
-                    </div>
-                    <div class="detail-item-box">
-                        <div class="value">${airQuality}</div>
-                        <div class="label">Air Quality (Est.)</div>
-                    </div>
-                    <div class="detail-item-box">
-                        <div class="value">${Math.round(data.main.feels_like)}°C</div>
-                        <div class="label">Feels Like</div>
-                    </div>
-                </div>
-            </div>
-        `;
+        // --- Render HTML (Matching Split-Box Design) ---
+        weatherElement.innerHTML = `
+                            <div class="current-weather">
+                            <div class="weather-date">${todayDay}</div>
+                            <div class="weather-time">${formattedDate}</div>
+                            <div class="weather-location"> <i class='bx bxs-map'></i> ${locationName}, PH</div>
+                            
+                            <div class="weather-temp-icon">
+                            <img src="${getWeatherIconUrl(iconCode)}" alt="${description}">
+                            <div class="weather-temp">${currentTemp}°C</div>
+                            </div>
+
+                            </div>
+
+                            <div class="weather-details-panel">
+                            <div class="detail-row">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value">${humidity}%</span>
+                            </div>
+                            <div class="detail-row">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value">${windSpeed} km/h</span>
+                            </div>
+                            <div class="detail-row">
+                            <span class="detail-label">Feels Like</span>
+                            <span class="detail-value">${feelsLike}°C</span>
+                            </div>
+                            <div class="detail-row">
+                            <span class="detail-label">Pressure</span>
+                            <span class="detail-value">${pressure} hPa</span>
+                            </div>
+
+                            <div class="weather-forecast-placeholder">
+                            <div class="forecast-item">
+                            <i class='bx bxs-sun forecast-icon' style="color: gold;"></i>
+                            <div class="forecast-day">${todayDay}</div>
+                            <div class="forecast-temp">${currentTemp}°C</div>
+                            </div>
+                            <div class="forecast-item">
+                            <i class='bx bxs-cloud forecast-icon'></i>
+                            <div class="forecast-day">${getDayName(1)}</div>
+                            <div class="forecast-temp">${Math.round(currentTemp - 4)}°C</div>
+                            </div>
+                            <div class="forecast-item">
+                            <i class='bx bxs-cloud-rain forecast-icon'></i>
+                            <div class="forecast-day">${getDayName(2)}</div>
+                            <div class="forecast-temp">${Math.round(currentTemp - 8)}°C</div>
+                            </div>
+                            </div>
+
+                            </div>
+                            `;
 
     } catch (error) {
         // Display detailed error
         console.error("Final weather fetch failed:", error);
         weatherElement.innerHTML = `
-            <p style="color: red; font-weight: 600;">Error loading weather data.</p>
-            <p style="color: #555; font-size: 0.9em; margin-top: 0.5rem;">
-                Reason: ${error.message}. Please check your API key status on the OpenWeatherMap dashboard.
-            </p>
-        `;
+ <p style="color: ${error.message.includes('API Key Invalid') ? 'red' : 'inherit'}; font-weight: 600;">Error loading weather data.</p>
+ <p style="color: ${error.message.includes('API Key Invalid') ? 'darkred' : 'inherit'}; font-size: 0.9em; margin-top: 0.5rem;">
+ Reason: ${error.message}.
+ </p>
+ `;
     }
 }
 
