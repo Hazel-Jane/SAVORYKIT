@@ -1,16 +1,15 @@
 // --- Sample data (you can keep this in an external market.json and fetch it) ---
-    const markersData = [
-      {id: 'm-1', name: 'Manolo Local Market', description: 'Zone 8, Ubos sa highschool', lat: 8.365606, lng: 124.865201,
-        menu: ['Fresh fish', 'Rice', 'Vegetables']},
-      {id: 'm-2', name: "Sosana's Lutong Bahay", description: 'Dapit sa Water Tank og Smart Tower', lat: 8.367877, lng: 124.861258,
-        menu: ['Sinigang na baboy','Pancit canton']},
-      {id: 'm-3', name: 'Pitongs Pares', description: 'Dapit sa Water Tank og Smart Tower', lat: 8.367806, lng: 124.861695,
-        menu: ['Pares beef','Rice']},
-      {id: 'm-4', name: 'Pa-paff', description: 'Snacks & drinks', lat: 8.367424, lng: 124.866883,
-        menu: ['Ramen','Iced tea','Snacks']},
-      {id: 'm-5', name: "Mr. Wok", description: 'Wok-style meals', lat: 8.367899, lng: 124.861006,
-        menu: ['Fried rice','Chow mein','Lumpia']}
-    ];
+    let markersData = []; // now loaded from JSON
+
+async function loadMarketData() {
+  try {
+    const res = await fetch('market.json');
+    markersData = await res.json();
+    initMarkers(); // create markers after loading JSON
+  } catch (err) {
+    console.error('Failed to load market data:', err);
+  }
+}
 
     // localStorage key
     const STORAGE_KEY = 'savorykit_market_user_data_v1';
@@ -39,14 +38,16 @@
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19 }).addTo(map);
 
     // Create markers and bind simple popup with name only
-    markersData.forEach((place)=>{
-      const marker = L.marker([place.lat, place.lng]).addTo(map);
-      marker.bindPopup(`<b>${place.name}</b>`);
-      marker.on('click', ()=>{
-        // open side panel and load the place's menu
-        openPanelFor(place.id);
-      });
+    function initMarkers() {
+  markersData.forEach((place) => {
+    const marker = L.marker([place.lat, place.lng]).addTo(map);
+    marker.bindPopup(`<b>${place.name}</b>`);
+    marker.on('click', () => {
+      openPanelFor(place.id);
     });
+  });
+}
+
 
     // Panel DOM refs
     const panel = document.getElementById('panel');
@@ -178,3 +179,4 @@
         console.log('Loaded external data', data);
       }catch(e){console.error(e)}
     }
+    loadMarketData();

@@ -1,82 +1,83 @@
 [
-    {
-        "name" : "Manolo Local Market",
-        "description" : "Zone 8, Ubos sa highschool",
-         "img": "https://i.pinimg.com/736x/38/aa/d3/38aad3278dc2d69b2b8b5c7a85ef600c.jpg",
-        "lat" :8.365606,
-        "lng" : 124.865201
-
-    }, 
-    
-     {
-        "name" : "Sosana's Lutong Bahay",
-        "description" : "Dapit sa Water Tank og Smart Tower",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367877, 
-        "lng" : 124.861258 
-
-    }, 
-
-    {
-        "name" : "Pitongs Pares",
-        "description" : "Dapit sa Water Tank og Smart Tower",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367806, 
-        "lng" : 124.861695
-    }, 
-
-    {
-        "name" : "Pa-paff",
-        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367424, 
-        "lng" : 124.866883 
-
-    }, 
-
-    {
-        "name" : "Andok's",
-        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367456, 
-        "lng" : 124.866145 
-
-    }, 
-
-      {
-        "name" : "Playfull Bistro",
-        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367429, 
-        "lng" : 124.866480
-
-    }, 
-
-      {
-        "name" : "Je's Tuna",
-        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367819, 
-        "lng" : 124.865083
-
-    }, 
-
-      {
-        "name" : "Mr. Wok",
-        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367899, 
-        "lng" : 124.861006
-
-    }, 
-
-    {
-        "name" : "Krominch Food Hauz",
-        "description" : "Dapit sa Water Tank og Smart Tower",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367418,
-        "lng" :  124.866810
-
-    }
-   
+  {
+    "id": "m-1",
+    "name": "Manolo Local Market",
+    "description": "Zone 8, Ubos sa highschool",
+    "img": "https://i.pinimg.com/736x/38/aa/d3/38aad3278dc2d69b2b8b5c7a85ef600c.jpg",
+    "lat": 8.365606,
+    "lng": 124.865201,
+    "menu": ["Fresh fish", "Rice", "Vegetables"]
+  },
+  {
+    "id": "m-2",
+    "name": "Sosana's Lutong Bahay",
+    "description": "Dapit sa Water Tank og Smart Tower",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367877,
+    "lng": 124.861258,
+    "menu": ["Sinigang na Baboy", "Pancit Canton"]
+  },
+  {
+    "id": "m-3",
+    "name": "Pitongs Pares",
+    "description": "Dapit sa Water Tank og Smart Tower",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367806,
+    "lng": 124.861695,
+    "menu": ["Beef Pares", "Rice"]
+  },
+  {
+    "id": "m-4",
+    "name": "Pa-paff",
+    "description": "This offers foods good for hot/sunny and rainy weather. You can enjoy refreshing drinks, ramen, and delicious snacks.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367424,
+    "lng": 124.866883,
+    "menu": ["Ramen", "Iced Tea", "Snacks"]
+  },
+  {
+    "id": "m-5",
+    "name": "Andok's",
+    "description": "This offers foods good for hot/sunny and rainy weather. You can enjoy refreshing drinks and roasted chicken meals.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367456,
+    "lng": 124.866145,
+    "menu": ["Lechon Manok", "Liempo", "Java Rice"]
+  },
+  {
+    "id": "m-6",
+    "name": "Playfull Bistro",
+    "description": "This offers foods good for hot/sunny and rainy weather. You can enjoy refreshing drinks, ramen, and delicious snacks.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367429,
+    "lng": 124.866480,
+    "menu": ["Milk Tea", "Fries", "Cheeseburger"]
+  },
+  {
+    "id": "m-7",
+    "name": "Je's Tuna",
+    "description": "This offers seafood-based meals and affordable tuna dishes.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367819,
+    "lng": 124.865083,
+    "menu": ["Tuna Sisig", "Grilled Tuna", "Rice"]
+  },
+  {
+    "id": "m-8",
+    "name": "Mr. Wok",
+    "description": "This offers wok-style meals and fast Asian cuisine.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367899,
+    "lng": 124.861006,
+    "menu": ["Fried Rice", "Chow Mein", "Lumpia"]
+  },
+  {
+    "id": "m-9",
+    "name": "Krominch Food Hauz",
+    "description": "Dapit sa Water Tank og Smart Tower",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367418,
+    "lng": 124.866810,
+    "menu": ["Chicken Wings", "Nachos", "Milk Tea"]
+  }
 ]
