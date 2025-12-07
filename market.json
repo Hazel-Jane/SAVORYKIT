@@ -2,11 +2,11 @@
   {
     "id": "m-1",
     "name": "Manolo Local Market",
-    "description": "Zone 8, Ubos sa highschool",
+    "description": "This local market of manolo fortich, sells many food ingredients for lutong bahay or for the weather based foodie ingredients.",
     "img": "https://i.pinimg.com/736x/38/aa/d3/38aad3278dc2d69b2b8b5c7a85ef600c.jpg",
     "lat": 8.365606,
     "lng": 124.865201,
-    "menu": ["Fresh fish", "Rice", "Vegetables"]
+    "menu": ["Fresh fish", "Rice", "Rice","Rice","Rice","Rice","Vegetables"]
   },
   {
     "id": "m-2",
@@ -15,7 +15,7 @@
     "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
     "lat": 8.367877,
     "lng": 124.861258,
-    "menu": ["Sinigang na Baboy", "Pancit Canton"]
+    "menu": ["Sinigang na Baboy","Rice","Rice","Rice","Rice","Rice","Rice", "Pancit Canton"]
   },
   {
     "id": "m-3",
@@ -24,7 +24,7 @@
     "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
     "lat": 8.367806,
     "lng": 124.861695,
-    "menu": ["Beef Pares", "Rice"]
+    "menu": ["Beef Pares", "Rice","Rice","Rice","Rice","Rice","Rice"]
   },
   {
     "id": "m-4",
@@ -33,7 +33,7 @@
     "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
     "lat": 8.367424,
     "lng": 124.866883,
-    "menu": ["Ramen", "Iced Tea", "Snacks"]
+    "menu": ["Ramen", "Iced Tea","Rice","Rice","Rice","Rice","Rice", "Snacks"]
   },
   {
     "id": "m-5",
@@ -42,7 +42,7 @@
     "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
     "lat": 8.367456,
     "lng": 124.866145,
-    "menu": ["Lechon Manok", "Liempo", "Java Rice"]
+    "menu": ["Lechon Manok", "Rice","Rice","Rice","Rice","Rice","Liempo", "Java Rice"]
   },
   {
     "id": "m-6",
@@ -51,7 +51,7 @@
     "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
     "lat": 8.367429,
     "lng": 124.866480,
-    "menu": ["Milk Tea", "Fries", "Cheeseburger"]
+    "menu": ["Milk Tea", "Rice","Rice","Rice","Rice","Rice","Fries", "Cheeseburger"]
   },
   {
     "id": "m-7",
@@ -60,7 +60,7 @@
     "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
     "lat": 8.367819,
     "lng": 124.865083,
-    "menu": ["Tuna Sisig", "Grilled Tuna", "Rice"]
+    "menu": ["Tuna Sisig", "Rice","Rice","Rice","Rice","Rice","Grilled Tuna", "Rice"]
   },
   {
     "id": "m-8",
@@ -69,7 +69,7 @@
     "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
     "lat": 8.367899,
     "lng": 124.861006,
-    "menu": ["Fried Rice", "Chow Mein", "Lumpia"]
+    "menu": ["Fried Rice", "Rice","Rice","Rice","Rice","Rice","Chow Mein", "Lumpia"]
   },
   {
     "id": "m-9",
@@ -78,6 +78,6 @@
     "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
     "lat": 8.367418,
     "lng": 124.866810,
-    "menu": ["Chicken Wings", "Nachos", "Milk Tea"]
+    "menu": ["Chicken Wings","Rice","Rice","Rice","Rice","Rice", "Nachos", "Milk Tea"]
   }
 ]

@@ -59,7 +59,7 @@
     .chip{font-size:13px;padding:6px 8px;border-radius:999px;background:#f2f6ff;border:1px solid #e6f0ff}
 
     .small{font-size:13px;color:#666}
-    .muted{color:#999;font-size:13px}
+    .muted{color:#999;font-size:13px; text-align: center;}
 
     .input-row{display:flex;gap:8px;margin-top:10px}
     .input-row input{flex:1;padding:8px;border:1px solid #ddd;border-radius:8px}

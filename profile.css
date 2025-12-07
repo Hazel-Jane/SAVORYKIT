@@ -1,0 +1,218 @@
+/* Base style for main profile section container */
+.profile-section {
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 30px 20px; 
+}
+
+/* --- FLEX CONTAINER for Two-Column Layout --- */
+.profile-content-container {
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    gap: 80px; 
+    padding-top: 30px;
+}
+
+/* --- LEFT COLUMN: Image, Change Photo, Title --- */
+.profile-left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 150px;
+}
+
+/* --- Profile Picture Styles (Larger Size) --- */
+.profile-pic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-bottom: 25px; 
+}
+
+.profile-pic-container img {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #2e7d32;
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    background: #2e7d32;
+    color: #fff;
+    font-size: 16px; 
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    /* FIX: Setting a fixed width relative to the container for better display */
+    width: 180px; 
+    text-align: center;
+}
+
+.upload-btn:hover {
+    background: #1b5e20;
+}
+
+/* --- Profile Title Styles (Below the button) --- */
+.profile-title {
+    /* margin: 30px 0 0 0;  */
+    font-size: 1.8rem; 
+    font-weight: bold;
+    color: #000000; 
+    text-align: center; 
+    margin-left: 50px;
+}
+
+
+/* --- RIGHT COLUMN: Email Info and Logout Button --- */
+.profile-right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 23%;
+}
+
+
+/* --- Email Info Styles (Aligned Left) --- */
+.profile-info {
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.profile-info p {
+    font-size: 1.5rem; 
+    color: #000000; 
+    text-transform: capitalize;
+    font-weight: bold;
+    margin: 0 0 5px 0; 
+}
+
+.profile-info span {
+    display: block; 
+    margin-top: 0;
+    font-size: 18px; 
+    font-weight: 500;
+    color: #000000;
+    margin-left: 10%; 
+}
+
+.save-btn{
+    margin-top:2px;
+    width: 100px; 
+    padding: 10px;
+    background: #043506;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* --- Logout Button Styles (Smaller/Aligned) --- */
+.logout-btn {
+    width: 100px; 
+    padding: 10px;
+    background: #043506;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-left: 150%;
+    margin-top: 50%;
+
+}
+
+.logout-btn:hover {
+    background: #a1eca6;
+    transform: scale(1.02);
+    color: #000000;
+}
+
+
+/* === RECENT PROFILE PHOTOS SECTION === */
+
+.recent-photos-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.recent-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.clear-history-btn {
+  background: #c62828;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.clear-history-btn:hover {
+  background: #b71c1c;
+}
+
+.recent-photos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.photo-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2e7d32;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.photo-wrapper img:hover {
+  transform: scale(1.08);
+}
+
+/* Delete button on each image */
+.delete-photo {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  border: none;
+  font-size: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.delete-photo:hover {
+  background: darkred;
+}
