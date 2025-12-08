@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-/* REVISED CSS Variables for Light Mint Palette (Based on Light Minty Background) */
+
 :root {
-    /* Light Mint Palette */
+    
     --primary-text-color: #1A1A1A;
-    /* Dark text for light background */
+    
     --secondary-text-color: #555555;
-    /* Muted gray for secondary text */
+   
     --accent-red: #D9534F;
-    /* Red/Maroon accent for CTA (like Foody image) */
+   
     --accent-green: #38761D;
-    /* Deep green for logo/brand highlight */
+    
     --bg-light-mint: #F0F5F5;
-    /* Light mint/off-white background */
+   
     --bg-header-color: #FFFFFF;
-    /* White/Light background for headers/boxes */
+  
     --bg-mid-color: #E3E8E8;
-    /* Slightly darker mint for contrast */
+   
 
     --font-main: 'Inter', sans-serif;
     --font-heading: 'Playfair Display', serif;
@@ -31,35 +31,35 @@ body {
     margin: 0;
 }
 
-/* Reset or standard base styles (optional, but good practice) */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- Hero Section (Foody Design) --- */
+
 .main-content-area {
     background-color: var(--bg-light-mint);
 }
-/* --- Hero Section (Dynamic, Food-Focused Design) --- */
+
 
 .hero-section {
     overflow: hidden;
-    min-height: 95vh; /* Increase height for a more commanding presence */
+    min-height: 95vh; 
     display: flex;
     align-items: center;
-    padding: 4rem 3rem; /* Increase padding */
-    position: relative; /* For absolutely positioned elements */
+    padding: 4rem 3rem; 
+    position: relative; 
 }
 
 .hero-inner-container {
     margin: 0 auto;
-    max-width: 1400px; /* Use a slightly larger max-width */
+    max-width: 1400px; 
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 6rem; /* Increased gap */
+    gap: 6rem; 
     align-items: center;
 }
 .hero-text-content {
@@ -68,9 +68,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 10; /* Ensure text is above any floating images */
+    z-index: 10; 
 }
-/* --- Typography Enhancements --- */
+
 
 .tagline {
     color: var(--accent-red);
@@ -90,28 +90,28 @@ body {
 
 .main-heading .highlight-text {
     color: var(--accent-green);
-    font-style: normal; /* Keep it bold and green, remove italics for more impact */
+    font-style: normal;
 }
 
 .intro-description {
     color: var(--secondary-text-color);
     max-width: 600px;
-    margin-bottom: 2rem; /* More space */
-    font-size: 1.25rem; /* Slightly smaller for better contrast with the heading */
+    margin-bottom: 2rem; 
+    font-size: 1.25rem; 
 }
 
 .highlight {
-    font-size: 1.25rem; /* Matches the paragraph size */
+    font-size: 1.25rem; 
     font-style: italic;
     font-weight: 700;
     color: var(--primary-text-color);
 }
 
 .pull-quote {
-    border-left: 5px solid var(--accent-green); /* Use brand green for the quote accent */
+    border-left: 5px solid var(--accent-green); 
     padding: 1rem 0 1rem 1.5rem;
     margin-bottom: 2.5rem;
-    background-color: var(--bg-mid-color); /* Give it a slight background tint */
+    background-color: var(--bg-mid-color); 
     border-radius: 4px;
 }
 
@@ -121,7 +121,7 @@ body {
     font-weight: 500;
     color: var(--primary-text-color);
 }
-/* --- Dynamic Image Section (Small Plates/Floating Foods) --- */
+
 
 .image-element {
     flex: 1;
@@ -134,7 +134,7 @@ body {
     min-height: 500px; 
 }
 
-/* 1. Main Central Bowl (Original image with minor changes) */
+
 .image-display-wrapper {
     position: relative;
     width: 100%;
@@ -152,7 +152,7 @@ body {
     transform: rotate(0deg) scale(1.05);
 }
 
-/* 2. Floating Small Plate 1 (Top Left) */
+
 .image-element::before {
     content: '';
     position: absolute;
@@ -165,10 +165,10 @@ body {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transform: rotate(-10deg);
     z-index: 1;
-    filter: grayscale(10%); /* Subtle filter */
+    filter: grayscale(10%); 
 }
 
-/* 3. Floating Small Plate 2 (Bottom Right) */
+
 .image-element::after {
     content: '';
     position: absolute;
@@ -183,7 +183,7 @@ body {
     z-index: 15;
 }
 
-/* Food Image (The actual content of the main bowl) */
+
 .food-plate-image {
     position: absolute;
     top: 0;
@@ -193,67 +193,69 @@ body {
     object-fit: cover;
     filter: brightness(1) contrast(1);
 }
-/* WEATHER */
 
+/* WEATHER */
 
 .weather-info-container {
     display: flex;
     flex-direction: row;
-    background-color: #FFFFFF; 
-    border-radius: 25px; 
+    background-color: #FFFFFF;
+    border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1); 
-    width: 90%; 
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+    width: 90%;
     max-width: 1200px;
-    min-height: 450px; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    min-height: 450px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
 .current-weather {
-    flex: 1.5; 
+    flex: 1.5;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex-start;
     justify-content: flex-start;
-<<<<<<< HEAD
-  
-=======
->>>>>>> ca77ee1ae0929d02e60f9661fd58f5cf513e85a8
-    background: linear-gradient(135deg, #74A764 0%, #4D8746 100%); 
-    padding: 3rem; 
+    background: linear-gradient(135deg, #61b99c 0%, #52ae98 100%); 
+    padding: 3rem;
     color: #FFFFFF;
     position: relative;
     z-index: 1;
 }
 
 
-.weather-date {
-    font-size: 1.8rem; 
+/* .weather-status {
+    font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 0.2rem;
     line-height: 1.2;
+   
+} */
+
+
+.weather-date {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.weather-time {
-    font-size: 1rem; 
-    color: rgba(255, 255, 255, 0.8); 
-    margin-bottom: 1rem;
-}
 
 .weather-location {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 5rem; 
+    margin-bottom: 5rem;
     display: flex;
     align-items: center;
 }
 
 .weather-location i {
-    font-size: 1.1em; 
+    font-size: 2rem;
     margin-right: 0.3rem;
 }
+
 
 .weather-temp-icon {
     display: flex;
@@ -262,66 +264,58 @@ body {
     justify-content: center;
     width: 100%;
     z-index: 3;
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }
 
 .weather-temp-icon img {
-    width: 120px; 
+    
+    width: 120px;
     height: 120px;
-<<<<<<< HEAD
-=======
- 
->>>>>>> ca77ee1ae0929d02e60f9661fd58f5cf513e85a8
-    margin-left: -20px; 
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)); 
+    margin: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
+
 
 .weather-temp {
-    font-size: 6rem; 
-    font-weight: 700; 
+    font-size: 8rem; 
+    font-weight: 700;
     line-height: 1;
-    margin-top: -1rem; 
+    margin: auto; 
     position: relative;
-<<<<<<< HEAD
-    
-=======
-    padding-left: 5px; 
->>>>>>> ca77ee1ae0929d02e60f9661fd58f5cf513e85a8
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }
 
-<<<<<<< HEAD
-/* Custom degree symbol styling */
+
 .weather-temp::after {
-    content: '°C'; 
+  
     position: absolute;
     top: 0;
-    right: -55px; 
-    font-size: 3rem; 
+    right: -65px; 
+    font-size: 4rem; 
     font-weight: 400;
     line-height: 1.4;
 }
 
-=======
->>>>>>> ca77ee1ae0929d02e60f9661fd58f5cf513e85a8
-/* ☁️ Details Panel: Bigger Text for Details and Values */
+
+
 .weather-details-panel {
     flex: 1;
-    padding: 3rem; 
-    background-color: #FFFFFF; 
-    color: #1A1A1A; 
+    padding: 3rem;
+    background-color: #FFFFFF;
+    color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    justify-content: space-around; 
+    justify-content: space-around;
 }
 
-/* Detail row (Humidity, Wind, etc.) */
+
 .detail-row {
     display: flex;
     justify-content: space-between;
-    padding: 1.5rem 0; 
-    border-bottom: 1px solid #EEEEEE; 
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #EEEEEE;
+    
 }
 
 .detail-row:last-of-type {
@@ -329,28 +323,31 @@ body {
 }
 
 
+
 .detail-label {
-    font-weight: 500; 
-    color: #555555; 
-    font-size: 1.8rem; 
-    text-transform: uppercase; 
-    letter-spacing: 0.05em; 
+    font-weight: 700; 
+    color: #555555;
+    font-size: 2.5rem; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
 }
+
 
 
 .detail-value {
-    font-weight: 700;
-    color: #1A1A1A; 
-    font-size: 2.2rem; 
-    line-height: 1.2; 
+    font-weight: 900; 
+    color: #1A1A1A;
+    font-size: 3rem; 
+    line-height: 1.2;
 }
 
-/* KATONG NAAY MONDAY-TUESDAY */
 
-.weather-forecast-placeholder { 
-    display: none !important; 
+.weather-forecast-placeholder {
+    display: none !important;
     visibility: hidden;
 }
+
 
 .image-element {
     flex: 1;
@@ -391,11 +388,11 @@ body {
 
 }
 
-/* Styling for the main section and heading */
+
 .places-section {
     padding: 20px;
     text-align: center;
-    background-color: #f4f4f4; /* Light background for the section */
+    background-color: #f4f4f4; 
 }
 
 .places-section h2 {
@@ -404,7 +401,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Container to arrange the place cards */
+
 .places-container {
     display: flex;
     flex-wrap: wrap; 
@@ -412,7 +409,7 @@ body {
     justify-content: center; 
 }
 
-/* Style for each clickable place card */
+
 .place-card {
     display: block;
     text-decoration: none;
@@ -460,20 +457,16 @@ body {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-/* ------------------------------------------------------------------ */
-/* --- HERO SECTION MEDIA QUERIES --- */
-/* ------------------------------------------------------------------ */
 
-/* Tablet & Small Desktop Layout (max-width 1024px) */
 @media (max-width: 1024px) {
     .hero-section {
         padding: 3rem 2rem;
-        min-height: auto; /* Allow height to shrink */
+        min-height: auto; 
     }
 
     .hero-inner-container {
         gap: 3rem; 
-        flex-direction: column; /* **Stack content vertically** */
+        flex-direction: column; 
         text-align: center;
     }
 
