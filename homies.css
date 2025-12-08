@@ -38,101 +38,10 @@ body {
     box-sizing: border-box;
 }
 
-
-
-
-
 /* --- Hero Section (Foody Design) --- */
 .main-content-area {
     background-color: var(--bg-light-mint);
 }
-
-/* .hero-section {
-    
-    overflow: hidden;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    padding: 3rem;
-    
-}
-
-.hero-inner-container {
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    
-}
-
-
-.hero-text-content {
-    flex: 1;
-    padding: 3rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.tagline {
-    color: var(--accent-red);
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.main-heading {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-  
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: var(--primary-text-color);
-    text-transform: none;
-   
-}
-
-.main-heading .highlight-text  {
-    color: var(--accent-green);
-    font-style: italic;
-    
-}
-
-.highlight {
-    font-size: 2rem;
-    font-style: italic;
-}
-
-.intro-description {
-    color: var(--secondary-text-color);
-    max-width: 550px;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-}
-
-
-.pull-quote {
-    border-left: 4px solid var(--accent-red);
-    padding: 0.75rem 0 0.75rem 1.25rem;
-    margin-bottom: 2.5rem;
-    background-color: transparent;
-   
-    border-radius: 0;
-}
-
-.pull-quote p {
-    font-style: italic;
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--secondary-text-color);
-} */
-
-
 /* --- Hero Section (Dynamic, Food-Focused Design) --- */
 
 .hero-section {
@@ -153,8 +62,6 @@ body {
     gap: 6rem; /* Increased gap */
     align-items: center;
 }
-
-
 .hero-text-content {
     flex: 1;
     padding: 3rem 1.5rem;
@@ -163,20 +70,19 @@ body {
     justify-content: center;
     z-index: 10; /* Ensure text is above any floating images */
 }
-
 /* --- Typography Enhancements --- */
 
 .tagline {
     color: var(--accent-red);
-    font-size: 1.1rem; /* Slightly larger */
+    font-size: 1.1rem; 
     font-weight: 700;
     margin-bottom: 0.75rem;
-    letter-spacing: 2px; /* More prominent spacing */
+    letter-spacing: 2px; 
 }
 
 .main-heading {
     font-family: var(--font-heading);
-    font-size: 4.5rem; /* **Bigger Heading** */
+    font-size: 4.5rem; 
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 2rem;
@@ -215,8 +121,6 @@ body {
     font-weight: 500;
     color: var(--primary-text-color);
 }
-
-
 /* --- Dynamic Image Section (Small Plates/Floating Foods) --- */
 
 .image-element {
@@ -225,10 +129,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Remove padding to allow images to float outside slightly */
     padding: 0; 
     z-index: 10;
-    min-height: 500px; /* Ensures space for floating elements */
+    min-height: 500px; 
 }
 
 /* 1. Main Central Bowl (Original image with minor changes) */
@@ -239,14 +142,12 @@ body {
     padding-bottom: 100%;
     border-radius: 50%;
     background-color: var(--bg-header-color);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25); /* Stronger shadow for depth */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25); 
     overflow: hidden;
     z-index: 20;
-    /* Rotate slightly for dynamic effect */
     transform: rotate(2deg); 
     transition: transform 0.3s ease;
 }
-
 .image-display-wrapper:hover {
     transform: rotate(0deg) scale(1.05);
 }
@@ -259,7 +160,7 @@ body {
     left: -10%;
     width: 150px;
     height: 150px;
-    background: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center / cover;
+    background: url('https://i.pinimg.com/736x/75/18/27/75182757038aa605c888d63487b5ef92.jpg') center / cover;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transform: rotate(-10deg);
@@ -274,9 +175,9 @@ body {
     bottom: 0%;
     right: 0%;
     width: 200px;
-    height: 120px;
-    background: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center / cover;
-    border-radius: 50%; /* Circular dish/shape */
+    height: 200px;
+    background: url('https://i.pinimg.com/736x/21/42/ba/2142ba4f18b573ef0dcc30faf63eb1d1.jpg') center / cover;
+    border-radius: 100%; 
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     transform: rotate(5deg);
     z-index: 15;
@@ -291,35 +192,7 @@ body {
     height: 100%;
     object-fit: cover;
     filter: brightness(1) contrast(1);
-    /* No filter needed, the original image is good */
 }
-
-
-/* --- Media Queries (Adjusted for the new sizes) --- */
-
-@media (max-width: 991px) {
-    .hero-inner-container {
-        gap: 2rem;
-    }
-    
-    .main-heading {
-        font-size: 3.5rem;
-    }
-
-    .image-element::before, .image-element::after {
-        /* Hide floating elements on smaller screens to prevent clutter */
-        display: none; 
-    }
-    
-    .image-element {
-        min-height: 400px; 
-    }
-}
-
-
-
-
-
 /* WEATHER */
 
 
@@ -341,12 +214,8 @@ body {
     flex: 1.5; 
     display: flex;
     flex-direction: column;
-    
-    /* 🎯 REVERTED: Align items back to the start (Left) */
     align-items: flex-start; 
-    /* 🎯 REVERTED: Justify content back to the start (Top) */
     justify-content: flex-start;
-    
     background: linear-gradient(135deg, #74A764 0%, #4D8746 100%); 
     padding: 3rem; 
     color: #FFFFFF;
@@ -385,11 +254,9 @@ body {
     margin-right: 0.3rem;
 }
 
-
 .weather-temp-icon {
     display: flex;
     flex-direction: column;
-    /* 🎯 REVERTED: Align the icon/temp group to the start (Left) */
     align-items: flex-start;
     justify-content: center;
     width: 100%;
@@ -400,7 +267,7 @@ body {
 .weather-temp-icon img {
     width: 120px; 
     height: 120px;
-    /* 🎯 REVERTED: Added back the negative margin for left alignment */
+ 
     margin-left: -20px; 
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)); 
 }
@@ -411,22 +278,9 @@ body {
     line-height: 1;
     margin-top: -1rem; 
     position: relative;
-    /* 🎯 REVERTED: Added back the padding for left alignment */
     padding-left: 5px; 
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     color: #FFFFFF; 
-}
-
-/* Custom degree symbol styling */
-.weather-temp::after {
-    content: '°C'; 
-    position: absolute;
-    top: 0;
-    /* 🎯 REVERTED: Adjusted positioning back for left-aligned text */
-    right: -55px; 
-    font-size: 3rem; 
-    font-weight: 400;
-    line-height: 1.4;
 }
 
 /* ☁️ Details Panel: Bigger Text for Details and Values */
@@ -476,49 +330,6 @@ body {
     visibility: hidden;
 }
 
-/* --- Mobile Adaptations for the Weather Widget --- */
-@media (max-width: 991px) {
-    .weather-info-container {
-        flex-direction: column;
-        max-width: 450px;
-        min-height: auto;
-    }
-    
-    .current-weather {
-        align-items: center; 
-        padding: 2rem;
-    }
-
-    .weather-location {
-        margin-bottom: 1rem;
-    }
-
-    .weather-temp-icon {
-        align-items: center;
-    }
-
-    .weather-temp {
-        font-size: 4.5rem; 
-    }
-
-    .weather-temp::after {
-        font-size: 2rem;
-        right: -30px;
-    }
-    
-    .detail-label {
-        font-size: 1.2rem;
-    }
-    
-    .detail-value {
-        font-size: 1.8rem;
-    }
-}
-
-
-
-
-
 .image-element {
     flex: 1;
     background-color: transparent;
@@ -558,68 +369,387 @@ body {
 
 }
 
+/* Styling for the main section and heading */
+.places-section {
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4; /* Light background for the section */
+}
 
+.places-section h2 {
+    font-size: 4rem;
+    color: #333;
+    margin-bottom: 30px;
+}
 
+/* Container to arrange the place cards */
+.places-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px; 
+    justify-content: center; 
+}
 
+/* Style for each clickable place card */
+.place-card {
+    display: block;
+    text-decoration: none;
+    width: 200px; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(178, 228, 166, 0.479); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+.place-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(178, 228, 166, 0.479); 
+}
+.place-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative; 
+}
+.place-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.3s;
+}
 
+.place-card:hover .place-image {
+    transform: scale(1.05);
+}
+.place-name {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    padding: 8px 5px;
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: #fff; 
+    margin: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); 
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
 
+/* ------------------------------------------------------------------ */
+/* --- HERO SECTION MEDIA QUERIES --- */
+/* ------------------------------------------------------------------ */
 
+/* Tablet & Small Desktop Layout (max-width 1024px) */
+@media (max-width: 1024px) {
+    .hero-section {
+        padding: 3rem 2rem;
+        min-height: auto; /* Allow height to shrink */
+    }
 
-/* Media Queries (Essential for both designs) */
-/* Max-width 991px for general tablet and large phone landscape */
-@media (max-width: 991px) {
     .hero-inner-container {
-        flex-direction: column;
+        gap: 3rem; 
+        flex-direction: column; /* **Stack content vertically** */
         text-align: center;
-        padding-top: 2rem;
     }
 
     .hero-text-content {
-        align-items: center;
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 0;
     }
 
     .main-heading {
-        font-size: 3rem;
+        font-size: 3.5rem; /* Shrink heading size */
     }
 
-    .hero-visual-element {
-        padding: 1rem;
+    .intro-description {
+        font-size: 1.15rem;
+        max-width: none; /* Let it use the full width */
+    }
+    
+    /* Center text elements within the stacked layout */
+    .intro-description, 
+    .tagline, 
+    .pull-quote {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Adjust the main image and floating elements */
+    .image-element {
         min-height: 400px;
+        padding: 0;
     }
 
-    .image-display-wrapper {
-        max-width: 80%;
-        padding-bottom: 80%;
+    /* Adjust floating element positions to stay near the main image */
+    .image-element::before {
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
     }
 
-    .weather-info-container {
-        flex-direction: column;
-        /* Stack weather boxes vertically */
-        max-width: 450px;
-    }
-
-    .current-weather {
-        align-items: center;
-    }
-
-    .weather-location {
-        margin-bottom: 1.5rem;
+    .image-element::after {
+        bottom: 5%;
+        right: 5%;
+        width: 150px;
+        height: 150px;
     }
 }
 
-/* Max-width 768px for smaller tablets/large phones */
+/* Mobile Layout (max-width 768px) */
 @media (max-width: 768px) {
-    .navbar {
-        display: none;
-        /* Hide for mobile toggle */
+    .hero-section {
+        padding: 2rem 1rem;
     }
 
-    #menu-icon {
-        display: block;
+    .main-heading {
+        font-size: 2.5rem; /* Further shrink heading */
+    }
+    
+    .intro-description {
+        font-size: 1rem;
     }
 
-    .header {
-        padding: 1rem 5%;
+    .image-display-wrapper {
+        max-width: 300px; /* Shrink the main food plate */
+    }
+
+    .image-element {
+        min-height: 350px;
+    }
+    
+    /* Make floating elements smaller on phones */
+    .image-element::before {
+        width: 80px;
+        height: 80px;
+        left: -5%;
+    }
+    .image-element::after {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* --- WEATHER SECTION MEDIA QUERIES --- */
+/* ------------------------------------------------------------------ */
+
+/* Tablet & Small Desktop Layout (max-width 1024px) */
+@media (max-width: 1024px) {
+    .weather-info-container {
+        /* Switch to column layout */
+        flex-direction: column; 
+        min-height: auto;
+        width: 95%; /* Use more width on tablet */
+        max-width: 700px; /* Limit overall width */
+        margin: 0 auto;
+    }
+
+    .current-weather, 
+    .weather-details-panel {
+        padding: 2rem; /* Reduce padding slightly */
+    }
+    
+    .weather-temp {
+        font-size: 5rem; /* Shrink main temperature */
+    }
+
+    .detail-label {
+        font-size: 1.5rem; /* Shrink details text */
+    }
+
+    .detail-value {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mobile Layout (max-width 768px) */
+@media (max-width: 768px) {
+    .weather-info-container {
+        /* Ensure it's centered */
+        margin: 0 auto; 
+    }
+
+    .current-weather {
+        /* Center text elements within the current weather panel */
+        align-items: center; 
+        text-align: center;
+    }
+
+    .weather-location {
+        justify-content: center;
+        margin-bottom: 2rem; /* Reduce bottom margin */
+    }
+    
+    .weather-temp {
+        font-size: 4rem; 
+    }
+    
+    .weather-temp-icon img {
+        width: 80px; 
+        height: 80px;
+        margin: 0 auto 10px; /* Center icon */
+    }
+
+    .detail-row {
+        padding: 1rem 0; /* Reduce padding in detail rows */
+    }
+
+    .detail-label {
+        font-size: 1.2rem;
+    }
+
+    .detail-value {
+        font-size: 1.5rem;
+    }
+}
+
+/* --- EXISTING CSS FOR .places-section (Base styles, assumed for Desktop/Large screens) --- */
+
+/* Styling for the main section and heading */
+.places-section {
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.places-section h2 {
+    font-size: 4rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Base Container (Large Screen Default) */
+.places-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px; /* Space between the cards */
+    justify-content: center; 
+}
+
+/* Base Card Size (Large Screen Default) */
+.place-card {
+    display: block;
+    text-decoration: none;
+    width: 200px; /* 200px wide on large screens */
+    /* ... (rest of the card styles) ... */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(178, 228, 166, 0.479); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+/* Image Wrapper (Height should be flexible or adjusted) */
+.place-image-wrapper {
+    width: 100%;
+    height: 200px; /* Base height for image wrapper */
+    overflow: hidden;
+    position: relative; 
+}
+
+/* Place Name (Text Overlay) */
+.place-name {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    padding: 8px 5px;
+    font-size: 1.4rem; /* Base font size */
+    font-weight: bold;
+    color: #fff; 
+    margin: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); 
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ------------------------------------------------------------------ */
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+/* ------------------------------------------------------------------ */
+
+
+/* 1. Tablet & Small Desktop Layout (e.g., max-width 1024px) */
+@media (max-width: 1024px) {
+    
+    .places-section h2 {
+        font-size: 3.5rem; /* Slightly smaller heading */
+    }
+
+    .places-container {
+        gap: 20px; /* Reduce gap slightly */
+    }
+
+    /* Cards remain 200px, allowing 3-4 per row */
+    .place-card {
+        width: 180px; 
+    }
+    
+    .place-image-wrapper {
+        height: 180px; /* Match the width for a squarer look */
+    }
+
+    .place-name {
+        font-size: 1.2rem; /* Reduce font size slightly */
+    }
+}
+
+
+/* 2. Mobile Layout (e.g., max-width 768px for portrait tablets and phones) */
+@media (max-width: 768px) {
+    
+    .places-section {
+        padding: 15px 10px;
+    }
+    
+    .places-section h2 {
+        font-size: 3rem; 
+        margin-bottom: 20px;
+    }
+
+    .places-container {
+        gap: 15px; /* Further reduce gap */
+    }
+
+    /* Cards should fit 2 per row comfortably (less than 50% width) */
+    .place-card {
+        width: calc(50% - 25px); /* Max 50% width, minus half the gap */
+        max-width: 160px; /* But don't let them get too big on large phones */
+    }
+    
+    .place-image-wrapper {
+        height: 120px; /* Further reduce image height */
+    }
+
+    .place-name {
+        font-size: 1rem; /* Smaller font on mobile */
+        padding: 6px 4px;
+    }
+}
+
+
+/* 3. Small Mobile Layout (e.g., max-width 480px) */
+@media (max-width: 480px) {
+    
+    .places-container {
+        gap: 10px; /* Tighten the gap */
+    }
+
+    /* Cards should still fit 2 per row, using percentage width to be flexible */
+    .place-card {
+        width: calc(50% - 15px); /* Max 50% width, minus half the gap */
+    }
+    
+    .place-image-wrapper {
+        height: 100px; /* Smallest image height */
+    }
+
+    .place-name {
+        font-size: 0.9rem; /* Very small font for readability */
+        padding: 5px 3px;
     }
 }
