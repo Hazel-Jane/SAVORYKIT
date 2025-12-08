@@ -4,27 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="aa.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="landing.css">
     <link rel="stylesheet" href="footer.css">
+    
      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
     <header class="header">
-        <a href="landing.html" class="logo">SavoryKit</a>
+        <a href="" class="logo">SavoryKit</a>
 
         <i class='bx bx-menu' id="menu-icon"></i>
 
         <nav class="navbar">
             <a href="home.html">Home</a>
             <a href="Recipes.html">Recipe</a>
-            <a href="#">Marketmap</a>
+            <a href="market.html">Marketmap</a>
             <a href="#">Nutrition</a>
             <a href="profile.html">Profile</a>
         </nav>
     </header>
 
-    <section class="profile-section">
+  <section class="profile-section">
         
         <div class="profile-content-container">
             
@@ -36,22 +38,50 @@
                 </div>
                 
                 <h2 class="profile-title">My Profile</h2>
+                <button class="logout-btn" onclick="logout()">Logout</button>
             </div>
             
             <div class="profile-right-column">
                 <div class="profile-info">
-                    <p>Email:</p>
-                    <span id="profileEmail"></span>
-                </div>
-                
-                <button class="logout-btn" onclick="logout()">Logout</button>
+    <p>Email:</p>
+    <span id="profileEmail"></span><br>
+
+    <p>Username:</p>
+    <span id="displayUsername">Not set</span><br>
+
+    <p>Bio:</p>
+    <span id="displayBio">Not set</span><br>
+
+    <p>Birthday:</p>
+    <span id="displayBirthday">Not set</span><br>
+
+    <button id="editProfileBtn" class="save-btn">
+        Edit Profile
+    </button>
+
+    <div id="editProfileForm" style="display:none; margin-top:15px;">
+        <input type="text" id="usernameInput" placeholder="Enter username"><br><br>
+        <textarea id="bioInput" placeholder="Enter bio"></textarea><br><br>
+        <input type="date" id="birthdayInput"><br><br>
+        <button onclick="saveProfile()" class="save-btn">Save</button>
+    </div>
+    </div> 
             </div>
-            
-        </div>
-        
+
+            <div class="profile-bottom-content">
+                <section class="recent-photos-section">
+                    <div class="recent-header">
+                        <h2 class="recent-title">Recent Profile Photos</h2>
+                        <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
+                    </div>
+
+                    <div id="recentPhotos" class="recent-photos-container">
+                        </div>
+                </section>  
+            </div>
     </section>
-
-
+        
+                
          <footer>
        
         <div class="container">
@@ -67,11 +97,13 @@
                 </ul>
             </div>
 
+            
             <div class="sec extralinks">
                 <h2>Extra Links</h2>
                 <ul>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                     <li><a href="#">Martizano,Thrisha Mae</a></li>
+                    <li><a href="#">Lihotan,Hazel Jane</a></li>
+                    <li><a href="#">Bacalando,Shiela Mae</a></li>
                 </ul>
             </div>
 
@@ -118,6 +150,7 @@
     </div>
 
 <script src="profile.js"></script>
+<script src="landing.js"></script>
 </body>
 </html>
 

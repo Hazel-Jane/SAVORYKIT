@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (category === 'my-recipes') {
             // --- MY RECIPE MODE ---
-            if(sectionTitle) sectionTitle.innerText = "My Personal Recipes";
+            if(sectionTitle) sectionTitle.innerText = "My Recipes";
             
             // Hide all static cards
             staticCards.forEach(card => card.style.display = 'none');
@@ -254,53 +254,151 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- 9. VIEW MODAL LOGIC (CRASH PROOF) ---
-    function openViewModal(recipeData) {
-        modalTitle.innerText = recipeData.title;
+    // function openViewModal(recipeData) {
+    //     modalTitle.innerText = recipeData.title;
         
-        // SAFETY CHECK: Only try to touch the image IF the HTML element actually exists
-        if (modalImg) {
-            modalImg.style.display = 'none'; // Ensure it's hidden since we aren't using images
-        }
+    //     // SAFETY CHECK: Only try to touch the image IF the HTML element actually exists
+    //     if (modalImg) {
+    //         modalImg.style.display = 'none'; // Ensure it's hidden since we aren't using images
+    //     }
         
-        modalIngredients.innerHTML = '';
+    //     modalIngredients.innerHTML = '';
         
-        if (recipeData.ingredients) {
-            // Split by newline or comma
-            const separator = recipeData.ingredients.includes('\n') ? '\n' : ',';
-            const ingArray = recipeData.ingredients.split(separator);
+    //     if (recipeData.ingredients) {
+    //         // Split by newline or comma
+    //         const separator = recipeData.ingredients.includes('\n') ? '\n' : ',';
+    //         const ingArray = recipeData.ingredients.split(separator);
             
-            ingArray.forEach(ing => {
-                if(ing.trim()) {
-                    const li = document.createElement('li');
-                    li.innerText = ing.trim();
-                    modalIngredients.appendChild(li);
-                }
-            });
-        }
+    //         ingArray.forEach(ing => {
+    //             if(ing.trim()) {
+    //                 const li = document.createElement('li');
+    //                 li.innerText = ing.trim();
+    //                 modalIngredients.appendChild(li);
+    //             }
+    //         });
+    //     }
 
-        modalInstructions.innerText = recipeData.instructions || '';
-        modal.classList.add('active');
+    //     modalInstructions.innerText = recipeData.instructions || '';
+    //     modal.classList.add('active');
+    // }
+//     function openViewModal(recipeData) {
+//     modalTitle.innerText = recipeData.title;
+    
+//     // --- FIX START ---
+//     if (modalImg) {
+//         // Check if recipeData has an image property (e.g., recipeData.image or recipeData.img)
+//         if (recipeData.image) {
+//             modalImg.src = recipeData.image;  // Set the image source
+//             modalImg.style.display = 'block'; // SHOW the image
+//         } else {
+//             modalImg.style.display = 'none';  // Hide if no image exists
+//         }
+//     }
+//     // --- FIX END ---
+    
+//     modalIngredients.innerHTML = '';
+    
+//     if (recipeData.ingredients) {
+//         const separator = recipeData.ingredients.includes('\n') ? '\n' : ',';
+//         const ingArray = recipeData.ingredients.split(separator);
+        
+//         ingArray.forEach(ing => {
+//             if(ing.trim()) {
+//                 const li = document.createElement('li');
+//                 li.innerText = ing.trim();
+//                 modalIngredients.appendChild(li);
+//             }
+//         });
+//     }
+
+//     modalInstructions.innerText = recipeData.instructions || '';
+//     modal.classList.add('active');
+// }
+
+//     // Attach listener to static cards (Initial load)
+//     document.querySelectorAll('.static-recipe .view-btn').forEach(button => {
+//         button.addEventListener('click', (e) => {
+//             const card = button.closest('.recipe-card');
+//             const title = card.querySelector('h3').innerText;
+//             // Static cards still have images, but we can ignore them or hide them in modal
+//             const rawIng = card.querySelector('.data-ingredients').innerHTML;
+//             const rawInst = card.querySelector('.data-instructions').innerHTML;
+            
+//             modalTitle.innerText = title;
+//             if(modalImg) modalImg.style.display = 'block'; // Show image for static recipes only if you want
+//             if(modalImg) modalImg.src = card.querySelector('img').src;
+
+//             modalIngredients.innerHTML = rawIng;
+//             modalInstructions.innerHTML = rawInst;
+//             modal.classList.add('active');
+//         });
+//     });
+
+// 1. This function handles DYNAMIC data (e.g. from LocalStorage)
+function openViewModal(recipeData) {
+    modalTitle.innerText = recipeData.title;
+    
+    // --- SAFE IMAGE HANDLING ---
+    if (modalImg) {
+        if (recipeData.image) {
+            modalImg.src = recipeData.image;
+            modalImg.style.display = 'block'; // SHOW
+        } else {
+            modalImg.style.display = 'none';  // HIDE
+        }
+    }
+    
+    modalIngredients.innerHTML = '';
+    
+    if (recipeData.ingredients) {
+        const separator = recipeData.ingredients.includes('\n') ? '\n' : ',';
+        const ingArray = recipeData.ingredients.split(separator);
+        
+        ingArray.forEach(ing => {
+            if(ing.trim()) {
+                const li = document.createElement('li');
+                li.innerText = ing.trim();
+                modalIngredients.appendChild(li);
+            }
+        });
     }
 
-    // Attach listener to static cards (Initial load)
-    document.querySelectorAll('.static-recipe .view-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const card = button.closest('.recipe-card');
-            const title = card.querySelector('h3').innerText;
-            // Static cards still have images, but we can ignore them or hide them in modal
-            const rawIng = card.querySelector('.data-ingredients').innerHTML;
-            const rawInst = card.querySelector('.data-instructions').innerHTML;
+    modalInstructions.innerText = recipeData.instructions || '';
+    modal.classList.add('active');
+}
+
+// 2. This part handles STATIC HTML cards (Initial load)
+document.querySelectorAll('.static-recipe .view-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+        const card = button.closest('.recipe-card');
+        const title = card.querySelector('h3').innerText;
+        
+        // --- UPDATED SAFE IMAGE HANDLING FOR STATIC CARDS ---
+        if (modalImg) {
+            // Find the image inside the card first
+            const cardImg = card.querySelector('img');
             
-            modalTitle.innerText = title;
-            if(modalImg) modalImg.style.display = 'block'; // Show image for static recipes only if you want
-            if(modalImg) modalImg.src = card.querySelector('img').src;
+            if (cardImg) {
+                // If card has an image, show it in modal
+                modalImg.src = cardImg.src;
+                modalImg.style.display = 'block'; 
+            } else {
+                // If card has NO image, hide the modal image
+                modalImg.style.display = 'none';
+            }
+        }
+        // ----------------------------------------------------
 
-            modalIngredients.innerHTML = rawIng;
-            modalInstructions.innerHTML = rawInst;
-            modal.classList.add('active');
-        });
+        const rawIng = card.querySelector('.data-ingredients').innerHTML;
+        const rawInst = card.querySelector('.data-instructions').innerHTML;
+        
+        modalTitle.innerText = title;
+        modalIngredients.innerHTML = rawIng;
+        modalInstructions.innerHTML = rawInst;
+        modal.classList.add('active');
     });
-
+});
+    
     // --- 10. MOBILE MENU ---
     if(menuIcon){
         menuIcon.addEventListener('click', () => {

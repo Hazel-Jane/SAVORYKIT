@@ -1,46 +1,73 @@
 [
-    {
-        "name" : "Manolo Local Market",
-        "description" : "Zone 8, Ubos sa highschool",
-         "img": "https://i.pinimg.com/736x/38/aa/d3/38aad3278dc2d69b2b8b5c7a85ef600c.jpg",
-        "lat" :88.365632,
-        "lng" : 124.864967
-
-    }, 
-    
-     {
-        "name" : "Sosana's Lutong Bahay",
-        "description" : "Dapit sa Water Tank og Smart Tower",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367877, 
-        "lng" : 124.861258 
-
-    }, 
-
-    {
-        "name" : "Pitongs Pares",
-        "description" : "Dapit sa Water Tank og Smart Tower",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367806, 
-        "lng" : 124.861695
-    }, 
-
-    {
-        "name" : "Pa-paff",
-        "description" : "This offer a foods that good for hot/sunny and rainy weather. You can enjoy a refreshing drinks, ramens and a delicious snacks",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367424, 
-        "lng" : 124.866883 
-
-    }, 
-
-    {
-        "name" : "Krominch Food Hauz",
-        "description" : "Dapit sa Water Tank og Smart Tower",
-        "img" : "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
-        "lat" :8.367418,
-        "lng" :  124.866810
-
-    }
-   
+  {
+    "id": "m-1",
+    "name": "Manolo Local Market",
+    "description": "This local market of manolo fortich, sells many food ingredients for lutong bahay or for the weather based foodie ingredients.",
+    "img": "https://i.pinimg.com/736x/38/aa/d3/38aad3278dc2d69b2b8b5c7a85ef600c.jpg",
+    "lat": 8.365606,
+    "lng": 124.865201,
+    "menu": ["Fresh fish", "Rice", "Dried Fish","Cooking spices","Frozen Chicken","Frozen Pork","Eggs","Fruits","Vegetables"]
+  },
+  {
+    "id": "m-2",
+    "name": "Sosana's Lutong Bahay",
+    "description": "Eatery that offers delicious food and affordable from lutong bahay dish to a good food fits for everyday weathers",
+    "lat": 8.367877,
+    "lng": 124.861258,
+    "menu": ["Sinigang na Baboy","Sinigang na Isda","Dinuguan","Humba","Adobo","Pork Laoya", "Pinakbet","Ginataang Gulay"]
+  },
+  {
+    "id": "m-3",
+    "name": "Pitongs Pares",
+    "description": "Offers food good for everyday weather",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367806,
+    "lng": 124.861695,
+    "menu": ["Beef Pares", "Batchoy","Caldereta","Bicol Express", "Sisig", "Sinigang na Isda"]
+  },
+  {
+    "id": "m-4",
+    "name": "Pa-paff",
+    "description": "This offers foods good for hot/sunny and rainy weather. You can enjoy refreshing drinks, ramen, and delicious snacks.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367424,
+    "lng": 124.866883,
+    "menu": ["Ramen", "Iced Tea","Pizza","Shakes","Tapioca","Lagsana", "Snacks"]
+  },
+ 
+  {
+    "id": "m-5",
+    "name": "Mama Cita's Cafe",
+    "description": "This offers foods good for hot/sunny weather. You can enjoy refreshing drinks and delicious snacks.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.366681,
+    "lng": 124.862865,
+    "menu": ["Milk Tea", "Iced Coffee","Fruit Soda","Chicken Pastil","Cheese Burger","Sizzling with Rice","Fries", "Flavored Wings"]
+  },
+  {
+    "id": "m-6",
+    "name": "Je's Tuna",
+    "description": "This offers seafood-based meals, soups and affordable tuna dishes.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.367819,
+    "lng": 124.865083,
+    "menu": ["Tuna Sisig","Batchoy","Sinigang na Isda","Grilled Tuna", "Rice"]
+  },
+  {
+    "id": "m-7",
+    "name": "Mr. & Mrs. Wok",
+    "description": "This offers wok-style meals and fast Asian cuisine, has a unique dishes with affordable prices mostly very instagrammable paradise.",
+    "lat": 8.367899,
+    "lng": 124.861006,
+    "menu": ["RM", "Kare-kare","Paksisw","Torta","Ginataang Gulay","Kinilaw","Pancit", "Bulalo","Pancit","Balbacua", "Lumpia"]
+  },
+  {
+    "id": "m-8",
+    "name": "Fil n Pak",
+    "description": "This offers foods that best for a sunny and rainy weather, and if your feeling want to taste pakistani foods you should try this food chain.",
+    "img": "https://i.pinimg.com/736x/b2/8e/1e/b28e1e734d10147abc48e0969fb8102b.jpg",
+    "lat": 8.365890,
+    "lng": 124.865627,
+    "menu": ["Beef Shawarma","Bulalo","Lomi","Chicken Sopas","Beef Paris","Batchoy", "Green Tea","Halo-halo", "Shakes/ Iced Tea"]
+  }
 ]

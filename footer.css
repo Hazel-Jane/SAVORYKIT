@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* General Reset and Font */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-} */
-
 /* --- FOOTER CONTAINER --- */
 footer {
     position: relative;
@@ -24,6 +16,7 @@ footer .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     grid-gap: 27px;
+    align-items: start;
 }
 
 
@@ -148,20 +141,54 @@ footer .container .sec h2 {
     margin: 0;
 }
 
-
-/* --- RESPONSIVE MEDIA QUERIES --- */
-@media (max-width: 991px) {
+/* -------- TABLET (≤ 992px) -------- */
+@media (max-width: 992px) {
     footer {
-        padding: 40px 20px;
+        padding: 40px 40px;
     }
+
     footer .container {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 4 */
+        gap: 30px;
+    }
+
+    .copyrightText {
+        padding: 10px 40px;
     }
 }
 
-@media (max-width: 768px) {
+/* -------- MOBILE (≤ 600px) -------- */
+@media (max-width: 600px) {
+    footer {
+        padding: 30px 20px;
+    }
+
     footer .container {
-        /* On mobile, switch to 1 column */
-        grid-template-columns: repeat(1, 1fr); 
+        grid-template-columns: 1fr; /* Stack everything in 1 column */
+        text-align: left;
+    }
+
+    footer .container .sec h2 {
+        font-size: 1.4rem;
+    }
+
+    .sec.followus h2 {
+        font-size: 1.1rem;
+    }
+
+    .sci-list a,
+    .quicklinks li a, 
+    .extralinks li a,
+    .info span,
+    .info a {
+        font-size: 0.95rem;
+    }
+
+    .copyrightText {
+        padding: 10px 20px;
+    }
+
+    .copyrightText .copyright {
+        font-size: 0.9rem;
     }
 }
