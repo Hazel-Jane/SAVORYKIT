@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (category === 'my-recipes') {
             // --- MY RECIPE MODE ---
-            if(sectionTitle) sectionTitle.innerText = "My Personal Recipes";
+            if(sectionTitle) sectionTitle.innerText = "My Recipes";
             
             // Hide all static cards
             staticCards.forEach(card => card.style.display = 'none');
