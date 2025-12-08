@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="landing.html" class="logo">SavoryKit</a>
+        <a href="" class="logo">SavoryKit</a>
 
         <i class='bx bx-menu' id="menu-icon"></i>
 
@@ -26,7 +26,7 @@
         </nav>
     </header>
 
-    <section class="profile-section">
+  <section class="profile-section">
         
         <div class="profile-content-container">
             
@@ -38,6 +38,7 @@
                 </div>
                 
                 <h2 class="profile-title">My Profile</h2>
+                <button class="logout-btn" onclick="logout()">Logout</button>
             </div>
             
             <div class="profile-right-column">
@@ -58,34 +59,29 @@
         Edit Profile
     </button>
 
-    <!-- Hidden Edit Form -->
     <div id="editProfileForm" style="display:none; margin-top:15px;">
         <input type="text" id="usernameInput" placeholder="Enter username"><br><br>
         <textarea id="bioInput" placeholder="Enter bio"></textarea><br><br>
         <input type="date" id="birthdayInput"><br><br>
         <button onclick="saveProfile()" class="save-btn">Save</button>
     </div>
-</div>   
-                <button class="logout-btn" onclick="logout()">Logout</button>
+    </div> 
             </div>
-            
-        </div>
-        
+
+            <div class="profile-bottom-content">
+                <section class="recent-photos-section">
+                    <div class="recent-header">
+                        <h2 class="recent-title">Recent Profile Photos</h2>
+                        <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
+                    </div>
+
+                    <div id="recentPhotos" class="recent-photos-container">
+                        </div>
+                </section>  
+            </div>
     </section>
-
-    <section class="recent-photos-section">
-  <div class="recent-header">
-    <h2 class="recent-title">Recent Profile Photos</h2>
-    <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
-  </div>
-
-  <div id="recentPhotos" class="recent-photos-container">
-    <!-- Images will be inserted here -->
-  </div>
-</section>
-
-
-
+        
+                
          <footer>
        
         <div class="container">
@@ -154,6 +150,7 @@
     </div>
 
 <script src="profile.js"></script>
+<script src="landing.js"></script>
 </body>
 </html>
 

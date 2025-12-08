@@ -1,17 +1,16 @@
 /* Base style for main profile section container */
 .profile-section {
     width: 100%;
-    max-width: 900px; 
-    margin: 0 auto; 
-    padding: 30px 20px; 
+    margin: 0 ; 
+    padding: 30px; 
 }
 
 /* --- FLEX CONTAINER for Two-Column Layout --- */
 .profile-content-container {
-    display: flex; 
-    justify-content: flex-start; 
+    display: grid; 
+    grid-template-columns: 350px 1fr 1fr; 
     align-items: flex-start; 
-    gap: 80px; 
+    gap: 25px; 
     padding-top: 30px;
 }
 
@@ -20,46 +19,41 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 150px;
+    margin-top: 50px; 
+    margin-left: 10%;
 }
 
-/* --- Profile Picture Styles (Larger Size) --- */
 .profile-pic-container {
     display: flex;
     flex-direction: column;
     align-items: center; 
-    margin-bottom: 25px; 
 }
-
 .profile-pic-container img {
     width: 200px; 
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #2e7d32;
-    margin-bottom: 20px;
+    border: 4px solid #2e7d3275;
 }
 
 .upload-btn {
     background: #2e7d32;
     color: #fff;
     font-size: 16px; 
-    padding: 8px 20px;
+    padding: 8px ;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s ease;
-    /* FIX: Setting a fixed width relative to the container for better display */
     width: 180px; 
     text-align: center;
+    margin-top: 5%;
 }
 
 .upload-btn:hover {
     background: #1b5e20;
 }
 
-/* --- Profile Title Styles (Below the button) --- */
 .profile-title {
-    /* margin: 30px 0 0 0;  */
     font-size: 1.8rem; 
     font-weight: bold;
     color: #000000; 
@@ -68,18 +62,15 @@
 }
 
 
-/* --- RIGHT COLUMN: Email Info and Logout Button --- */
-.profile-right-column {
+.profile-left-column {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 23%;
+    margin-top: 50px; 
 }
 
-
-/* --- Email Info Styles (Aligned Left) --- */
 .profile-info {
-    margin-bottom: 25px;
+    margin-top: 15%;
     text-align: justify;
 }
 
@@ -111,22 +102,19 @@
     font-weight: 600;
 }
 
-
-/* --- Logout Button Styles (Smaller/Aligned) --- */
+/* --- Logout Button Styles (Cleaned up for new position) --- */
 .logout-btn {
     width: 100px; 
     padding: 10px;
     background: #043506;
-    border: none;
     border-radius: 10px;
     color: #fff;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
-    margin-left: 150%;
-    margin-top: 50%;
-
+    margin-top: 15%; 
+    margin-left: 50px;
 }
 
 .logout-btn:hover {
@@ -139,21 +127,19 @@
 /* === RECENT PROFILE PHOTOS SECTION === */
 
 .recent-photos-section {
-  width: 100%;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+    width: 100%;
+    margin-top: 10%;
+    padding: 0; 
+    margin-right: 10%;
 }
 
 .recent-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+  justify-content: space-evenly;
 }
 
 .recent-title {
-  font-size: 1.6rem;
+  font-size:1.8rem;
   font-weight: bold;
   color: #2e7d32;
 }
@@ -162,10 +148,11 @@
   background: #c62828;
   color: white;
   border: none;
-  padding: 8px 14px;
+  padding: 8px 20px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size:1rem;
+  margin-right: 10%;
 }
 
 .clear-history-btn:hover {
@@ -215,4 +202,125 @@
 
 .delete-photo:hover {
   background: darkred;
+}
+
+/* -------- LAPTOP (≤ 1200px) -------- */
+@media (max-width: 1200px) {
+  .profile-content-container {
+    grid-template-columns: 300px 1fr;
+  }
+
+  .profile-left-column {
+    margin-left: 3%;
+  }
+
+  .recent-photos-section {
+    margin-right: 0;
+  }
+}
+
+/* -------- TABLET (≤ 992px) -------- */
+@media (max-width: 992px) {
+  .profile-content-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .profile-left-column {
+    align-items: center;
+    margin: 0;
+  }
+
+  .profile-title {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .profile-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .profile-info span {
+    margin-left: 0;
+  }
+
+  .logout-btn {
+    margin: 25px auto;
+  }
+
+  .recent-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .recent-photos-container {
+    justify-content: center;
+  }
+}
+
+/* -------- MOBILE (≤ 768px) -------- */
+@media (max-width: 768px) {
+  .profile-pic-container img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .upload-btn {
+    width: 160px;
+    font-size: 14px;
+  }
+
+  .profile-title {
+    font-size: 1.6rem;
+  }
+
+  .recent-title {
+    font-size: 1.5rem;
+  }
+
+  .photo-wrapper {
+    width: 75px;
+    height: 75px;
+  }
+
+  .clear-history-btn {
+    padding: 6px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* -------- SMALL MOBILE (≤ 480px) -------- */
+@media (max-width: 480px) {
+  .profile-section {
+    padding: 16px;
+  }
+
+  .profile-pic-container img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .upload-btn,
+  .logout-btn {
+    width: 100%;
+  }
+
+  .profile-title {
+    font-size: 1.4rem;
+  }
+
+  .profile-info p {
+    font-size: 1.2rem;
+  }
+
+  .profile-info span {
+    font-size: 1rem;
+  }
+
+  .photo-wrapper {
+    width: 65px;
+    height: 65px;
+  }
 }
