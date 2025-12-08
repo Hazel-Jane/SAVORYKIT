@@ -131,7 +131,7 @@ document.getElementById("popup-signup-btn").addEventListener("click", function (
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("loggedInUser", email);
     alert("Account created successfully!");
-    window.location.href = "home.html";
+    window.location.href = "homies.html";
 });
 
 
@@ -158,7 +158,7 @@ document.getElementById("popup-login-btn").addEventListener("click", function ()
         localStorage.removeItem("rememberedUser");
     }
 
-    window.location.href = "home.html";
+    window.location.href = "homies.html";
 });
 
 
@@ -168,6 +168,6 @@ window.addEventListener("DOMContentLoaded", function () {
     const rememberedUser = localStorage.getItem("rememberedUser");
 
     if (rememberedUser) {
-        window.location.href = "home.html";
+        window.location.href = "homies.html";
     }
 });
