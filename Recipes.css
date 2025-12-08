@@ -1,13 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-body {
-    background-color: #f4f4f4;
-}
 
 /* --- Header --- */
 header {
@@ -105,8 +96,8 @@ header {
 }
 
 .search-box button {
-    background-color: #ff6347;
-    color: white;
+    background-color: #bef090;
+    color: rgb(80, 80, 80);
     border: none;
     padding: 10px 20px;
     border-radius: 30px;
@@ -129,21 +120,22 @@ header {
     background-color: #e0e0e0;
     border: none;
     color: #333;
-    border-radius: 30px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1.5rem;
     font-weight: 500;
     transition: 0.3s;
+    
 }
 
 .filter-btn:hover {
-    background-color: #ff6347;
+    background-color:  #86ad61;
     color: white;
     transform: translateY(-2px);
 }
 
 .filter-btn.active {
-    background-color: #ff6347;
+    background-color:  #86ad61;
     color: white;
 }
 
@@ -156,11 +148,12 @@ header {
 }
 
 .add-btn {
-    font-size: 2rem;    
+    font-size: 1.9rem;    
     background-color: #09640f;
     color: white;
+    letter-spacing: 0.2cm;
     border: none;
-    padding: 15px 50px; 
+    padding: 10px 100px; 
     border-radius: 10px; 
     cursor: pointer;
     font-weight: bold;
@@ -208,9 +201,9 @@ header {
 
 /* CARD STYLING */
 .recipe-card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.993);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(187, 236, 103, 0.938);
     overflow: hidden;
     transition: transform 0.3s;
     animation: fadeIn 0.5s;
@@ -228,7 +221,7 @@ header {
 .recipe-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit:fill;
     background-color: #ddd;
 }
 
@@ -243,16 +236,15 @@ header {
 
 .card-content h3 {
     margin-bottom: 10px;
-    color: #333;
-    font-size: 20px;
+    color: #202020;
+    font-size: 2.2rem;
 }
 
 .card-content p {
     font-size: 14px;
-    color: #666;
+    color: #696969;
     margin-bottom: 15px;
     display: -webkit-box;
-    /* -webkit-line-clamp: 3; */
     -webkit-box-orient: vertical;
     overflow: hidden;
     height: 60px;
@@ -273,7 +265,8 @@ header {
 }
 
 .view-btn:hover {
-    background-color: #ff6347;
+    background-color: #93c786e1;
+    color: #000000;
 }
 
 /* Edit/Delete Buttons on Card */
@@ -328,7 +321,7 @@ header {
 }
 
 .modal-content {
-    background: white;
+    background: rgb(255, 255, 255);
     width: 90%;
     max-width: 600px;
     padding: 20px;
@@ -337,6 +330,7 @@ header {
     max-height: 90vh;
     overflow-y: auto;
     animation: fadeIn 0.3s ease-in-out;
+    font-size: 1.9rem;
 }
 
 /* Form Styling inside Modal */
@@ -346,16 +340,16 @@ header {
 
 form label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333;
+    margin-top: 15px;
+    font-weight:600;
+    color: #272727;
 }
 
 form input, form select, form textarea {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 5px;
 }
 
@@ -377,7 +371,7 @@ form input, form select, form textarea {
     right: 20px;
     font-size: 30px;
     cursor: pointer;
-    color: #333;
+    color: #023a02;
     font-weight: bold;
 }
 
@@ -396,7 +390,8 @@ form input, form select, form textarea {
 .modal-details h3 {
     margin-top: 15px;
     margin-bottom: 10px;
-    color: #ff6347;
+    color: #175006;
+    font-size: 2rem;
 }
 
 .modal-details ul {
@@ -410,7 +405,7 @@ form input, form select, form textarea {
 
 .modal-details p {
     line-height: 1.6;
-    color: #555;
+    color: #000000;
     white-space: pre-line;
 }
 

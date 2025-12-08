@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* General Reset and Font */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-} */
-
 /* --- FOOTER CONTAINER --- */
 footer {
     position: relative;
@@ -24,6 +16,7 @@ footer .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     grid-gap: 27px;
+    align-items: start;
 }
 
 
