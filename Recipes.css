@@ -59,6 +59,7 @@ header {
     cursor: pointer;
 }
 
+
 /* --- Hero Section --- */
 .hero {
     width: 100%;
@@ -105,7 +106,7 @@ header {
 }
 
 .search-box button {
-    background-color: #ff6347;
+    background-color: #066b0d;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -126,7 +127,7 @@ header {
 
 .filter-btn {
     padding: 10px 20px;
-    background-color: #e0e0e0;
+    background-color: #14b31f;
     border: none;
     color: #333;
     border-radius: 30px;
@@ -137,13 +138,13 @@ header {
 }
 
 .filter-btn:hover {
-    background-color: #ff6347;
+    background-color: #022b06;
     color: white;
     transform: translateY(-2px);
 }
 
 .filter-btn.active {
-    background-color: #ff6347;
+    background-color: #61dc53;
     color: white;
 }
 
@@ -273,7 +274,7 @@ header {
 }
 
 .view-btn:hover {
-    background-color: #ff6347;
+    background-color: #09860f;
 }
 
 /* Edit/Delete Buttons on Card */
@@ -327,6 +328,7 @@ header {
     display: flex;
 }
 
+
 .modal-content {
     background: white;
     width: 90%;
@@ -337,7 +339,10 @@ header {
     max-height: 90vh;
     overflow-y: auto;
     animation: fadeIn 0.3s ease-in-out;
+    font-size: 18px;
+    
 }
+
 
 /* Form Styling inside Modal */
 .form-content {
@@ -362,7 +367,7 @@ form input, form select, form textarea {
 .submit-btn {
     width: 100%;
     padding: 10px;
-    background-color: #ff6347;
+    background-color: #0d891c;
     color: white;
     border: none;
     margin-top: 15px;
@@ -382,7 +387,7 @@ form input, form select, form textarea {
 }
 
 .close-btn:hover {
-    color: #ff6347;
+    color: #81f177;
 }
 
 #modal-img {

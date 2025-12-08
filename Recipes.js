@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const recipeForm = document.getElementById('recipe-input-form');
     const openFormBtn = document.getElementById('open-form-btn'); 
     const addRecipeContainer = document.getElementById('add-recipe-container');
+    
+
+    
 
     // --- 1. LOCAL STORAGE SETUP ---
     let userRecipes = JSON.parse(localStorage.getItem('myFoodieRecipes')) || [];
