@@ -46,7 +46,7 @@ function getDayName(offset) {
 
 function getFormattedDate() {
     const date = new Date();
-    const options = { month: 'short', day: 'numeric', year: 'numeric' };
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
     return date.toLocaleDateString('en-US', options).replace(/,/g, '');
 }
 
@@ -144,7 +144,7 @@ async function fetchWeather() {
         console.error("Final weather fetch failed:", error);
         weatherElement.innerHTML = `
  <p style="color: ${error.message.includes('API Key Invalid') ? 'red' : 'inherit'}; font-weight: 600;">Error loading weather data.</p>
- <p style="color: ${error.message.includes('API Key Invalid') ? 'darkred' : 'inherit'}; font-size: 0.9em; margin-top: 0.5rem;">
+ <p style="color: ${error.message.includes('API Key Invalid') ? 'darkred' : 'inherit'}; font-size: 5em; margin-top: 0.5rem;">
  Reason: ${error.message}.
  </p>
  `;
