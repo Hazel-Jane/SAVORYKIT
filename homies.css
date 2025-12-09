@@ -71,6 +71,17 @@ body {
     z-index: 10; 
 }
 
+.hero-text-content span {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10; 
+    font-size: 2rem;
+    text-align: center;
+}
+
 
 .tagline {
     color: var(--accent-red);
@@ -204,55 +215,45 @@ body {
     overflow: hidden;
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     min-height: 450px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 5%;
 }
-
 
 .current-weather {
     flex: 1.5;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    background: linear-gradient(135deg, #61b99c 0%, #52ae98 100%); 
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(130deg, #81bd82 0%, #cdd7ab 100%); 
     padding: 3rem;
     color: #FFFFFF;
     position: relative;
     z-index: 1;
 }
 
-
-/* .weather-status {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-    line-height: 1.2;
-   
-} */
-
-
 .weather-date {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 400;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     line-height: 1.2;
     color: rgba(255, 255, 255, 0.9);
 }
 
 
 .weather-location {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(250, 250, 250, 0.9);
     margin-bottom: 5rem;
     display: flex;
     align-items: center;
 }
 
 .weather-location i {
-    font-size: 2rem;
+    font-size: 1.4rem;
     margin-right: 0.3rem;
 }
 
@@ -282,7 +283,7 @@ body {
     line-height: 1;
     margin: auto; 
     position: relative;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 5px rgba(165, 198, 155, 0.39);
     color: #FFFFFF;
 }
 
@@ -314,7 +315,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 1.5rem 0;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #c4d6bb;
     
 }
 

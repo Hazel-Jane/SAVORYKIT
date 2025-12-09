@@ -35,15 +35,15 @@ const recipesData = [
 
 // CHART COLOR CODINGS
 const backgroundColors = [
-    '#006064', 
-    '#1b5e20', 
-    '#b71c1c'  
+    '#b1d9dbff', 
+    '#acdfafff', 
+    '#cda2a2ff'  
 ];
 
 const borderColors = [
-    '#0097a7',
-    '#388e3c',
-    '#c62828'
+    '#b1d9dbff', 
+    '#acdfafff', 
+    '#cda2a2ff' 
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

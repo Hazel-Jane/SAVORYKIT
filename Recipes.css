@@ -1,12 +1,4 @@
 
-
-/* --- Header --- */
-header {
-    background-color: #333333;
-    height: 60px;
-    width: 100%;
-}
-
 .container {
     width: 90%;
     margin: 0 auto;
@@ -101,7 +93,7 @@ header {
     background-color: #066b0d;
     color: white;
 
-    background-color: #bef090;
+    background-color: #456e1f87;
     color: rgb(80, 80, 80);
 
     border: none;
@@ -217,7 +209,7 @@ header {
 .recipe-card {
     background: rgba(255, 255, 255, 0.993);
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(187, 236, 103, 0.938);
+    box-shadow: 0 5px 15px rgba(185, 225, 187, 0.616);
     overflow: hidden;
     transition: transform 0.3s;
     animation: fadeIn 0.5s;
@@ -404,9 +396,9 @@ form input, form select, form textarea {
 
 #modal-img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
+    height: 300px;
+    object-fit: fill;
+    border-radius: 10px;
     margin: 15px 0;
 }
 
