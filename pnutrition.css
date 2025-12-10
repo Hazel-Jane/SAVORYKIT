@@ -102,36 +102,59 @@ body {
     position: relative; 
 }
 
+
+/* --- SUNNY TIP DESIGN  --- */
 .sunny-tip {
- background-color: #fffde7; 
- border: 1px solid #ffeb3b;
+    background: linear-gradient(135deg, #fffde7, #fff9c4);
+    border: 1px solid #ffeb3b;
+    position: relative;
+    overflow: hidden;
+}
+
+.sunny-tip::after {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.35), rgba(255, 204, 0, 0));
+    border-radius: 50%;
+    filter: blur(8px);
 }
 
 .sunny-tip::before {
-   
-    background-size: 80px;
-    background-position: bottom 20px left 20px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/869/869869.png');
+    opacity: 0.13 !important;
 }
 
-.sunny-tip h3 {
- color: #ffb300; 
- border-color: #ffcc00;
-}
 
+/* --- RAINY TIP DESIGN --- */
 .rainy-tip {
- background-color: #e3f2fd; 
- border: 1px solid #90caf9;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border: 1px solid #90caf9;
+    position: relative;
+    overflow: hidden;
+}
+
+.rainy-tip::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(25, 118, 210, 0.25), rgba(25, 118, 210, 0));
+    border-radius: 50%;
+    filter: blur(10px);
 }
 
 .rainy-tip::before {
-    background-size: 80px;
-    background-position: bottom 20px right 20px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/414/414974.png');
+    opacity: 0.13 !important;
 }
 
-.rainy-tip h3 {
- color: #1976d2; 
- border-color: #42a5f5;
-}
+
 
 .tip-card ul {
     position: relative;
