@@ -38,7 +38,7 @@ footer .container .sec h2 {
     font-size: 1.2rem; 
 }
 
-/* Styling for the list itself (replacing .sci with .sci-list) */
+/* Styling for the list itself  */
 .sci-list {
     list-style: none; 
     padding: 0;
@@ -46,7 +46,7 @@ footer .container .sec h2 {
 }
 
 .sci-list li {
-    margin-bottom: 12px; /* Spacing between social links */
+    margin-bottom: 12px; 
 }
 
 /* Styling for the links (icon and text) */
@@ -54,7 +54,7 @@ footer .container .sec h2 {
     text-decoration: none;
     color: #1b1b1b;
     font-size: 1.2rem;
-    display: flex; /* Use flexbox to align icon and text */
+    display: flex;
     align-items: center;
     transition: color 0.3s;
 }
@@ -65,12 +65,10 @@ footer .container .sec h2 {
 
 /* Styling for the icon */
 .sci-list a i {
-    color: #498b4c; /* Light green for the icon */
+    color: #498b4c; 
     font-size: 1.25rem;
-    margin-right: 10px; /* Space between icon and text */
+    margin-right: 10px; 
 }
-
-
 /* --- LINKS (Quick, Extra, Contact) --- */
 .quicklinks ul, .extralinks ul {
     list-style: none; 
@@ -91,7 +89,6 @@ footer .container .sec h2 {
 .quicklinks li a:hover, .extralinks li a:hover {
     color: rgb(136, 124, 21);
 }
-
 
 /* --- CONTACT INFO --- */
 .contact ul {
@@ -126,7 +123,6 @@ footer .container .sec h2 {
 .info a:hover {
     color: rgb(136, 124, 21);
 }
-
 
 /* --- COPYRIGHT TEXT --- */
 .copyrightText {

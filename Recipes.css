@@ -1,4 +1,3 @@
-
 .container {
     width: 90%;
     margin: 0 auto;
@@ -13,8 +12,6 @@
     font-size: 24px;
     cursor: pointer;
 }
-
-/* --- Navigation --- */
 .nav-list {
     list-style: none;
     display: flex;
@@ -42,7 +39,6 @@
     cursor: pointer;
 }
 
-
 /* --- Hero Section --- */
 .hero {
     width: 100%;
@@ -56,7 +52,7 @@
     justify-content: center;
     text-align: center;
     color: white;
-    padding: 0 20px; /* Added padding so text doesn't touch edges on mobile */
+    padding: 0 20px; 
 }
 
 .hero-content h2 {
@@ -90,9 +86,9 @@
 }
 
 .search-box button {
-    background-color: #066b0d;
+    background: #066b0d;
     color: rgb(255, 255, 255);
-    background-color:#bbe29a;
+    background:#b7df97;
     color: rgb(66, 66, 66);
     border: none;
     padding: 10px 20px;
@@ -102,7 +98,6 @@
 }
 .search-box button:hover{
     background-color: #fb6007cc;
-
     color: rgb(235, 235, 235);
     transform: translateY(-2px);
 }
@@ -131,21 +126,15 @@
 }
 
 .filter-btn:hover {
-
     background-color: #00800d;
-
     background-color:  #087413;
-
     color: white;
     transform: translateY(-2px);
 }
 
 .filter-btn.active {
-
     background-color: #61dc53;
-
     background-color:  #f5f5f5;
-
     color: rgb(51, 51, 51);
 }
 
@@ -159,8 +148,8 @@
 
 .add-btn {
     font-size: 1.9rem;    
-    background-color: #09640f;
-    color: white;
+    background-color:  #78e77f;
+    color: rgb(24, 24, 24);
     letter-spacing: 0.2cm;
     border: none;
     padding: 10px 100px; 
@@ -173,8 +162,8 @@
 
 .add-btn:hover {
     transform: scale(1.05); 
-    background-color: #a1deb4; 
-    color: #000000;
+    background-color: #fb6007cc; 
+    color: #ffffff;
 }
 
 /* The Line Separator */
@@ -312,9 +301,6 @@
     font-size: 18px;
     color: #666;
 }
-
-
-
 /* --- Modal Styling --- */
 .modal-overlay {
     position: fixed;
@@ -328,12 +314,9 @@
     justify-content: center;
     z-index: 1000;
 }
-
 .modal-overlay.active {
     display: flex;
 }
-
-
 .modal-content {
     background: rgb(255, 255, 255);
     width: 90%;
@@ -350,8 +333,6 @@
     font-size: 1.9rem;
 
 }
-
-
 /* Form Styling inside Modal */
 .form-content {
     max-width: 500px;
@@ -443,12 +424,10 @@ form input, form select, form textarea {
     
     /* 1. Navbar Adjustments */
     .menu-icon {
-        display: block; /* Show hamburger menu on mobile */
+        display: block; 
     }
 
     .nav-list {
-        /* If you have JS for a toggle menu, this hides it initially */
-        /* display: none; */ 
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
@@ -466,11 +445,11 @@ form input, form select, form textarea {
 
     /* 2. Hero Section */
     .hero {
-        height: 40vh; /* Shorter banner on mobile */
+        height: 40vh; 
     }
 
     .hero-content h2 {
-        font-size: 28px; /* Smaller Title */
+        font-size: 28px; 
     }
 
     .hero-content p {
@@ -479,19 +458,18 @@ form input, form select, form textarea {
 
     /* 3. Search Box */
     .search-box {
-        width: 90%; /* Fits smaller screens */
+        width: 90%; 
     }
 
     /* 4. "Add Recipe" Button Fix */
     .add-btn {
-        padding: 10px 40px; /* Reduces the huge side padding */
+        padding: 10px 40px; 
         font-size: 1.2rem;
-        width: 80%; /* Makes it responsive */
+        width: 80%; 
     }
 
     /* 5. Recipe Grid & Container */
     .recipe-container {
-        /* Reduce side margins so cards aren't squished */
         margin-left: 20px; 
         margin-right: 20px;
         gap: 15px;
@@ -505,7 +483,7 @@ form input, form select, form textarea {
     /* 6. Filter Buttons */
     .filter-btn {
         padding: 8px 15px;
-        font-size: 1rem; /* Smaller text */
+        font-size: 1rem; 
     }
 }
 
@@ -519,19 +497,18 @@ form input, form select, form textarea {
 
     /* 2. Recipe Cards */
     .recipe-container {
-        /* Force single column for very small phones */
         grid-template-columns: 1fr; 
         margin-left: 15px;
         margin-right: 15px;
     }
 
     .card-content h3 {
-        font-size: 1.8rem; /* Smaller Card Title */
+        font-size: 1.8rem; 
     }
 
     /* 3. Modal */
     .modal-content {
-        width: 95%; /* Use full screen width */
+        width: 95%; 
         padding: 15px;
     }
 
@@ -540,6 +517,6 @@ form input, form select, form textarea {
     }
 
     #modal-img {
-        height: 200px; /* Smaller image in popup */
+        height: 200px; 
     }
 }

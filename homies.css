@@ -126,10 +126,10 @@ body {
 }
 
 .pull-quote {
-    border-left: 5px solid #8cdda4; 
-    padding: 1rem 0 1rem 1.5rem;
+    border-left: 5px solid #ffda06; 
+    padding:  0 1rem 1rem ;
     margin-bottom: 2.5rem;
-    background-color: var(--bg-mid-color); 
+    background-color: rgb(236, 236, 236); 
     border-radius: 4px;
 }
 
@@ -139,7 +139,6 @@ body {
     font-weight: 500;
     color: var(--primary-text-color);
 }
-
 
 .image-element {
     flex: 1;
@@ -169,7 +168,6 @@ body {
 .image-display-wrapper:hover {
     transform: rotate(0deg) scale(1.05);
 }
-
 
 .image-element::before {
     content: '';
@@ -212,10 +210,9 @@ body {
     filter: brightness(1) contrast(1);
 }
 
-/* --- NEW WEATHER CARD V3 STYLES (Matching Image) --- */
+/* --- NEW WEATHER CARD V3  --- */
 
 .weather-content-wrapper {
-    /* Center the weather card below the hero section */
     display: flex;
     justify-content: center;
     padding: 4rem 2rem;
@@ -223,10 +220,8 @@ body {
 }
 
 .weather-info-container.weather-card-v3 {
-    /* Overall Container */
     display: flex;
     flex-direction: row;
-    
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -237,37 +232,19 @@ body {
     color: var(--dark-panel-text);
 }
 
-
-/* --- LEFT PANEL: Current Weather (Orange Pastel Background) --- */
+/* --- LEFT PANEL: Current Weather */
 .current-weather-v3 {
-    flex: 1.5; /* Larger side for main data */
+    flex: 1.5; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between; /* Space out the top and bottom content */
+    justify-content: space-between; 
     padding: 3rem;
     color: var(--light-bg);
-    
-    /* ORANGE PASTEL PALETTE Background */
     background: linear-gradient(140deg, #94d99e 0%, #FFDDAA 100%); 
     position: relative;
     z-index: 1;
 }
-
-/* Background Image Overlay (optional - remove if you want solid color) */
-.current-weather-v3::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    /* This uses the image from your example as an overlay */
-    background-image: url('https://i.imgur.com/k2e4xLg.jpeg'); 
-    background-size: cover;
-    background-position: center bottom;
-    opacity: 0.35; /* Adjust opacity for the pastel look */
-    z-index: -1;
-}
-
-/* FIXES START HERE */
 
 /* Container for Day, Date, Location */
 .current-weather-v3 > div:first-child {
@@ -328,9 +305,9 @@ body {
 }
 
 
-/* --- RIGHT PANEL: Details & Forecast (Dark Background) --- */
+/* --- RIGHT PANEL: Details & Forecast  */
 .weather-details-forecast-v3 {
-    flex: 1.3; /* Smaller side for details/forecast */
+    flex: 1.3; 
     padding: 3rem 2.5rem;
     background: linear-gradient(230deg, #94d99e 0%, #FFDDAA 100%); 
     color: var(--dark-panel-text);
@@ -360,14 +337,14 @@ body {
     padding: 0.5rem 0;
 }
 .detail-label-v3 {
-    font-weight: 600; /* Make bold */
-    font-size: 2rem; /* Slightly bigger */
+    font-weight: 600; 
+    font-size: 2rem; 
     color: var(--dark-panel-subtext);
     text-transform: capitalize;
 }
 .detail-value-v3 {
-    font-weight: 600; /* Make bolder */
-    font-size: 2rem; /* Slightly bigger */
+    font-weight: 600; 
+    font-size: 2rem; 
     color: var(--dark-panel-text);
 }
 
@@ -396,40 +373,34 @@ body {
     box-sizing: border-box;         
 }
 
-/* Keep the rest of your hover/text styles the same */
 .forecast-day-v3.active,
 .forecast-day-v3:hover {
     background-color: rgba(233, 229, 223, 0.317);
 }
-
-
 .forecast-icon-v3 {
-    font-size: 4rem; /* BIGGER ICON SIZE */
+    font-size: 4rem; 
     color: rgb(255, 255, 255);
     margin-bottom: 0.4rem;
     
 }
-
 .forecast-day-name-v3 {
-    font-size: 1.3rem; /* Slightly bigger font */
-    font-weight: 700; /* Bold */
+    font-size: 1.3rem; 
+    font-weight: 700;
     color:rgb(83, 83, 84);
     text-transform: uppercase;
 }
 
 .forecast-temp-v3 {
-    font-size: 1.3rem; /* Slightly bigger font */
-    font-weight: 900; /* Bolder */
+    font-size: 1.3rem; 
+    font-weight: 900; 
     margin-top: 0.3rem;
    color:rgb(83, 83, 84);
 }
-
 .weather-search-v3 {
     width: 100%; 
     margin-top: 2rem;
     padding-top: 1rem;
 }
-
 .search-input-container {
     display: flex;
     align-items: center;
@@ -437,7 +408,6 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 #city-search-input {
     flex-grow: 1;
     border: none;
@@ -455,7 +425,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2); 
 }
 #city-search-input::placeholder {
-    color: rgba(44, 44, 44, 0.9); /* Lighter placeholder text */
+    color: rgba(44, 44, 44, 0.9); 
     font-weight: 500;
 }
 
@@ -472,8 +442,6 @@ body {
 #search-button:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
-
-/* FIXES END HERE */
 
 .image-element {
     flex: 1;
@@ -512,7 +480,7 @@ body {
     filter: brightness(1) contrast(1);
 }
 
-/* --- PLACES SECTION FIX (Paste at TOP of file) --- */
+/* --- PLACES SECTION FIX  */
 .places-section {
     display: block !important;
     width: 100% !important;
@@ -607,29 +575,24 @@ body {
     }
 
     .main-heading {
-        font-size: 3.5rem; /* Shrink heading size */
+        font-size: 3.5rem; 
     }
 
     .intro-description {
         font-size: 1.15rem;
-        max-width: none; /* Let it use the full width */
+        max-width: none; 
     }
     
-    /* Center text elements within the stacked layout */
     .intro-description, 
     .tagline, 
     .pull-quote {
         margin-left: auto;
         margin-right: auto;
     }
-
-    /* Adjust the main image and floating elements */
     .image-element {
         min-height: 400px;
         padding: 0;
     }
-
-    /* Adjust floating element positions to stay near the main image */
     .image-element::before {
         top: 0;
         left: 0;
@@ -652,7 +615,7 @@ body {
     }
 
     .main-heading {
-        font-size: 2.5rem; /* Further shrink heading */
+        font-size: 2.5rem;
     }
     
     .intro-description {
@@ -660,14 +623,13 @@ body {
     }
 
     .image-display-wrapper {
-        max-width: 300px; /* Shrink the main food plate */
+        max-width: 300px; 
     }
 
     .image-element {
         min-height: 350px;
     }
     
-    /* Make floating elements smaller on phones */
     .image-element::before {
         width: 80px;
         height: 80px;
@@ -694,23 +656,6 @@ body {
         margin: 0 auto;
     }
 
-    /* The original weather card styles are commented out, but keeping the MQ overrides for context */
-    /* .current-weather, 
-    .weather-details-panel {
-        padding: 2rem; 
-    }
-    
-    .weather-temp {
-        font-size: 5rem; 
-    }
-
-    .detail-label {
-        font-size: 1.5rem; 
-    }
-
-    .detail-value {
-        font-size: 1.8rem;
-    } */
 }
 
 /* Mobile Layout (max-width 768px) */
@@ -720,37 +665,6 @@ body {
         margin: 0 auto; 
     }
 
-    /* .current-weather {
-        align-items: center; 
-        text-align: center;
-    }
-
-    .weather-location {
-        justify-content: center;
-        margin-bottom: 2rem; 
-    }
-    
-    .weather-temp {
-        font-size: 4rem; 
-    }
-    
-    .weather-temp-icon img {
-        width: 80px; 
-        height: 80px;
-        margin: 0 auto 10px; 
-    }
-
-    .detail-row {
-        padding: 1rem 0; 
-    }
-
-    .detail-label {
-        font-size: 1.2rem;
-    }
-
-    .detail-value {
-        font-size: 1.5rem;
-    } */
 }
 
 /* --- Responsive Adjustments for New Card --- */
@@ -780,68 +694,9 @@ body {
     }
 
     .details-grid-v3 {
-        grid-template-columns: 1fr; /* Stack details vertically on smaller screens */
+        grid-template-columns: 1fr; 
     }
     .detail-item-v3 {
         text-align: left;
     }
-}
-
-
-/* --- EXISTING CSS FOR .places-section (Base styles, assumed for Desktop/Large screens) --- */
-
-/* Styling for the main section and heading */
-.places-section {
-    padding: 20px;
-    text-align: center;
-    background-color: #f4f4f4;
-}
-
-.places-section h2 {
-    font-size: 4rem;
-    color: #333;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
-
-/* Base Container (Large Screen Default) */
-.places-container {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 30px; 
-    justify-content: center; 
-}
-
-/* Base Card Size (Large Screen Default) */
-.place-card {
-    display: block;
-    text-decoration: none;
-    width: 200px; 
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 8px rgba(178, 228, 166, 0.479); 
-    transition: transform 0.3s, box-shadow 0.3s; 
-}
-
-.place-image-wrapper {
-    width: 100%;
-    height: 200px; 
-    overflow: hidden;
-    position: relative; 
-}
-
-/* Place Name (Text Overlay) */
-.place-name {
-    position: absolute; 
-    top: 0; 
-    left: 0;
-    right: 0;
-    padding: 8px 5px;
-    font-size: 1.4rem; /* Base font size */
-    font-weight: bold;
-    color: #fff; 
-    margin: 0;
-    text-align: center
 }

@@ -1,20 +1,17 @@
-// --- Sample data (you can keep this in an external market.json and fetch it) ---
-    let markersData = []; // now loaded from JSON
+let markersData = []; // now loaded from JSON
 
 async function loadMarketData() {
   try {
     const res = await fetch('market.json');
     markersData = await res.json();
-    initMarkers(); // create markers after loading JSON
+    initMarkers(); 
   } catch (err) {
     console.error('Failed to load market data:', err);
   }
 }
 
-    // localStorage key
+    // localStorage 
     const STORAGE_KEY = 'savorykit_market_user_data_v1';
-
-    // load saved user-data (added items + tried status)
     function loadSaved() {
       try{
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -22,18 +19,13 @@ async function loadMarketData() {
       } catch(e){ console.warn(e); return {} }
     }
     function saveSaved(data){ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
-
-    // Merge base menu with saved additional items & tried flags
     function getMergedPlace(id){
       const base = markersData.find(m=>m.id===id);
       if(!base) return null;
       const saved = loadSaved()[id] || { added: [], tried: {} };
-      // merged menu = base.menu + saved.added
       const mergedMenu = Array.from(new Set([...(base.menu||[]), ...(saved.added||[])]));
       return { ...base, menu: mergedMenu, _saved: saved };
     }
-
-    // initialize map
     const map = L.map('map').setView([8.366484,124.865488], 16);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19 }).addTo(map);
 
@@ -48,8 +40,7 @@ async function loadMarketData() {
   });
 }
 
-
-    // Panel DOM refs
+    // Panel DOM 
     const panel = document.getElementById('panel');
     const placeNameEl = document.getElementById('place-name');
     const placeDescEl = document.getElementById('place-desc');
@@ -67,14 +58,8 @@ async function loadMarketData() {
       if(!p) return;
       placeNameEl.textContent = p.name;
       placeDescEl.textContent = p.description || '';
-
-      // populate menu list
       renderMenu(p);
-
-      // show panel (mobile uses translated panel), desktop it's visible already
       panel.classList.add('open');
-
-      // close leaflet popup if any open
       map.closePopup();
     }
 
@@ -96,7 +81,7 @@ async function loadMarketData() {
 
     const isUserAdded = saved.added && saved.added.includes(item);
 
-    // ✏️ EDIT BUTTON (ONLY FOR USER-ADDED)
+    //  EDIT BUTTON 
     if(isUserAdded){
       const editBtn = document.createElement('button');
       editBtn.textContent = 'Edit';
@@ -118,7 +103,7 @@ async function loadMarketData() {
       actions.appendChild(editBtn);
     }
 
-    // 🗑️ DELETE BUTTON (ONLY FOR USER-ADDED)
+    //  DELETE BUTTON 
     if(isUserAdded){
       const deleteBtn = document.createElement('button');
       deleteBtn.textContent = 'Delete';
@@ -143,8 +128,6 @@ async function loadMarketData() {
     menuList.appendChild(li);
   });
 }
-
-
     // show add form toggle
     openAddBtn.addEventListener('click', ()=>{
       if(!activePlaceId) return alert('Tap a pin first');
@@ -157,25 +140,19 @@ async function loadMarketData() {
       if(!text) return;
       const all = loadSaved();
       all[activePlaceId] = all[activePlaceId] || { added: [], tried: {} };
-      // push if not exists
       if(!all[activePlaceId].added.includes(text)) all[activePlaceId].added.push(text);
       saveSaved(all);
       newItemInput.value = '';
       addForm.classList.add('hide');
-      // re-open to refresh view
       openPanelFor(activePlaceId);
     });
 
     // close panel when clicking map background on desktop
     map.on('click', ()=>{ panel.classList.remove('open'); activePlaceId = null; });
-
-    // optional: expose a function to load external JSON instead of using markersData above
     async function initFromUrl(url){
       try{
         const r = await fetch(url);
         const data = await r.json();
-        // expect each entry to have id/name/lat/lng/menu[]
-        // replace markersData and re-create markers (simple approach: reload page or implement marker cleanup)
         console.log('Loaded external data', data);
       }catch(e){console.error(e)}
     }

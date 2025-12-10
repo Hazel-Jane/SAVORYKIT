@@ -60,7 +60,6 @@ if (formOpenBtn) {
     });
 }
 
-
 // Close the form on 'X' button click (No change here)
 if (formCloseBtn) {
     formCloseBtn.addEventListener("click", () => {

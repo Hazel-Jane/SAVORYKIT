@@ -14,7 +14,7 @@ const borderColors = [
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('nutrition-cards-container');
 
-    // Recipes Data (Unchanged)
+    // Recipes Data 
     const recipesData = [
         { name: "Bicol Express", calories: 350, macros: [10, 25, 25] },
         { name: "Dinuguan", calories: 300, macros: [15, 20, 20] },
@@ -51,15 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     recipesData.forEach((recipe, index) => {
-        // 1. Calculate Caloric Contribution of Macros (Approximation)
+        // Calculate Caloric Contribution of Macros (Approximation)
         const carbKcal = recipe.macros[0] * 4;
         const proteinKcal = recipe.macros[1] * 4;
         const fatKcal = recipe.macros[2] * 9;
 
         // Data for Pie Chart (Caloric contribution of Macros)
         const chartData = [carbKcal, proteinKcal, fatKcal];
-
-        // 2. Create the HTML Structure for the Recipe Card
         const cardHtml = `
             <div class="recipe-card" data-recipe-name="${recipe.name}">
                 <span class='delete-icon' data-recipe-name="${recipe.name}">✖</span>
@@ -76,11 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `;
-
-        // Insert the card into the container
         container.insertAdjacentHTML('beforeend', cardHtml);
-
-        // 3. Render the Pie Chart using Chart.js
         const ctx = document.getElementById(`chart-${index}`).getContext('2d');
         new Chart(ctx, {
             type: 'pie',
@@ -96,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             options: {
                 responsive: true,
-                // Ensure aspect ratio is maintained for pie charts
                 maintainAspectRatio: true, 
                 plugins: {
                     legend: {
@@ -134,17 +127,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Add Event Listeners for Delete Icons
+    //  Add Event Listeners for Delete Icons
     container.addEventListener('click', (event) => {
         // Look for the closest element with the class 'delete-icon'
         const deleteIcon = event.target.closest('.delete-icon'); 
         if (deleteIcon) {
             const recipeName = deleteIcon.getAttribute('data-recipe-name');
-            // Show confirmation dialog
             const isConfirmed = confirm(`Are you sure you want to delete the recipe card for "${recipeName}"?`);
 
             if (isConfirmed) {
-                // Find the parent recipe-card and remove it
                 const recipeCard = deleteIcon.closest('.recipe-card');
                 if (recipeCard) {
                     recipeCard.remove();
@@ -164,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuIcon && navbar) {
         menuIcon.addEventListener('click', () => {
             navbar.classList.toggle('active');
-            // Ensure you have the 'bx-x' class defined if using Boxicons
             menuIcon.classList.toggle('bx-x'); 
         });
     }

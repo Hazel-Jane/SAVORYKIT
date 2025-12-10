@@ -6,7 +6,6 @@ body {
  color: #333;
 }
 
-
 .nutrition-hero {
  
  background: url(https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg?semt=ais_hybrid&w=740&q=80) no-repeat center center/cover; 
@@ -50,8 +49,6 @@ body {
  color: #fef5a4; 
  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
-
-
 
 .weather-nutrition-tips {
  padding: 4rem 5% 2rem;
@@ -103,7 +100,6 @@ body {
     position: relative; 
 }
 
-
 /* --- SUNNY TIP DESIGN  --- */
 .sunny-tip {
     background: linear-gradient(135deg, #fffde7, #fff9c4);
@@ -129,7 +125,6 @@ body {
     background-image: url('https://cdn-icons-png.flaticon.com/512/869/869869.png');
     opacity: 0.13 !important;
 }
-
 
 /* --- RAINY TIP DESIGN --- */
 .rainy-tip {
@@ -157,8 +152,6 @@ body {
     opacity: 0.13 !important;
 }
 
-
-
 .tip-card ul {
 position: relative;
  list-style-type: disc;
@@ -166,7 +159,6 @@ position: relative;
  margin: 0;
  line-height: 1.8;
 }
-
 
 .recipes-nutrition-section {
  padding: 4rem 5%;
@@ -179,7 +171,6 @@ text-align: center;
  margin-bottom: 0.5rem;
  font-weight: 900;
 }
-
 
 .nutrition-cards-container {
  display: grid;
@@ -246,7 +237,7 @@ transform: translateY(-5px);
  text-align: center;
 }
 
-/* Macro Colors (unchanged) */
+/* Macro Colors  */
 .macro-calories { background-color: #fff3e0; color: #ff9800; border: 1px solid #ffb74d; } 
 .macro-carbs { background-color: #e0f7fa; color: #00bcd4; border: 1px solid #4dd0e1; } 
 .macro-protein { background-color: #e8f5e9; color: #43a047; border: 1px solid #81c784; } 
@@ -261,9 +252,7 @@ transform: translateY(-5px);
     overflow: hidden;
 }
 
-/* =========================================
-   RESPONSIVE DESIGN (Add to bottom of CSS)
-   ========================================= */
+/* RESPONSIVE DESIGN  */
 
 /* --- TABLET SCREEN (768px and below) --- */
 @media screen and (max-width: 768px) {
@@ -287,13 +276,12 @@ transform: translateY(-5px);
     }
 
     .tip-card {
-        min-width: 100%; /* Cards take full width on tablet */
+        min-width: 100%; 
         max-width: 100%;
     }
 
     /* Recipe Grid Adjustments */
     .nutrition-cards-container {
-        /* Switch to slightly smaller columns or 2-column grid */
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
     }
@@ -305,41 +293,37 @@ transform: translateY(-5px);
     /* Hero Section */
     .nutrition-hero {
         min-height: 35vh;
-        background-attachment: scroll; /* Fixes background scrolling issues on mobile */
+        background-attachment: scroll; 
     }
-
     .hero-content {
         padding: 1.5rem;
     }
 
     .hero-content h1 {
-        font-size: 2.2rem; /* Mobile Title */
+        font-size: 2.2rem; 
         letter-spacing: 1px;
     }
 
     .hero-content p {
-        font-size: 1.1rem; /* Mobile Subtitle */
+        font-size: 1.1rem; 
     }
-
     /* General Padding */
     .weather-nutrition-tips,
     .recipes-nutrition-section {
-        padding: 2rem 1.5rem; /* Less padding on sides */
+        padding: 2rem 1.5rem; 
     }
 
     /* Tips Cards */
     .tip-card {
         padding: 1.5rem;
-        font-size: 1rem; /* Readable font size */
+        font-size: 1rem; 
     }
-
     .tip-card h3 {
         font-size: 1.4rem;
     }
-
-    /* Recipe Cards - Force 1 Column */
+   
     .nutrition-cards-container {
-        grid-template-columns: 1fr; /* 1 Card per row */
+        grid-template-columns: 1fr; 
         gap: 1.5rem;
     }
 
@@ -347,7 +331,6 @@ transform: translateY(-5px);
         padding: 1.2rem;
     }
 
-    /* Adjust Chart Size for Mobile */
     .chart-container {
         max-width: 100%;
         max-height: 220px;

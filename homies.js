@@ -12,7 +12,6 @@ async function fetchWithBackoff(url, options = {}, maxRetries = 5) {
             } else if (response.status === 429) {
                 console.log(`Rate limit exceeded. Retrying in ${delay}ms...`);
             } else {
-                // For 400-level errors other than 429 (like 404 Not Found)
                 console.error(`HTTP error! status: ${response.status}`, await response.text());
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -27,7 +26,6 @@ async function fetchWithBackoff(url, options = {}, maxRetries = 5) {
 }
 
 function getWeatherIconUrl(iconCode) {
-    // Using 4x for high-res icons
     return `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
 }
 
@@ -36,7 +34,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function msToKmH(ms) {
-    // Converts meters/second to kilometers/hour
+    // meters/second to kilometers/hour
     return (ms * 3.6).toFixed(0);
 }
 
@@ -60,15 +58,15 @@ function getMockForecastData(currentTemp, offset) {
     
     // Simple weather shift mock (since we only have current data)
     switch (offset) {
-        case 1: // Next Day (Wed)
+        case 1: // Next Day 
             tempDiff = -4; 
             iconClass = 'bxs-cloud';
             break;
-        case 2: // Day after (Thu)
+        case 2: // Day after 
             tempDiff = -8;
             iconClass = 'bxs-cloud-rain';
             break;
-        case 3: // Third Day (Fri)
+        case 3: // Third Day 
             tempDiff = -2;
             iconClass = 'bxs-sun-cloud';
             break;
@@ -82,13 +80,6 @@ function getMockForecastData(currentTemp, offset) {
         icon: iconClass
     };
 }
-
-
-
-// --- MAIN FUNCTIONS ---
-
-
-// ... (All your existing helper functions remain unchanged) ...
 
 // --- MAIN FUNCTIONS ---
 
@@ -154,14 +145,11 @@ async function fetchWeather(searchCity = city) {
         const description = capitalizeFirstLetter(data.weather[0].description);
         const iconCode = data.weather[0].icon;
         
-        city = locationName; // Update global city for future fetches
+        city = locationName; 
 
-        // Get mock forecast data for the next 3 days
         const forecastDay1 = getMockForecastData(currentTemp, 1);
         const forecastDay2 = getMockForecastData(currentTemp, 2);
         const forecastDay3 = getMockForecastData(currentTemp, 3);
-        
-        // --- Render HTML (New V3 Design - Success State) ---
         weatherElement.innerHTML = `
             <div class="current-weather-v3">
                 <div>
@@ -226,14 +214,10 @@ async function fetchWeather(searchCity = city) {
                 </div>
             </div>
         `;
-        
-        // IMPORTANT: Re-attach the listeners after replacing innerHTML
         attachSearchListeners();
 
     } catch (error) {
         console.error("Final weather fetch failed:", error);
-        
-        // ... (Error state rendering remains the same) ...
         const searchContainer = weatherElement.querySelector('.weather-search-v3') || '';
         const errorHtml = `
             <p style="color: red; font-weight: 600; padding: 20px;">Error loading weather data.</p>
@@ -257,8 +241,6 @@ async function fetchWeather(searchCity = city) {
                 <p style="text-align: center; color: var(--dark-panel-subtext);">Details unavailable.</p>
             </div>
         `;
-        
-        // IMPORTANT: Re-attach the listeners after replacing innerHTML in the error state
         attachSearchListeners();
     }
 }
@@ -268,7 +250,6 @@ function handleSearch() {
     const newCity = searchInput ? searchInput.value.trim() : '';
 
     if (newCity) {
-        // Call fetchWeather with the new city from the search input
         fetchWeather(newCity);
     } else {
         alert("Please enter a city name to search!");
@@ -278,19 +259,13 @@ function handleSearch() {
 function attachSearchListeners() {
     const searchButton = document.getElementById('search-button');
     const searchInput = document.getElementById('city-search-input');
-    
-    // Safety check to avoid double-attaching listeners
     if (searchButton) {
-        // Remove existing listener first
         searchButton.removeEventListener('click', handleSearch); 
-        // Add new listener
         searchButton.addEventListener('click', handleSearch);
     }
     
     if (searchInput) {
-        // Remove existing listener first
         searchInput.removeEventListener('keypress', handleSearchOnEnter); 
-        // Add new listener for 'Enter' key
         searchInput.addEventListener('keypress', handleSearchOnEnter);
     }
 }
@@ -304,7 +279,6 @@ function handleSearchOnEnter(e) {
 
 // Initial call to set up the card and fetch data
 document.addEventListener('DOMContentLoaded', function() {
-    // Only fetch weather if the container element exists
     if (document.getElementById('weather-data')) {
         fetchWeather();
     }
@@ -312,7 +286,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initial call to set up the card and fetch data
 document.addEventListener('DOMContentLoaded', function() {
-    // Only fetch weather if the container element exists
     if (document.getElementById('weather-data')) {
         fetchWeather();
     }
