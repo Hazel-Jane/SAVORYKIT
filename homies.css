@@ -7,19 +7,27 @@
     
     --secondary-text-color: #555555;
    
-    --accent-red: #D9534F;
+    --accent-red: #fb6007cc;
    
     --accent-green: #38761D;
     
     --bg-light-mint: #F0F5F5;
    
     --bg-header-color: #FFFFFF;
-  
+ 
     --bg-mid-color: #E3E8E8;
    
 
     --font-main: 'Inter', sans-serif;
     --font-heading: 'Playfair Display', serif;
+
+    /* Updated Variables for Requested Pastels */
+    --pastel-orange: #52d97a; 
+    --pastel-green: #f7f7f7; 
+    --dark-panel-bg: #000000; 
+    --dark-panel-text: #fffafa;
+    --dark-panel-subtext: #fff7f7;
+    --light-bg: #FFFFFF;
 }
 
 /* --- Global Styles --- */
@@ -69,6 +77,17 @@ body {
     flex-direction: column;
     justify-content: center;
     z-index: 10; 
+}
+
+.hero-text-content span {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10; 
+    font-size: 2rem;
+    text-align: center;
 }
 
 
@@ -194,158 +213,303 @@ body {
     filter: brightness(1) contrast(1);
 }
 
-/* WEATHER */
+/* --- NEW WEATHER CARD V3 STYLES (Matching Image) --- */
 
-.weather-info-container {
+.weather-content-wrapper {
+    /* Center the weather card below the hero section */
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background-color: var(--bg-light-mint);
+}
+
+.weather-info-container.weather-card-v3 {
+    /* Overall Container */
     display: flex;
     flex-direction: row;
-    background-color: #FFFFFF;
-    border-radius: 25px;
+    /* Use a fixed, dark color for the outer wrapper like the image */
+    background-color: var(--dark-panel-bg); 
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 90%;
-    max-width: 1200px;
-    min-height: 450px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 900px;
+    min-height: 500px;
+    font-family: var(--font-main);
+    color: var(--dark-panel-text);
 }
 
 
-.current-weather {
-    flex: 1.5;
+/* --- LEFT PANEL: Current Weather (Orange Pastel Background) --- */
+.current-weather-v3 {
+    flex: 1.5; /* Larger side for main data */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    background: linear-gradient(135deg, #61b99c 0%, #52ae98 100%); 
+    justify-content: space-between; /* Space out the top and bottom content */
     padding: 3rem;
-    color: #FFFFFF;
+    color: var(--light-bg);
+    
+    /* ORANGE PASTEL PALETTE Background */
+    background: linear-gradient(135deg, var(--pastel-orange) 0%, #FFDDAA 100%); 
     position: relative;
     z-index: 1;
 }
 
+/* Background Image Overlay (optional - remove if you want solid color) */
+.current-weather-v3::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* This uses the image from your example as an overlay */
+    background-image: url('https://i.imgur.com/k2e4xLg.jpeg'); 
+    background-size: cover;
+    background-position: center bottom;
+    opacity: 0.35; /* Adjust opacity for the pastel look */
+    z-index: -1;
+}
 
-/* .weather-status {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
+/* FIXES START HERE */
+
+/* Container for Day, Date, Location */
+.current-weather-v3 > div:first-child {
+    width: 100%; /* Ensure it spans full width for centering */
+    text-align: center; /* Center the text inside this div */
+}
+
+.weather-day-v3 {
+    font-size: 2.2rem; /* Make the font size big */
+    font-weight: 900; /* Make it bold */
     line-height: 1.2;
-   
-} */
-
-
-.weather-date {
-    font-size: 2rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+    color: var(--light-bg); /* Full white for visibility */
+}
+.weather-date-v3 {
+    font-size: 1.8rem; /* Make the font size big */
+    font-weight: 700; /* Make it bold */
     line-height: 1.2;
     color: rgba(255, 255, 255, 0.9);
 }
-
-
-.weather-location {
-    font-size: 1.5rem;
-    font-weight: 400;
+.weather-location-v3 {
+    font-size: 1.4rem; /* Make the font size big */
+    font-weight: 700; /* Make it bold */
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 5rem;
+    margin-top: 0.5rem;
     display: flex;
     align-items: center;
+    justify-content: center; /* Center the entire line content */
+}
+.weather-location-v3 i {
+    font-size: 1.5rem;
+    margin-right: 0.4rem;
 }
 
-.weather-location i {
-    font-size: 2rem;
-    margin-right: 0.3rem;
-}
-
-
-.weather-temp-icon {
+/* Main Temperature and Icon Block (already aligned to flex-start in default, but should be centered for responsive behavior) */
+.weather-main-info {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center; /* Center main info horizontally */
     width: 100%;
-    z-index: 3;
-    color: #FFFFFF;
+    margin: auto 0;
 }
-
-.weather-temp-icon img {
-    
-    width: 120px;
+.weather-icon-v3 {
+    width: 120px; /* Slightly larger icon */
     height: 120px;
-    margin: auto;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    margin-bottom: 0.5rem;
 }
-
-
-.weather-temp {
-    font-size: 8rem; 
-    font-weight: 700;
+.weather-temp-v3 {
+    font-size: 5.5rem; /* Increased size */
+    font-weight: 900; /* Extra bold */
     line-height: 1;
-    margin: auto; 
-    position: relative;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    color: #FFFFFF;
+    color: var(--light-bg);
+}
+.weather-description-v3 {
+    font-size: 2.2rem; /* Increased size */
+    font-weight: 700; /* Extra bold */
+    color: var(--light-bg);
+    margin-top: 0.5rem;
 }
 
 
-.weather-temp::after {
-  
-    position: absolute;
-    top: 0;
-    right: -65px; 
-    font-size: 4rem; 
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-
-
-.weather-details-panel {
-    flex: 1;
-    padding: 3rem;
-    background-color: #FFFFFF;
-    color: #1A1A1A;
+/* --- RIGHT PANEL: Details & Forecast (Dark Background) --- */
+.weather-details-forecast-v3 {
+    flex: 1; /* Smaller side for details/forecast */
+    padding: 3rem 2.5rem;
+    background-color: var(--dark-panel-bg); 
+    color: var(--dark-panel-text);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
+/* --- DETAILS GRID (Top Right) --- */
+.details-grid-v3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+}
 
-.detail-row {
+.detail-item-v3 {
+    text-align: right;
     display: flex;
     justify-content: space-between;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid #EEEEEE;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0;
+}
+.detail-label-v3 {
+    font-weight: 700; /* Make bold */
+    font-size: 1.2rem; /* Slightly bigger */
+    color: var(--dark-panel-subtext);
+    text-transform: uppercase;
+}
+.detail-value-v3 {
+    font-weight: 900; /* Make bolder */
+    font-size: 1.3rem; /* Slightly bigger */
+    color: var(--dark-panel-text);
+}
+
+
+/* --- FORECAST (Bottom Right) --- */
+.weather-forecast-v3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.forecast-day-v3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the items inside the forecast day */
+    padding: 0.5rem;
+    background-color: transparent;
+    border-radius: 12px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.forecast-day-v3.active,
+.forecast-day-v3:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.forecast-icon-v3 {
+    font-size: 3rem; /* BIGGER ICON SIZE */
+    color: var(--light-bg);
+    margin-bottom: 0.4rem;
     
 }
 
-.detail-row:last-of-type {
-    border-bottom: none;
+.forecast-day-name-v3 {
+    font-size: 1.1rem; /* Slightly bigger font */
+    font-weight: 700; /* Bold */
+    color: var(--dark-panel-subtext);
+}
+
+.forecast-temp-v3 {
+    font-size: 1.3rem; /* Slightly bigger font */
+    font-weight: 900; /* Bolder */
+    margin-top: 0.3rem;
+    color: var(--dark-panel-text);
+}
+
+.weather-search-v3 {
+    /* Position the search bar at the bottom of the left panel */
+    width: 100%; /* Ensure it spans the full width of the container */
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-input-container {
+    display: flex;
+    align-items: center;
+    /* Gradient matching the "Change Location" button in the image */
+    background: linear-gradient(90deg, #6c8dca 0%, #b2e4f6 100%); 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Make the container look like the button, but now containing an input */
+}
+
+#city-search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    outline: none;
+    background: transparent;
+    color: var(--dark-panel-text); /* White text */
+}
+
+/* Make the search input background gradient slightly darker/different than the button to show it's interactive */
+.search-input-container {
+    background: linear-gradient(90deg, #6c8dca 0%, #b2e4f6 100%);
+}
+#city-search-input {
+    background-color: rgba(255, 255, 255, 0.2); /* Slight transparent white overlay on the input area */
 }
 
 
-
-.detail-label {
-    font-weight: 700; 
-    color: #555555;
-    font-size: 2.5rem; 
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    line-height: 1.2;
+#city-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.9); /* Lighter placeholder text */
+    font-weight: 500;
 }
 
-
-
-.detail-value {
-    font-weight: 900; 
-    color: #1A1A1A;
-    font-size: 3rem; 
-    line-height: 1.2;
+#search-button {
+    background: transparent;
+    border: none;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    color: var(--light-bg);
+    font-size: 1.2rem;
+    transition: background-color 0.2s;
 }
 
+#search-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
-.weather-forecast-placeholder {
-    display: none !important;
-    visibility: hidden;
+/* FIXES END HERE */
+
+
+/* --- Responsive Adjustments for New Card --- */
+@media (max-width: 800px) {
+    .weather-info-container.weather-card-v3 {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .current-weather-v3 {
+        padding: 2.5rem;
+        align-items: center;
+        text-align: center;
+    }
+    .current-weather-v3::before {
+        background-position: center; 
+    }
+    .weather-location-v3 {
+        justify-content: center;
+    }
+    .weather-main-info {
+        align-items: center;
+    }
+
+    .weather-details-forecast-v3 {
+        padding: 2.5rem;
+    }
+
+    .details-grid-v3 {
+        grid-template-columns: 1fr; /* Stack details vertically on smaller screens */
+    }
+    .detail-item-v3 {
+        text-align: left;
+    }
 }
 
 
@@ -367,15 +531,14 @@ body {
     width: 100%;
     max-width: 450px;
     padding-bottom: 100%;
- 
+   
     border-radius: 50%;
-  
+ 
     background-color: var(--bg-header-color);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     z-index: 20;
 }
-
 
 .food-plate-image {
     position: absolute;
@@ -385,9 +548,7 @@ body {
     height: 100%;
     object-fit: cover;
     filter: brightness(1) contrast(1);
-
 }
-
 
 .places-section {
     padding: 20px;
@@ -400,15 +561,12 @@ body {
     color: #333;
     margin-bottom: 30px;
 }
-
-
 .places-container {
     display: flex;
     flex-wrap: wrap; 
     gap: 30px; 
     justify-content: center; 
 }
-
 
 .place-card {
     display: block;
@@ -456,7 +614,6 @@ body {
     background-color: rgba(0, 0, 0, 0.4); 
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
-
 
 @media (max-width: 1024px) {
     .hero-section {
@@ -562,22 +719,23 @@ body {
         margin: 0 auto;
     }
 
-    .current-weather, 
+    /* The original weather card styles are commented out, but keeping the MQ overrides for context */
+    /* .current-weather, 
     .weather-details-panel {
-        padding: 2rem; /* Reduce padding slightly */
+        padding: 2rem; 
     }
     
     .weather-temp {
-        font-size: 5rem; /* Shrink main temperature */
+        font-size: 5rem; 
     }
 
     .detail-label {
-        font-size: 1.5rem; /* Shrink details text */
+        font-size: 1.5rem; 
     }
 
     .detail-value {
         font-size: 1.8rem;
-    }
+    } */
 }
 
 /* Mobile Layout (max-width 768px) */
@@ -587,15 +745,14 @@ body {
         margin: 0 auto; 
     }
 
-    .current-weather {
-        /* Center text elements within the current weather panel */
+    /* .current-weather {
         align-items: center; 
         text-align: center;
     }
 
     .weather-location {
         justify-content: center;
-        margin-bottom: 2rem; /* Reduce bottom margin */
+        margin-bottom: 2rem; 
     }
     
     .weather-temp {
@@ -605,11 +762,11 @@ body {
     .weather-temp-icon img {
         width: 80px; 
         height: 80px;
-        margin: 0 auto 10px; /* Center icon */
+        margin: 0 auto 10px; 
     }
 
     .detail-row {
-        padding: 1rem 0; /* Reduce padding in detail rows */
+        padding: 1rem 0; 
     }
 
     .detail-label {
@@ -618,7 +775,7 @@ body {
 
     .detail-value {
         font-size: 1.5rem;
-    }
+    } */
 }
 
 /* --- EXISTING CSS FOR .places-section (Base styles, assumed for Desktop/Large screens) --- */
@@ -677,94 +834,5 @@ body {
     font-weight: bold;
     color: #fff; 
     margin: 0;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.4); 
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-
-/* ------------------------------------------------------------------ */
-/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
-/* ------------------------------------------------------------------ */
-
-
-/* 1. Tablet & Small Desktop Layout (e.g., max-width 1024px) */
-@media (max-width: 1024px) {
-    
-    .places-section h2 {
-        font-size: 3.5rem; /* Slightly smaller heading */
-    }
-
-    .places-container {
-        gap: 20px; /* Reduce gap slightly */
-    }
-
-    /* Cards remain 200px, allowing 3-4 per row */
-    .place-card {
-        width: 180px; 
-    }
-    
-    .place-image-wrapper {
-        height: 180px; /* Match the width for a squarer look */
-    }
-
-    .place-name {
-        font-size: 1.2rem; /* Reduce font size slightly */
-    }
-}
-
-
-/* 2. Mobile Layout (e.g., max-width 768px for portrait tablets and phones) */
-@media (max-width: 768px) {
-    
-    .places-section {
-        padding: 15px 10px;
-    }
-    
-    .places-section h2 {
-        font-size: 3rem; 
-        margin-bottom: 20px;
-    }
-
-    .places-container {
-        gap: 15px; /* Further reduce gap */
-    }
-
-    /* Cards should fit 2 per row comfortably (less than 50% width) */
-    .place-card {
-        width: calc(50% - 25px); /* Max 50% width, minus half the gap */
-        max-width: 160px; /* But don't let them get too big on large phones */
-    }
-    
-    .place-image-wrapper {
-        height: 120px; /* Further reduce image height */
-    }
-
-    .place-name {
-        font-size: 1rem; /* Smaller font on mobile */
-        padding: 6px 4px;
-    }
-}
-
-
-/* 3. Small Mobile Layout (e.g., max-width 480px) */
-@media (max-width: 480px) {
-    
-    .places-container {
-        gap: 10px; /* Tighten the gap */
-    }
-
-    /* Cards should still fit 2 per row, using percentage width to be flexible */
-    .place-card {
-        width: calc(50% - 15px); /* Max 50% width, minus half the gap */
-    }
-    
-    .place-image-wrapper {
-        height: 100px; /* Smallest image height */
-    }
-
-    .place-name {
-        font-size: 0.9rem; /* Very small font for readability */
-        padding: 5px 3px;
-    }
+    text-align: center
 }

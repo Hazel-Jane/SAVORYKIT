@@ -2,7 +2,6 @@
 .profile-section {
     width: 100%;
     margin: 0 ; 
-    padding: 30px; 
 }
 
 /* --- FLEX CONTAINER for Two-Column Layout --- */
@@ -33,11 +32,11 @@
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #2e7d3275;
+    border: 4px solid #dfec9375;
 }
 
 .upload-btn {
-    background: #2e7d32;
+    background:#043506;
     color: #fff;
     font-size: 16px; 
     padding: 8px ;
@@ -47,18 +46,21 @@
     width: 180px; 
     text-align: center;
     margin-top: 5%;
+    font-weight: 600;
 }
 
 .upload-btn:hover {
-    background: #1b5e20;
+    background: #bbe29a;
+    color: #000000;
 }
 
 .profile-title {
-    font-size: 1.8rem; 
+    font-size: 1.5rem; 
     font-weight: bold;
     color: #000000; 
     text-align: center; 
-    margin-left: 50px;
+    margin-left: 57px;
+    text-transform: lowercase;
 }
 
 
@@ -118,7 +120,7 @@
 }
 
 .logout-btn:hover {
-    background: #a1eca6;
+    background: #bbe29a;
     transform: scale(1.02);
     color: #000000;
 }
@@ -145,8 +147,8 @@
 }
 
 .clear-history-btn {
-  background: #c62828;
-  color: white;
+  background: #f3d2a8ea;
+  color: rgb(54, 54, 54);
   border: none;
   padding: 8px 20px;
   border-radius: 6px;
@@ -156,7 +158,8 @@
 }
 
 .clear-history-btn:hover {
-  background: #b71c1c;
+  background: #fb6007cc;
+  color: rgb(255, 253, 253);
 }
 
 .recent-photos-container {
