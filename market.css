@@ -1,8 +1,10 @@
 
-    html,body{
-      height:100%;
-      margin:0;
-      font-family:Roboto,"Helvetica Neue",Arial}
+html,body{
+  height:100%;
+  margin:0;
+  font-family:Roboto,"Helvetica Neue",Arial;
+  background-color: #F5FFFB;
+}
 
 
 .map-wrapper{

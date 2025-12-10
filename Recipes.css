@@ -108,12 +108,13 @@
 }
 /* --- Filter Buttons --- */
 .filter-bar {
-    width: 90%;
-    margin: 30px auto 0;
+    width: 100%;
+    margin: 30px;
     display: flex;
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
+    background-color: #F5FFFB;
 }
 
 .filter-btn {
@@ -189,9 +190,8 @@
 
 /* --- Recipes Section --- */
 .recipes {
-    padding: 10px 0 50px;
-    width: 90%;
-    margin: 0 auto;
+    padding: 10px 0 60px;
+    background: #F5FFFB;
 }
 
 .section-title {
@@ -206,6 +206,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 /* CARD STYLING */
@@ -262,8 +264,8 @@
 .view-btn {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #fb6007cc;
-    color: white;
+    background-color: #bbe29a;
+    color: rgb(27, 26, 26);
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.5rem;
@@ -275,9 +277,8 @@
 
 .view-btn:hover {
 
-    background-color: #09860f;
-    background-color:#bbe29a;
-    color: #252525;
+    background-color:#fb6007cc;
+    color: #f1efef;
 
 }
 

@@ -1,14 +1,14 @@
 // CHART COLOR CODINGS
 const backgroundColors = [
-    '#b1d9dbff', //  (Carbs)
+    '#eb9671fc', //  (Carbs)
     '#acdfafff', //  (Protein)
-    '#cda2a2ff'  //  (Fat)
+    '#fbf851ee'  //  (Fat)
 ];
 
 const borderColors = [
-    '#b1d9dbff', // l (Carbs Border)
-    '#acdfafff', //  (Protein Border)
-    '#cda2a2ff'  // (Fat Border)
+    '#eb9671fc', //  (Carbs)
+    '#acdfafff', //  (Protein)
+    '#fbf851ee'  //  (Fat)
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

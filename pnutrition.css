@@ -2,7 +2,7 @@ body {
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
  margin: 0;
  padding: 0;
- background-color: #f0f4f7; 
+ background-color: #F5FFFB; 
  color: #333;
 }
 
@@ -17,7 +17,7 @@ body {
  text-align: center;
  position: relative;
  color: white;
- min-height: 40vh;
+ min-height: 50vh;
 }
 
 .nutrition-hero::before {
@@ -27,7 +27,7 @@ body {
  left: 0;
  right: 0;
  bottom: 0;
- background: rgba(0, 0, 0, 0.45); 
+ background: rgba(31, 30, 30, 0.584); 
 }
 
 .hero-content {
@@ -45,9 +45,9 @@ body {
 }
 
 .hero-content p {
- font-size: 1.5rem;
+ font-size: 2rem;
  font-style: italic;
- color: #ffeb3b; 
+ color: #fef5a4; 
  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
@@ -56,7 +56,7 @@ body {
 .weather-nutrition-tips {
  padding: 4rem 5% 2rem;
  text-align: center;
- background-color: #ffffff;
+ background-color: #F5FFFB;
 }
 
 .tips-container {
@@ -78,6 +78,7 @@ body {
    
     position: relative;
     overflow: hidden;
+    font-size: 1.5rem;
 }
 
 .tip-card::before {
@@ -109,6 +110,7 @@ body {
     border: 1px solid #ffeb3b;
     position: relative;
     overflow: hidden;
+    margin-top: 3%;
 }
 
 .sunny-tip::after {
@@ -135,6 +137,7 @@ body {
     border: 1px solid #90caf9;
     position: relative;
     overflow: hidden;
+    margin-top: 3%;
 }
 
 .rainy-tip::after {
@@ -157,7 +160,7 @@ body {
 
 
 .tip-card ul {
-    position: relative;
+position: relative;
  list-style-type: disc;
  padding-left: 20px;
  margin: 0;
@@ -174,7 +177,7 @@ text-align: center;
  font-size: 2.5rem;
  color: #467340;
  margin-bottom: 0.5rem;
- font-weight: 600;
+ font-weight: 900;
 }
 
 
@@ -254,7 +257,6 @@ transform: translateY(-5px);
  width: 100%;
  max-width: 280px; 
  margin: 1.5rem auto 0;
-    /* Added max-height to control the canvas size and card height */
     max-height: 250px; 
     overflow: hidden;
 }
