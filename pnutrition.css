@@ -1,242 +1,318 @@
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    margin: 0;
-    padding: 0;
-    background-color: #f0f4f7; 
-    color: #333;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+ margin: 0;
+ padding: 0;
+ background-color: #f0f4f7; 
+ color: #333;
 }
 
 
 .nutrition-hero {
-    
-    background:  url(https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg?semt=ais_hybrid&w=740&q=80) no-repeat center center/cover; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    color: white;
+ 
+ background: url(https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg?semt=ais_hybrid&w=740&q=80) no-repeat center center/cover; 
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ position: relative;
+ color: white;
+ min-height: 40vh;
 }
 
 .nutrition-hero::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: rgba(0, 0, 0, 0.45); 
+}
+
+.hero-content {
+ position: relative;
+ z-index: 10;
+ padding: 2rem 5%;
+}
+
+.hero-content h1 {
+ font-size: 4rem; 
+ margin-bottom: 0.5rem;
+ letter-spacing: 2px;
+ font-weight: 700;
+ text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+ font-size: 1.5rem;
+ font-style: italic;
+ color: #ffeb3b; 
+ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+
+
+.weather-nutrition-tips {
+ padding: 4rem 5% 2rem;
+ text-align: center;
+ background-color: #ffffff;
+}
+
+.tips-container {
+ display: flex;
+ justify-content: center;
+ gap: 30px;
+ margin-top: 2rem;
+ flex-wrap: wrap; 
+}
+
+.tip-card {
+ flex: 1;
+ min-width: 300px;
+ max-width: 500px;
+ padding: 2rem;
+ border-radius: 15px;
+ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+ text-align: left;
+   
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.45); /* Slightly stronger dark overlay */
+    width: 100%;
+    height: 100%;
+    opacity: 0.05; 
+    background-repeat: no-repeat;
+    background-position: top 20px right 20px;
+    background-size: 100px;
 }
 
-.hero-content {
+.tip-card h3 {
+ font-size: 1.8rem;
+ margin-top: 0;
+ margin-bottom: 1.5rem;
+ padding-bottom: 10px;
+ border-bottom: 2px solid;
+    position: relative; 
+}
+
+
+/* --- SUNNY TIP DESIGN  --- */
+.sunny-tip {
+    background: linear-gradient(135deg, #fffde7, #fff9c4);
+    border: 1px solid #ffeb3b;
     position: relative;
-    z-index: 10;
+    overflow: hidden;
 }
 
-.hero-content h1 {
-    font-size: 4rem; /* Larger font size */
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
-    font-weight: 700;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+.sunny-tip::after {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.35), rgba(255, 204, 0, 0));
+    border-radius: 50%;
+    filter: blur(8px);
 }
 
-.hero-content p {
-    font-size: 1.5rem;
-    font-style: italic;
-    color: #ffeb3b; /* Yellow subtitle */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+.sunny-tip::before {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/869/869869.png');
+    opacity: 0.13 !important;
 }
 
 
-.quote-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+/* --- RAINY TIP DESIGN --- */
+.rainy-tip {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border: 1px solid #90caf9;
+    position: relative;
+    overflow: hidden;
 }
 
-.quote-card p {
-    font-style: italic;
-    color: #555;
-    margin: 0;
-    line-height: 1.4;
+.rainy-tip::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(25, 118, 210, 0.25), rgba(25, 118, 210, 0));
+    border-radius: 50%;
+    filter: blur(10px);
 }
 
-/* --- Recipes Nutrition Section --- */
+.rainy-tip::before {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/414/414974.png');
+    opacity: 0.13 !important;
+}
+
+
+
+.tip-card ul {
+    position: relative;
+ list-style-type: disc;
+ padding-left: 20px;
+ margin: 0;
+ line-height: 1.8;
+}
+
+
 .recipes-nutrition-section {
-    padding: 4rem 5%;
-    text-align: center;
+ padding: 4rem 5%;
+text-align: center;
 }
 
 .section-title {
-    font-size: 2.5rem;
-    color: #467340;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+ font-size: 2.5rem;
+ color: #467340;
+ margin-bottom: 0.5rem;
+ font-weight: 600;
 }
 
-.disclaimer {
-    color: #888;
-    font-size: 0.9rem;
-    margin-bottom: 3rem;
-}
 
 .nutrition-cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider min width */
-    gap: 2.5rem;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+ gap: 2.5rem;
+
 }
 
-/* Single Recipe Card Styling */
 .recipe-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    padding: 1.5rem;
-    text-align: left;
-    transition: all 0.3s;
-    border: 1px solid #e0e0e0;
+ background: white;
+ border-radius: 15px;
+ box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+ padding: 1.5rem;
+ text-align: left;
+ transition: all 0.3s;
+ border: 1px solid #e0e0e0;
+ position: relative; 
+}
+
+/* Delete Icon  */
+.delete-icon {
+ position: absolute;
+ top: 15px;
+ right: 15px;
+color: #f44336; 
+ font-size: 1.5rem;
+ cursor: pointer;
+ transition: color 0.2s, transform 0.2s;
+ z-index: 10;
+}
+
+.delete-icon:hover {
+ color: #d32f2f;
+ transform: scale(1.1);
 }
 
 .recipe-card:hover {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
+ box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+transform: translateY(-5px);
 }
 
 .recipe-card h3 {
-    color: #333;
-    font-size: 1.6rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    border-bottom: 3px solid #ffcc00;
-    display: inline-block;
-    padding-bottom: 5px;
+ color: #333;
+ font-size: 1.6rem;
+ margin-top: 0;
+ margin-bottom: 1rem;
+ border-bottom: 3px solid #ffcc00;
+ display: inline-block;
+ padding-bottom: 5px;
 }
 
 .macro-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 1rem;
-    font-size: 1rem;
+ display: flex; flex-direction: column;
+ grid-template-columns: 1fr 1fr 1fr;
+ gap: 12px;
+ margin-top: 1rem;
+ font-size: 1rem;
 }
 
 .macro-info div {
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-align: center;
+ padding: 5px;
+ border-radius: 8px;
+ font-weight: bold;
+ text-align: center;
 }
 
-/* Macro Colors (Adjusted slightly for better harmony with green/gold theme) */
+/* Macro Colors (unchanged) */
 .macro-calories { background-color: #fff3e0; color: #ff9800; border: 1px solid #ffb74d; } 
-.macro-carbs { background-color: #e0f7fa; color: #00bcd4; border: 1px solid #4dd0e1; }    
-.macro-protein { background-color: #e8f5e9; color: #43a047; border: 1px solid #81c784; }  
-.macro-fat { background-color: #fbe9e7; color: #ff5722; border: 1px solid #ff8a65; }      
+.macro-carbs { background-color: #e0f7fa; color: #00bcd4; border: 1px solid #4dd0e1; } 
+.macro-protein { background-color: #e8f5e9; color: #43a047; border: 1px solid #81c784; } 
+.macro-fat { background-color: #fbe9e7; color: #ff5722; border: 1px solid #ff8a65; } 
 
+/* HEIGHT FIX for Recipe Cards */
 .chart-container {
-    width: 100%;
-    max-width: 280px; 
-    margin: 1.5rem auto 0;
+ width: 100%;
+ max-width: 280px; 
+ margin: 1.5rem auto 0;
+    /* Added max-height to control the canvas size and card height */
+    max-height: 250px; 
+    overflow: hidden;
 }
 
-/* --- Footer Styling --- */
-footer {
-    background: #333;
-    color: white;
-    padding: 3rem 5%;
-}
-
-footer .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-footer h2 {
-    color: #ffcc00; /* Gold/Yellow accent */
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-}
-
-footer ul li a {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    color: #ccc;
-    transition: color 0.3s;
-}
-
-footer ul li a:hover {
-    color: #467340; /* Dark Green hover */
-}
-
-.sec.contact ul.info li,
-.sec.followus ul.sci-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.sec.contact ul.info span i,
-.sec.followus ul.sci-list i {
-    font-size: 1.2rem;
-    margin-right: 10px;
-    color: #467340; /* Dark Green accent */
-}
-
-.copyrightText {
-    background: #222;
-    padding: 1rem 5%;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #aaa;
-}
-
-/* --- Media Queries (For Responsiveness) --- */
+/* --- Media Queries (unchanged) --- */
 @media (max-width: 992px) {
-    .nutrition-cards-container {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
+ .nutrition-cards-container {
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ }
+ .tips-container {
+ gap: 20px;
+ }
 }
 
 @media (max-width: 768px) {
-    .header {
-        padding: 1rem 4%;
-    }
-    
-    .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #385c34; /* Slightly darker green for mobile nav */
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 0;
-        display: none; 
-    }
+ .header {
+ padding: 1rem 4%;
+ }
+ 
+ .navbar {
+ position: absolute;
+ top: 100%;
+ left: 0;
+ width: 100%;
+ background: #385c34; 
+ flex-direction: column;
+ align-items: flex-start;
+ padding: 1rem 0;
+ display: none; 
+ }
 
-    .navbar a {
-        margin: 0.5rem 2rem;
-        border-bottom: none;
-    }
+ .navbar a {
+margin: 0.5rem 2rem;
+ border-bottom: none;
+ }
 
-    .quotes-section {
-        flex-direction: column;
-    }
+ .quotes-section {
+ flex-direction: column;
+ }
 
-    .nutrition-hero h1 {
-        font-size: 3rem;
-    }
-    
-    footer .container {
-        flex-direction: column;
-    }
+.nutrition-hero h1 {
+font-size: 3rem;
+}
+
+ .tips-container {
+ flex-direction: column; 
+ align-items: center;
+ }
+ .tip-card {
+ width: 90%;
+ min-width: unset;
+ }
+
+ footer .container {
+ flex-direction: column;
+ }
 }
 
 .navbar.active {
-    display: flex;
+ display: flex;
 }
