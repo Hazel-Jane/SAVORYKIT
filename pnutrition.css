@@ -261,60 +261,95 @@ transform: translateY(-5px);
     overflow: hidden;
 }
 
-/* --- Media Queries (unchanged) --- */
-@media (max-width: 992px) {
- .nutrition-cards-container {
- grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
- }
- .tips-container {
- gap: 20px;
- }
+/* =========================================
+   RESPONSIVE DESIGN (Add to bottom of CSS)
+   ========================================= */
+
+/* --- TABLET SCREEN (768px and below) --- */
+@media screen and (max-width: 768px) {
+    
+    /* Hero Section Adjustments */
+    .nutrition-hero {
+        min-height: 40vh; /* Slightly shorter banner */
+    }
+
+    .hero-content h1 {
+        font-size: 3rem; /* Smaller Title */
+    }
+
+    .hero-content p {
+        font-size: 1.5rem; /* Smaller Subtitle */
+    }
+
+    /* Weather Tips Layout */
+    .tips-container {
+        gap: 20px;
+    }
+
+    .tip-card {
+        min-width: 100%; /* Cards take full width on tablet */
+        max-width: 100%;
+    }
+
+    /* Recipe Grid Adjustments */
+    .nutrition-cards-container {
+        /* Switch to slightly smaller columns or 2-column grid */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
 }
 
-@media (max-width: 768px) {
- .header {
- padding: 1rem 4%;
- }
- 
- .navbar {
- position: absolute;
- top: 100%;
- left: 0;
- width: 100%;
- background: #385c34; 
- flex-direction: column;
- align-items: flex-start;
- padding: 1rem 0;
- display: none; 
- }
+/* --- MOBILE SCREEN (480px and below) --- */
+@media screen and (max-width: 480px) {
 
- .navbar a {
-margin: 0.5rem 2rem;
- border-bottom: none;
- }
+    /* Hero Section */
+    .nutrition-hero {
+        min-height: 35vh;
+        background-attachment: scroll; /* Fixes background scrolling issues on mobile */
+    }
 
- .quotes-section {
- flex-direction: column;
- }
+    .hero-content {
+        padding: 1.5rem;
+    }
 
-.nutrition-hero h1 {
-font-size: 3rem;
-}
+    .hero-content h1 {
+        font-size: 2.2rem; /* Mobile Title */
+        letter-spacing: 1px;
+    }
 
- .tips-container {
- flex-direction: column; 
- align-items: center;
- }
- .tip-card {
- width: 90%;
- min-width: unset;
- }
+    .hero-content p {
+        font-size: 1.1rem; /* Mobile Subtitle */
+    }
 
- footer .container {
- flex-direction: column;
- }
-}
+    /* General Padding */
+    .weather-nutrition-tips,
+    .recipes-nutrition-section {
+        padding: 2rem 1.5rem; /* Less padding on sides */
+    }
 
-.navbar.active {
- display: flex;
+    /* Tips Cards */
+    .tip-card {
+        padding: 1.5rem;
+        font-size: 1rem; /* Readable font size */
+    }
+
+    .tip-card h3 {
+        font-size: 1.4rem;
+    }
+
+    /* Recipe Cards - Force 1 Column */
+    .nutrition-cards-container {
+        grid-template-columns: 1fr; /* 1 Card per row */
+        gap: 1.5rem;
+    }
+
+    .recipe-card {
+        padding: 1.2rem;
+    }
+
+    /* Adjust Chart Size for Mobile */
+    .chart-container {
+        max-width: 100%;
+        max-height: 220px;
+    }
 }

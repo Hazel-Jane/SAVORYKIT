@@ -226,8 +226,7 @@ body {
     /* Overall Container */
     display: flex;
     flex-direction: row;
-    /* Use a fixed, dark color for the outer wrapper like the image */
-    background-color: var(--dark-panel-bg); 
+    
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);

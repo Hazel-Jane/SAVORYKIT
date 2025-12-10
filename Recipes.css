@@ -435,85 +435,111 @@ form input, form select, form textarea {
 }
 
 /* =========================================
-   RESPONSIVE MEDIA QUERIES (UPDATED)
+   RESPONSIVE DESIGN (Add to bottom of CSS)
    ========================================= */
 
-/* Tablets (Max Width 768px) */
-@media (max-width: 768px) {
+/* --- TABLET & MOBILE (Screen width 768px and below) --- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Navbar Adjustments */
     .menu-icon {
-        display: block;
+        display: block; /* Show hamburger menu on mobile */
     }
 
     .nav-list {
-        display: none;
+        /* If you have JS for a toggle menu, this hides it initially */
+        /* display: none; */ 
         flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #333;
         width: 100%;
         text-align: center;
         padding: 20px 0;
-        z-index: 100;
-    }
-
-    .nav-list.active {
-        display: flex;
+        z-index: 99;
     }
 
     .nav-list li {
         margin: 15px 0;
     }
 
-    /* Hero adjustments for Tablet */
+    /* 2. Hero Section */
     .hero {
-        height: auto;
-        min-height: 300px;
-        padding: 40px 20px;
-    }
-}
-
-/* Mobile Devices (Max Width 480px) */
-@media (max-width: 480px) {
-    .container {
-        width: 95%; /* Use more width on mobile */
+        height: 40vh; /* Shorter banner on mobile */
     }
 
-    /* Stack Search Box on Mobile */
-    .search-box {
-        flex-direction: column;
-        padding: 10px;
-        max-width: 100%;
-    }
-
-    .search-box input {
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    .search-box button {
-        width: 100%;
-    }
-
-    /* Hero Text adjustments */
     .hero-content h2 {
-        font-size: 28px;
+        font-size: 28px; /* Smaller Title */
     }
-    
+
     .hero-content p {
         font-size: 16px;
     }
 
-    /* Modal adjustments */
+    /* 3. Search Box */
+    .search-box {
+        width: 90%; /* Fits smaller screens */
+    }
+
+    /* 4. "Add Recipe" Button Fix */
+    .add-btn {
+        padding: 10px 40px; /* Reduces the huge side padding */
+        font-size: 1.2rem;
+        width: 80%; /* Makes it responsive */
+    }
+
+    /* 5. Recipe Grid & Container */
+    .recipe-container {
+        /* Reduce side margins so cards aren't squished */
+        margin-left: 20px; 
+        margin-right: 20px;
+        gap: 15px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    /* 6. Filter Buttons */
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 1rem; /* Smaller text */
+    }
+}
+
+/* --- SMALL MOBILE (Screen width 480px and below) --- */
+@media screen and (max-width: 480px) {
+    
+    /* 1. Hero Text */
+    .hero-content h2 {
+        font-size: 24px;
+    }
+
+    /* 2. Recipe Cards */
+    .recipe-container {
+        /* Force single column for very small phones */
+        grid-template-columns: 1fr; 
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .card-content h3 {
+        font-size: 1.8rem; /* Smaller Card Title */
+    }
+
+    /* 3. Modal */
     .modal-content {
-        width: 95%;
+        width: 95%; /* Use full screen width */
         padding: 15px;
     }
 
-    /* Filter Buttons */
-    .filter-btn {
-        width: 100%; /* Make filter buttons full width on very small screens for easier tapping */
-        text-align: center;
+    .modal-details h3 {
+        font-size: 1.5rem;
+    }
+
+    #modal-img {
+        height: 200px; /* Smaller image in popup */
     }
 }
